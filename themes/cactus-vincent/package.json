@@ -1,0 +1,37 @@
+{
+  "name": "hexo-theme-cactus",
+  "version": "1.0.0",
+  "description": "A responsive, clean and simple theme for Hexo.",
+  "main": "index.js",
+  "scripts": {
+    "lint": "gulp lint --silent",
+    "test": "gulp validate --silent",
+    "clean": "stylus-supremacy format source/css/**/*.styl --options .stylintrc -r"
+  },
+  "keywords": [
+    "Hexo",
+    "Theme",
+    "cactus-vincent"
+  ],
+  "author": "Vincent",
+  "devDependencies": {
+    "del": "*",
+    "gulp": "^4.0.0",
+    "gulp-decompress": "*",
+    "gulp-download": "*",
+    "gulp-jshint": "*",
+    "gulp-stylint": "*",
+    "js-yaml": "*",
+    "jshint": "^2.9.6",
+    "jshint-stylish": "*",
+    "stylint": "*",
+    "stylint-stylish": "*",
+    "stylus-supremacy": "^2.12.2"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "*",
+    "vazir-font": "*",
+    "jquery": "^3.3.1",
+    "justifiedGallery": "^3.6.5"
+  }
+}
