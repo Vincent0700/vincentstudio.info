@@ -4,8 +4,10 @@ date: 2019-02-08 14:45:22
 layout: links
 ---
 
-Please leave a message if you want to exchange friendly links with me.
+Leave a message as follows:
 
-- `title` the title of your website
-- `url` the link of your website
-- `desc` type your description (optional)
+```
+TITLE: title of your website
+LINKS: url of your website
+DESCR: write sth. about your website
+```

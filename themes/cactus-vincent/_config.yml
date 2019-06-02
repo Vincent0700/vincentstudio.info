@@ -16,7 +16,6 @@ direction: ltr
 nav:
   home: /
   articles: /archives/
-  categories: /categories/
   search: /search/
   links: /links/
 

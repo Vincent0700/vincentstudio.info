@@ -1,7 +1,7 @@
 ---
 title: Deep Learning 学习资料
 date: 2019-02-14 15:30:00
-categories: Tutorials
+categories: Resources
 tags: 
 - MachineLearning
 ---

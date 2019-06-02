@@ -1,3 +1,9 @@
 # VINCENT STUDIO
 
-This is my personal weblog with hexo
+https://vincentstudio.info
+
+## Exchange Friendly links
+
+https://vincentstudio.info/links/
+
+

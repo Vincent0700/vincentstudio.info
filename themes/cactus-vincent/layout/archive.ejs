@@ -1,19 +1,21 @@
 <div id="archive">
-  <ul class="post-list">
-    <% var year = 0 %>
-    <% var change = false %>
-    <% page.posts.sort('date', 'desc').each(function(post) { %>
-      <% var itemYear = date(post.date, 'YYYY') - 0 %>
-      <% change = year !== itemYear %>
-      <% year = change ? itemYear : year %>
-      <% if (change) { %>
-        <h2><%= year %></h2>
-      <% } %>
-      <li class="post-item">
-        <%- partial('_partial/post/date', { post: post, class_name: 'meta' }) %>
-        <span><%- partial('_partial/post/title', { post: post, index: true, class_name: '' }) %></span>
-      </li>
-    <% }); %>
-  </ul>
-  <%- partial('_partial/pagination') %>
+    <h1 style="margin-top:0">▨ Articles</h1>
+    <img class="no-box" style="border-radius:2px;border:4px solid #fff;width:100%" src="/images/books.png">
+    <ul class="post-list">
+        <% var year = 0 %>
+        <% var change = false %>
+        <% page.posts.sort('date', 'desc').each(function(post) { %>
+            <% var itemYear = date(post.date, 'YYYY') - 0 %>
+            <% change = year !== itemYear %>
+            <% year = change ? itemYear : year %>
+            <% if (change) { %>
+                <h2><%= year %></h2>
+            <% } %>
+            <li class="post-item">
+                <%- partial('_partial/post/date', {post: post, class_name: 'meta'}) %>
+                <span><%- partial('_partial/post/title', {post: post, index: true, class_name: ''}) %></span>
+            </li>
+        <% }); %>
+    </ul>
+    <%- partial('_partial/pagination') %>
 </div>

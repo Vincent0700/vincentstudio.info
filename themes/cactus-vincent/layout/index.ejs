@@ -29,15 +29,38 @@
 
 <img class="no-box"
      src="/2019/02/06/011%20OLED%20SH1106%20Tutorial/small.png"
-     style="border: 4px solid #CBCACC; border-radius: 4px; margin-top: 20px; width: 100%">
+     style="border: 4px solid #fff; border-radius: 4px; margin-top: 20px; width: 100%">
 
 <section id="writing">
-    <span class="h1"><a href="<%- url_for("archives") %>">{ <%= __('index.articles') %> }</a></span>
+    <span class="h1"><a href="<%- url_for("archives") %>">▨ <%= __('index.articles') %> </a></span>
+    <span class="h2">Categories</span>
+    <% var categories = [];
+    site.categories.forEach(function (item) {
+        categories.push({name: item.name, length: item.length});
+    });
+    categories.sort((a, b) => b.length - a.length);
+    categories.forEach(function (item) { %>
+        <a href="/categories/<%= item.name %>" style="background: none !important">
+            <img class="bandage"
+                 src="https://img.shields.io/badge/<%= item.name %>-<%= item.length %>-orange.svg">
+        </a>
+    <% }) %>
     <% if (theme.tags_overview && site.tags.length) { %>
         <span class="h2"><%= __('index.topics') %></span>
-        <span class="widget tagcloud">
-    <%- tagcloud(theme.tags_overview) %>
-  </span>
+        <% var tags = [];
+            site.tags.forEach(function (item) {
+                tags.push({name: item.name, length: item.length});
+            });
+            tags.sort((a, b) => b.length - a.length);
+        tags.forEach(function (item) { %>
+            <a href="/tags/<%= item.name %>" style="background: none !important">
+                <img class="bandage"
+                     src="https://img.shields.io/badge/<%= item.name %>-blue.svg">
+            </a>
+        <% }) %>
+        <!--<span class="widget tagcloud">-->
+        <!--<%- tagcloud(theme.tags_overview) %>-->
+        </span>
         <span class="h2"><%= __('index.most_recent') %></span>
     <% } %>
     <ul class="post-list">
@@ -71,6 +94,22 @@
     </section>
 <% } %>
 
+<span class="h1" style="margin-top:40px;margin-bottom:40px"><a>▨ Status</a></span>
+
+<section>
+    <img class="bandage" src="https://img.shields.io/badge/author-vincent-yellow.svg">
+    <img class="bandage"
+         src="https://img.shields.io/badge/age-<%= Math.floor((Date.now() - new Date("1994-10-31")) / (86400000 * 365)) %>-yellow.svg">
+    <img class="bandage" src="https://img.shields.io/badge/email-vincent.wyq@gmail.com-yellow.svg">
+</section>
+
+<section style="margin-bottom: 60px">
+    <img class="bandage"
+         src="https://img.shields.io/badge/running days-<%= Math.floor((Date.now() - new Date("2018-11-20")) / 86400000) %>-green.svg">
+    <img class="bandage" src="https://img.shields.io/badge/posts count-<%= site.posts.length %>-green.svg">
+    <img class="bandage" src="https://img.shields.io/badge/categories count-<%= site.categories.length %>-green.svg">
+    <img class="bandage" src="https://img.shields.io/badge/tags count-<%= site.tags.length %>-green.svg">
+</section>
 
 <% if (theme.fireworks) { %>
     <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas>

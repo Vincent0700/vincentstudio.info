@@ -1,7 +1,7 @@
 ---
 title: Logistic Regression (逻辑回归)
 date: 2019-02-16 20:30:00
-categories: Notes 
+categories: Algorithm 
 tags: 
 - MachineLearning
 ---

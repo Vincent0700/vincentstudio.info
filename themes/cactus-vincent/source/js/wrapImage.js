@@ -9,6 +9,7 @@ $(document).ready(function () {
 function wrapImageWithFancyBox() {
   $('img')
   .not('.no-box')
+  .not('.bandage')
   .not('.sidebar-image img')
   .not('#author-avatar img')
   .not(".mdl-menu img")

@@ -1,7 +1,7 @@
 ---
 title: Gradient Descent (梯度下降)
 date: 2019-02-18 20:30:00
-categories: Notes 
+categories: Algorithm 
 tags: 
 - MachineLearning
 ---

@@ -4,7 +4,7 @@ date: 2019-03-11 15:00:00
 categories: Programming
 tags: 
 - Docker
-- Jenkinx
+- Jenkins
 - CI/CD
 ---
 
