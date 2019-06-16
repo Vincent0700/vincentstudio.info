@@ -1,17 +1,17 @@
 ---
-title: 利用 driftnet 嗅探网络图片以及在 MacOS 上遇到的坑
+title: 利用 driftnet 嗅探网络图片
 date: 2019-05-24 22:18:00
-categories: Programming
+categories: Hacking
 tags:
 - Linux
-- Hack
+- Hacking
 ---
 
 > driftnet 是 Kali Linux 中内置的一个网络图片嗅探工具，常配合 ettercap、arpsproof 或其他 arp 欺骗工具一起使用。因为在 MacOS 上安装的时候遇到了一些困难，故做此记录，方便以后查阅。以后有时间可以详细介绍一下 arp 攻击原理。本文纯粹用于技术探讨，请勿用于非法目的。
 
 ## 安装教程
 
-在 Ubuntu 或者 Kali 上安装较为简单，就不多做介绍，下面安装教程只针对 macOS。网上很多用 macports 的教程都不能用了，目前在 mac 上只能通过源码编译安装。
+在 Ubuntu 或者 Kali 上安装较为简单，就不多做介绍，下面安装教程只针对 macOS。网上很多用 macports 的安装教程都不能用了，目前在 mac 上只能通过源码编译安装。
 
 ```bash
 $ git clone https://github.com/deiv/driftnet.git

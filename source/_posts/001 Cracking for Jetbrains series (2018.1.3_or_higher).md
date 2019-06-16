@@ -1,9 +1,9 @@
 ---
 title: Cracking for Jetbrains series (2018.3.0 or higher)
 date: 2018-11-20 20:42:32
-categories: Software
+categories: Resources
 tags: 
-- Cracking
+- Software
 ---
 
 Self-host lisense server is no longer supported for ver. 2018.3.0 or higher. You can only use the cracker file.

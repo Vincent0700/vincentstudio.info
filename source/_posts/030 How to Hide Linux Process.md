@@ -1,10 +1,10 @@
 ---
 title: 通过 ld.so.preload 覆盖系统库，隐藏 Linux 进程
 date: 2019-05-19 23:50:00
-categories: Programming
+categories: Hacking
 tags:
 - Linux
-- Hack
+- Hacking
 ---
 
 > 本文旨在学习 linux 内核原理，纯粹用于技术探讨，请勿用于非法目的。

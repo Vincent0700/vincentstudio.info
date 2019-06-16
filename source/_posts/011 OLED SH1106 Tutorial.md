@@ -5,7 +5,6 @@ categories: Programming
 tags: 
 - Arm
 - OLED
-- Display
 ---
 
 ## Appearance

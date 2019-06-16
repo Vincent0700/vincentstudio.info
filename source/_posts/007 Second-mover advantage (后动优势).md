@@ -1,7 +1,7 @@
 ---
 title: Second-mover advantage (后动优势)
 date: 2019-02-01 16:00:00
-categories: Theory
+categories: Thoughts
 tags: 
 - MBA
 ---
