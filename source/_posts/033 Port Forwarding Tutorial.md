@@ -61,10 +61,10 @@ $ iptables -t nat -L -n -v
 ### 清空所有规则
 
 ```bash
-# 清除所有链
+# 清除默认 FILTER 链
 $ iptables -F
 
-# 清除某个表中的所有链
+# 清除 nat 表中的所有链
 $ iptables -t nat -F
 ```
 
@@ -127,8 +127,15 @@ $ iptables -A INPUT -m mac --mac-source 00:00:00:00:00:00 -j DROP
 ### 设置端口转发
 
 ```bash
-$ iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 8080 -j REDIRECT --to-port 8081
+# 设置允许转发 
+$ echo 1 > /proc/sys/net/ipv4/ip_forward
 
+# 发往本地 80 端口的流量转发到本地 10000 端口（sslstrip 常用）
+$ iptables -t nat -A PREROUTING -p tcp –destination-port 80 -j REDIRECT –to-port 10000
+
+# 在主机 A 上设置，访问[ip_a]:[port_a] 就相当于访问 [ip_b]:[port_b]，[ip_a] 不能是 lo 地址
+$ iptables -t nat -A PREROUTING -d [ip_a] -p tcp --dport [port_a] -j DNAT --to-destination [ip_b]:[port_b] 
+$ iptables -t nat -A POSTROUTING -d [ip_b] -p tcp --dport [port_b] -j SNAT --to-source [ip_a]
 ```
 
 - `-i [interface]` 网卡名
