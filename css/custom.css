@@ -1,0 +1,200 @@
+pre.prettyprint {
+  padding-left: 8px !important;
+}
+pre {
+  word-break: break-all;
+  word-wrap: break-word;
+}
+html {
+  transition: all 0.3s ease-out;
+  cursor: url("../images/cursor/default.cur"), default;
+}
+a:hover {
+  cursor: url("../images/cursor/pointer.cur"), pointer;
+}
+body {
+  margin: 0 auto !important;
+  background: url("../images/bg.png");
+}
+p,
+ol {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+blockquote {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  margin-top: 0 !important;
+  padding: 0 !important;
+}
+blockquote:before {
+  content: '' !important;
+  margin-left: 0 !important;
+}
+blockquote > p:before {
+  margin-right: 0.25em;
+  color: #ccffb6;
+  content: "\201C";
+  vertical-align: -0.4em;
+  font-size: 2em;
+  line-height: 0.1em;
+}
+.content a[data-fancybox] {
+  transition: all 0.3s ease-out;
+  border: 4px solid transparent;
+  border-radius: 3px;
+  margin: 10px 0;
+  background-image: none;
+  background: #333 9 c;
+  display: block;
+}
+.content a[data-fancybox]:hover {
+  border: 4px solid #dda80f;
+  background: #000 ff;
+}
+.fancybox-bg {
+  opacity: 0.7 !important;
+}
+.tagcloud a {
+  background: #0e83c3;
+  border-radius: 3px;
+  color: #fff !important;
+  padding: 2px 5px;
+  text-decoration: none !important;
+  background-image: none !important;
+  transition: all 0.3s ease-out;
+  border: 1px solid #000;
+}
+.tagcloud a:hover {
+  background: #fff;
+  color: #191919 !important;
+}
+#logo {
+  transition: all 0.3s ease-out;
+  filter: none !important;
+  -webkit-filter: none !important;
+  animation-name: spin;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+#logo:hover {
+  animation: none;
+}
+#friendly_links {
+  padding: 0;
+  overflow: hidden;
+}
+#friendly_links > li {
+  list-style: none;
+  margin-bottom: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#friendly_links > li > a {
+  background: #2d2d2d;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  padding: 2px 10px;
+  border-radius: 2px;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  border-left: 8px solid #fff;
+}
+#friendly_links > li > a:hover {
+  border-color: #dda80f;
+  background: #000;
+}
+#friendly_links > li > a > .link_content {
+  height: 46px;
+  position: relative;
+  float: left;
+  padding: 8px 10px;
+}
+#friendly_links > li > a > .link_content > span {
+  padding: 0;
+  margin: 0;
+  display: block;
+}
+#friendly_links > li > a > .link_content > span.title {
+  font-size: 16px;
+  height: 20px;
+  line-height: 16px;
+  color: #eee;
+  transition: all 0.3s ease-out;
+}
+#friendly_links > li > a > .link_content > span.desc {
+  height: 12px;
+  line-height: 12px;
+  font-size: 12px;
+  color: #ffd34f;
+  transition: all 0.3s ease-out;
+}
+#nav ul.responsive {
+  margin-top: 10px !important;
+  background: #333 !important;
+  padding: 10px 0 !important;
+  border-radius: 3px !important;
+}
+#nav ul.responsive li {
+  padding-top: 0 !important;
+  line-height: 40px !important;
+  padding-left: 0 !important;
+  text-align: center !important;
+  margin-right: 0 !important;
+  text-transform: uppercase;
+}
+#nav ul.responsive li:nth-child(even) {
+  background: #444;
+}
+#nav ul li.icon {
+  margin-right: 0 !important;
+}
+.highlight {
+  background: #0d95e8;
+  color: #fff;
+  border-radius: 3px;
+  padding: 1px 5px;
+  font-family: monospace;
+  font-size: 13px;
+}
+.table-container > table th,
+.table-container > table td {
+  border: 1px solid #666;
+}
+@-moz-keyframes spin {
+  from {
+    transition: 0.5s ease-in;
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  from {
+    transition: 0.5s ease-in;
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes spin {
+  from {
+    transition: 0.5s ease-in;
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  from {
+    transition: 0.5s ease-in;
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
