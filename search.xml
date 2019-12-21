@@ -63,7 +63,7 @@
       
       <categories>
           
-          <category> Hacking </category>
+          <category> Programming </category>
           
       </categories>
       
@@ -90,7 +90,7 @@
       
       <categories>
           
-          <category> Hacking </category>
+          <category> Programming </category>
           
       </categories>
       
@@ -167,7 +167,7 @@
       
       <categories>
           
-          <category> Resources </category>
+          <category> Programming </category>
           
       </categories>
       
@@ -183,7 +183,7 @@
     
     
     <entry>
-      <title>Use Nameko + RabbitMQ to establish your Microservices</title>
+      <title>Use Nameko + RabbitMQ to establish your Microservice</title>
       <link href="/2019/04/24/026%20Use%20Nameko%20+%20RabbitMQ%20to%20establish%20your%20Microservices/"/>
       <url>/2019/04/24/026%20Use%20Nameko%20+%20RabbitMQ%20to%20establish%20your%20Microservices/</url>
       
@@ -203,7 +203,7 @@
             
             <tag> RPC </tag>
             
-            <tag> Microservices </tag>
+            <tag> Microservice </tag>
             
         </tags>
       
@@ -370,7 +370,7 @@
     
     
     <entry>
-      <title>Curl CheatSheet</title>
+      <title>Curl Tutorial</title>
       <link href="/2019/02/22/019%20Curl%20CheatSheet/"/>
       <url>/2019/02/22/019%20Curl%20CheatSheet/</url>
       
@@ -387,8 +387,6 @@
         <tags>
             
             <tag> Shell </tag>
-            
-            <tag> CheatSheet </tag>
             
         </tags>
       
@@ -413,7 +411,9 @@
       
         <tags>
             
-            <tag> Proxy </tag>
+            <tag> Linux </tag>
+            
+            <tag> ReverseProxy </tag>
             
         </tags>
       
@@ -431,14 +431,14 @@
       
       <categories>
           
-          <category> Algorithm </category>
+          <category> Programming </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> MachineLearning </tag>
+            <tag> ML </tag>
             
         </tags>
       
@@ -456,14 +456,14 @@
       
       <categories>
           
-          <category> Algorithm </category>
+          <category> Programming </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> MachineLearning </tag>
+            <tag> ML </tag>
             
         </tags>
       
@@ -513,7 +513,7 @@
       
         <tags>
             
-            <tag> MachineLearning </tag>
+            <tag> ML </tag>
             
         </tags>
       
@@ -542,7 +542,7 @@
             
             <tag> TensorFlow </tag>
             
-            <tag> MachineLearning </tag>
+            <tag> ML </tag>
             
         </tags>
       
@@ -569,7 +569,7 @@
             
             <tag> Python </tag>
             
-            <tag> Visualization </tag>
+            <tag> Matplotlib </tag>
             
         </tags>
       
@@ -596,8 +596,6 @@
             
             <tag> Arm </tag>
             
-            <tag> OLED </tag>
-            
         </tags>
       
     </entry>
@@ -623,8 +621,6 @@
             
             <tag> Linux </tag>
             
-            <tag> Monitoring </tag>
-            
         </tags>
       
     </entry>
@@ -648,9 +644,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> Shell </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
@@ -679,7 +675,7 @@
             
             <tag> Sensor </tag>
             
-            <tag> Gyro </tag>
+            <tag> MPU6050 </tag>
             
         </tags>
       
@@ -704,7 +700,7 @@
       
         <tags>
             
-            <tag> MBA </tag>
+            <tag> Movie </tag>
             
         </tags>
       
@@ -731,7 +727,9 @@
             
             <tag> Linux </tag>
             
-            <tag> Proxy </tag>
+            <tag> ReverseProxy </tag>
+            
+            <tag> Network </tag>
             
         </tags>
       
@@ -755,8 +753,6 @@
       
       
         <tags>
-            
-            <tag> Linux </tag>
             
             <tag> Docker </tag>
             
@@ -783,9 +779,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> Shell </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
@@ -810,7 +806,7 @@
       
         <tags>
             
-            <tag> Linux </tag>
+            <tag> RabbitMQ </tag>
             
         </tags>
       
@@ -837,8 +833,6 @@
             
             <tag> Python </tag>
             
-            <tag> Shell </tag>
-            
         </tags>
       
     </entry>
@@ -850,7 +844,7 @@
       <link href="/2018/11/20/001%20Cracking%20for%20Jetbrains%20series%20(2018.1.3_or_higher)/"/>
       <url>/2018/11/20/001%20Cracking%20for%20Jetbrains%20series%20(2018.1.3_or_higher)/</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Self-host lisense server is no longer supported for ver. 2018.3.0 or higher. You can only use the cracker file.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Step1-Download-the-crack-file"><a href="#Step1-Download-the-crack-file" class="headerlink" title="Step1: Download the crack file"></a>Step1: Download the crack file</h3><ul><li><p>Way1: Download direct link: <a href="http://idea.lanyus.com/jar/JetbrainsCrack-2.10-release-enc.jar" target="_blank" rel="noopener">JetbrainsCrack-2.10-release-enc.jar</a></p></li><li><p>Way2: Download the latest version at <a href="http://idea.lanyus.com/" target="_blank" rel="noopener">here</a></p></li></ul><img src="/images/loading.gif" data-original="/2018/11/20/001%20Cracking%20for%20Jetbrains%20series%20(2018.1.3_or_higher)/idea.lanyus.com.png"><h3 id="Step2-Copy-crack-file-to-the-Application’s-bin-folder"><a href="#Step2-Copy-crack-file-to-the-Application’s-bin-folder" class="headerlink" title="Step2: Copy crack file to the Application’s bin folder"></a>Step2: Copy crack file to the Application’s bin folder</h3><p>For example (MacOS):</p><ul><li><p>Copy JetbrainsCrack-2.10-release-enc.jar to /Application/{JetBrains Application}/Contents/bin/. Then edit vmoptions file in the bin forlder. </p></li><li><p>Add the following  at the end of the file.</p></li></ul><pre><code>-javaagent:JetbrainsCrack-2.10-release-enc.jar</code></pre><h3 id="Step3-Generate-Activation-code-at-the-following-web"><a href="#Step3-Generate-Activation-code-at-the-following-web" class="headerlink" title="Step3: Generate Activation code at the following web"></a>Step3: Generate Activation code at the following web</h3><p><a href="http://idea.lanyus.com/" target="_blank" rel="noopener">http://idea.lanyus.com</a></p><h3 id="Step4-Block-the-official-activation-web-address"><a href="#Step4-Block-the-official-activation-web-address" class="headerlink" title="Step4: Block the official activation web address"></a>Step4: Block the official activation web address</h3><p>Add the following line in your system’s host file</p><pre><code>127.0.0.1 account.jetbrains.com127.0.0.1 www.jetbrains.com</code></pre><h3 id="Step5-Activate-your-IDE"><a href="#Step5-Activate-your-IDE" class="headerlink" title="Step5: Activate your IDE"></a>Step5: Activate your IDE</h3><img src="/images/loading.gif" data-original="/2018/11/20/001%20Cracking%20for%20Jetbrains%20series%20(2018.1.3_or_higher)/activation.png">]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><span style="color: red">==================================================</span><br><span style="color: red">= Warning! This article is no longer applicable.</span><br><span style="color: red">= 警告！这篇文章涉及的内容已经不再适用。</span><br><span style="color: red">==================================================</span></p><p>Self-host lisense server is no longer supported for ver. 2018.3.0 or higher. You can only use the cracker file.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Step1-Download-the-crack-file"><a href="#Step1-Download-the-crack-file" class="headerlink" title="Step1: Download the crack file"></a>Step1: Download the crack file</h3><ul><li><p>Way1: Download direct link: <a href="http://idea.lanyus.com/jar/JetbrainsCrack-2.10-release-enc.jar" target="_blank" rel="noopener">JetbrainsCrack-2.10-release-enc.jar</a></p></li><li><p>Way2: Download the latest version at <a href="http://idea.lanyus.com/" target="_blank" rel="noopener">here</a></p></li></ul><img src="/images/loading.gif" data-original="/2018/11/20/001%20Cracking%20for%20Jetbrains%20series%20(2018.1.3_or_higher)/idea.lanyus.com.png"><h3 id="Step2-Copy-crack-file-to-the-Application’s-bin-folder"><a href="#Step2-Copy-crack-file-to-the-Application’s-bin-folder" class="headerlink" title="Step2: Copy crack file to the Application’s bin folder"></a>Step2: Copy crack file to the Application’s bin folder</h3><p>For example (MacOS):</p><ul><li><p>Copy JetbrainsCrack-2.10-release-enc.jar to /Application/{JetBrains Application}/Contents/bin/. Then edit vmoptions file in the bin forlder. </p></li><li><p>Add the following  at the end of the file.</p></li></ul><pre><code>-javaagent:JetbrainsCrack-2.10-release-enc.jar</code></pre><h3 id="Step3-Generate-Activation-code-at-the-following-web"><a href="#Step3-Generate-Activation-code-at-the-following-web" class="headerlink" title="Step3: Generate Activation code at the following web"></a>Step3: Generate Activation code at the following web</h3><p><a href="http://idea.lanyus.com/" target="_blank" rel="noopener">http://idea.lanyus.com</a></p><h3 id="Step4-Block-the-official-activation-web-address"><a href="#Step4-Block-the-official-activation-web-address" class="headerlink" title="Step4: Block the official activation web address"></a>Step4: Block the official activation web address</h3><p>Add the following line in your system’s host file</p><pre><code>127.0.0.1 account.jetbrains.com127.0.0.1 www.jetbrains.com</code></pre><h3 id="Step5-Activate-your-IDE"><a href="#Step5-Activate-your-IDE" class="headerlink" title="Step5: Activate your IDE"></a>Step5: Activate your IDE</h3><img src="/images/loading.gif" data-original="/2018/11/20/001%20Cracking%20for%20Jetbrains%20series%20(2018.1.3_or_higher)/activation.png">]]></content>
       
       
       <categories>
