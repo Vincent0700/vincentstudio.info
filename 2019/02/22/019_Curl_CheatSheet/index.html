@@ -1,0 +1,240 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="HandheldFriendly" content="True"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="google-site-verification" content="n1Pt1eZqb7M4_TQ2aUQQMRpFNGt6r1HyFpvqDw4y4lY"><meta name="description" content="Common UsageDemo1: Access a website or script$ curl -4sSqL https:&#x2F;&#x2F;baidu.com $ curl -fsSL http:&#x2F;&#x2F;somewhere&#x2F;yourscript.sh | &#x2F;bin&#x2F;bash $ curl -fsSL http:&#x2F;&#x2F;somewhere&#x2F;yourscript.sh | &#x2F;bin&#x2F;bash -s parm1 pa"><meta property="og:type" content="article"><meta property="og:title" content="Curl Tutorial"><meta property="og:url" content="https://vincentstudio.info/2019/02/22/019_Curl_CheatSheet/index.html"><meta property="og:site_name" content="Vincent&#39;Studio"><meta property="og:description" content="Common UsageDemo1: Access a website or script$ curl -4sSqL https:&#x2F;&#x2F;baidu.com $ curl -fsSL http:&#x2F;&#x2F;somewhere&#x2F;yourscript.sh | &#x2F;bin&#x2F;bash $ curl -fsSL http:&#x2F;&#x2F;somewhere&#x2F;yourscript.sh | &#x2F;bin&#x2F;bash -s parm1 pa"><meta property="og:locale" content="en_US"><meta property="article:published_time" content="2019-02-22T06:30:00.000Z"><meta property="article:modified_time" content="2020-01-05T10:22:11.792Z"><meta property="article:author" content="Vincent"><meta property="article:tag" content="Shell"><meta name="twitter:card" content="summary"><link rel="shortcut icon" href="/images/favicon.ico"><link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png"><title>Curl Tutorial</title><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/rtl.css"><link rel="alternate" href="/atom.xml" title="Vincent&#39;Studio" type="application/atom+xml"><script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?c3cec32e2af52584fa7be244253a81c8";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><meta name="generator" content="Hexo 4.2.0"></head><body class="max-width mx-auto px3 ltr"><div id="header-post"><a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a> <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a> <a id="top-icon-tablet" href="#" onclick='$("html, body").animate({scrollTop:0},"fast")' style="display:none"><i class="fas fa-chevron-up fa-lg"></i></a> <span id="menu"><span id="nav"><ul><li><a href="/">Home</a></li><li><a href="/archives/">Articles</a></li><li><a href="/search/">Search</a></li><li><a href="/links/">Links</a></li></ul></span><br><span id="actions"><ul><li><a class="icon" href="/2019/02/24/020_Get_Free_SSL_Certificates/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle()' onmouseout='$("#i-prev").toggle()'></i></a></li><li><a class="icon" href="/2019/02/20/018_Configure_system_proxy_by_privoxy_and_gfwlist/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle()' onmouseout='$("#i-next").toggle()'></i></a></li><li><a class="icon" href="#" onclick='$("html, body").animate({scrollTop:0},"fast")'><i class="fas fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle()' onmouseout='$("#i-top").toggle()'></i></a></li><li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle()' onmouseout='$("#i-share").toggle()' onclick='return $("#share").toggle(),!1'></i></a></li></ul><span id="i-prev" class="info" style="display:none">Previous post</span> <span id="i-next" class="info" style="display:none">Next post</span> <span id="i-top" class="info" style="display:none">Back to top</span> <span id="i-share" class="info" style="display:none">Share post</span></span><br><div id="share" style="display:none"><ul><li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://vincentstudio.info/2019/02/22/019_Curl_CheatSheet/" target="_blank" rel="noopener"><i class="fab fa-facebook" aria-hidden="true"></i></a></li><li><a class="icon" href="https://twitter.com/share?url=https://vincentstudio.info/2019/02/22/019_Curl_CheatSheet/&text=Curl Tutorial" target="_blank" rel="noopener"><i class="fab fa-twitter" aria-hidden="true"></i></a></li><li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://vincentstudio.info/2019/02/22/019_Curl_CheatSheet/&title=Curl Tutorial" target="_blank" rel="noopener"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li><li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://vincentstudio.info/2019/02/22/019_Curl_CheatSheet/&is_video=false&description=Curl Tutorial" target="_blank" rel="noopener"><i class="fab fa-pinterest" aria-hidden="true"></i></a></li><li><a class="icon" href="mailto:?subject=Curl Tutorial&body=Check out this article: https://vincentstudio.info/2019/02/22/019_Curl_CheatSheet/"><i class="fas fa-envelope" aria-hidden="true"></i></a></li><li><a class="icon" href="https://getpocket.com/save?url=https://vincentstudio.info/2019/02/22/019_Curl_CheatSheet/&title=Curl Tutorial" target="_blank" rel="noopener"><i class="fab fa-get-pocket" aria-hidden="true"></i></a></li><li><a class="icon" href="http://reddit.com/submit?url=https://vincentstudio.info/2019/02/22/019_Curl_CheatSheet/&title=Curl Tutorial" target="_blank" rel="noopener"><i class="fab fa-reddit" aria-hidden="true"></i></a></li><li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://vincentstudio.info/2019/02/22/019_Curl_CheatSheet/&title=Curl Tutorial" target="_blank" rel="noopener"><i class="fab fa-stumbleupon" aria-hidden="true"></i></a></li><li><a class="icon" href="http://digg.com/submit?url=https://vincentstudio.info/2019/02/22/019_Curl_CheatSheet/&title=Curl Tutorial" target="_blank" rel="noopener"><i class="fab fa-digg" aria-hidden="true"></i></a></li><li><a class="icon" href="http://www.tumblr.com/share/link?url=https://vincentstudio.info/2019/02/22/019_Curl_CheatSheet/&name=Curl Tutorial&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr" aria-hidden="true"></i></a></li></ul></div><div id="toc"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Common-Usage"><span class="toc-number">1.</span> <span class="toc-text">Common Usage</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Demo1-Access-a-website-or-script"><span class="toc-number">1.1.</span> <span class="toc-text">Demo1: Access a website or script</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Demo2-Debug"><span class="toc-number">1.2.</span> <span class="toc-text">Demo2: Debug</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Demo3-Set-request-methods"><span class="toc-number">1.3.</span> <span class="toc-text">Demo3: Set request methods</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Demo4-Set-request-header"><span class="toc-number">1.4.</span> <span class="toc-text">Demo4: Set request header</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Demo5-Send-data"><span class="toc-number">1.5.</span> <span class="toc-text">Demo5: Send data</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Demo6-Proxy"><span class="toc-number">1.6.</span> <span class="toc-text">Demo6: Proxy</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Full-feature"><span class="toc-number">2.</span> <span class="toc-text">Full feature</span></a></li></ol></div></span></div><div class="content index py4"><article class="post" itemscope itemtype="http://schema.org/BlogPosting"><header><h1 class="posttitle" itemprop="name headline">Curl Tutorial</h1><div class="meta"><span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Vincent'Studio</span></span><div class="postdate"><time datetime="2019-02-22T06:30:00.000Z" itemprop="datePublished">2019-02-22</time></div><div class="article-category"><i class="fas fa-archive"></i> <a class="category-link" href="/categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/">工具使用</a></div><div class="article-tag"><i class="fas fa-tag"></i> <a class="tag-link" href="/tags/Shell/" rel="tag">Shell</a></div></div></header><div class="content" itemprop="articleBody"><h2 id="Common-Usage"><a href="#Common-Usage" class="headerlink" title="Common Usage"></a>Common Usage</h2><h3 id="Demo1-Access-a-website-or-script"><a href="#Demo1-Access-a-website-or-script" class="headerlink" title="Demo1: Access a website or script"></a>Demo1: Access a website or script</h3><pre><code class="lang-bash">$ curl -4sSqL https://baidu.com
+$ curl -fsSL http://somewhere/yourscript.sh | /bin/bash
+$ curl -fsSL http://somewhere/yourscript.sh | /bin/bash -s parm1 parm2
+</code></pre><p>-4: Use ipv4<br>-s: Silent mode, don’t show progress meter or error messages<br>-S: Show error<br>-q: Disable .curlrc (default settings)<br>-L: Follow redirects (301, 302 …)<br>-f: Output nothing on http errors</p><h3 id="Demo2-Debug"><a href="#Demo2-Debug" class="headerlink" title="Demo2: Debug"></a>Demo2: Debug</h3><pre><code class="lang-bash">$ curl -i https://baidu.com
+$ curl -I https://baidu.com
+$ curl -v https://baidu.com
+$ curl -vv https://baidu.com
+$ curl -o output.txt https://baidu.com
+</code></pre><p>-i: Show response header<br>-I: Show response header only<br>-v: Show verbose<br>-vv: Show more verbose<br>-o: Write to file</p><h3 id="Demo3-Set-request-methods"><a href="#Demo3-Set-request-methods" class="headerlink" title="Demo3: Set request methods"></a>Demo3: Set request methods</h3><pre><code class="lang-bash">$ curl -X POST localhost:8080/user
+</code></pre><p>-X: Set request method, [GET, POST, PUT, DELETE …]</p><h3 id="Demo4-Set-request-header"><a href="#Demo4-Set-request-header" class="headerlink" title="Demo4: Set request header"></a>Demo4: Set request header</h3><pre><code class="lang-bash">$ curl \
+  -H &#39;User-Agent: Mozilla/5.0&#39; \
+  -H &#39;Accept: application/json&#39; \
+  http://localhost:8080/api/v1/foobar 
+$ curl -A &#39;Mozilla/5.0&#39; http://localhost:8080/api/v1/foobar 
+$ curl -b name=admin http://localhost:8080/api/v1/foobar 
+$ curl --compressed http://localhost:8080/api/v1/foobar
+</code></pre><p>-H: Set request header<br>-A: Equals -H ‘User-Agent:’<br>-b: Equals -H ‘Cookie:’<br>—compressed: Equals -H ‘Accept-Encoding: deflate, gzip’</p><h3 id="Demo5-Send-data"><a href="#Demo5-Send-data" class="headerlink" title="Demo5: Send data"></a>Demo5: Send data</h3><ul><li>x-www-form-urlencoded</li></ul><pre><code class="lang-bash">$ curl -d &#39;key1=val1&amp;key2=val2&#39; http://localhost:8080/api/v1/foobar
+$ curl -d @data.txt http://localhost:8080/api/v1/foobar
+</code></pre><ul><li>json</li></ul><pre><code class="lang-bash">$ curl -d &#39;{&quot;key&quot;: &quot;value&quot;}&#39; -H &#39;Content-Type:application/json&#39; \
+http://localhost:8080/api/v1/foobar
+</code></pre><ul><li>multipart/form-data</li></ul><pre><code class="lang-bash">$ curl \
+-F field1=test \
+-F logo.jpg=@logo.jpg \
+http://localhost:8080/api/v1/foobar
+</code></pre><h3 id="Demo6-Proxy"><a href="#Demo6-Proxy" class="headerlink" title="Demo6: Proxy"></a>Demo6: Proxy</h3><pre><code class="lang-bash"># sock5 proxy
+$ curl -x socks5h://127.0.0.1:1086 https://google.com
+# http proxy
+$ curl -x http://127.0.0.1:1087 https://google.com
+</code></pre><p>-x: Set proxy</p><h2 id="Full-feature"><a href="#Full-feature" class="headerlink" title="Full feature"></a>Full feature</h2><pre><code class="lang-bash">&#39;&#39;&#39;
+Usage: curl [options...] &lt;url&gt;
+Options: (H) means HTTP/HTTPS only, (F) means FTP only
+     --anyauth       Pick &quot;any&quot; authentication method (H)
+ -a, --append        Append to target file when uploading (F/SFTP)
+     --basic         Use HTTP Basic Authentication (H)
+     --cacert FILE   CA certificate to verify peer against (SSL)
+     --capath DIR    CA directory to verify peer against (SSL)
+ -E, --cert CERT[:PASSWD]  Client certificate file and password (SSL)
+     --cert-status   Verify the status of the server certificate (SSL)
+     --cert-type TYPE  Certificate file type (DER/PEM/ENG) (SSL)
+     --ciphers LIST  SSL ciphers to use (SSL)
+     --compressed    Request compressed response (using deflate or gzip)
+ -K, --config FILE   Read config from FILE
+     --connect-timeout SECONDS  Maximum time allowed for connection
+     --connect-to HOST1:PORT1:HOST2:PORT2 Connect to host (network level)
+ -C, --continue-at OFFSET  Resumed transfer OFFSET
+ -b, --cookie STRING/FILE  Read cookies from STRING/FILE (H)
+ -c, --cookie-jar FILE  Write cookies to FILE after operation (H)
+     --create-dirs   Create necessary local directory hierarchy
+     --crlf          Convert LF to CRLF in upload
+     --crlfile FILE  Get a CRL list in PEM format from the given file
+ -d, --data DATA     HTTP POST data (H)
+     --data-raw DATA  HTTP POST data, &#39;@&#39; allowed (H)
+     --data-ascii DATA  HTTP POST ASCII data (H)
+     --data-binary DATA  HTTP POST binary data (H)
+     --data-urlencode DATA  HTTP POST data url encoded (H)
+     --delegation STRING  GSS-API delegation permission
+     --digest        Use HTTP Digest Authentication (H)
+     --disable-eprt  Inhibit using EPRT or LPRT (F)
+     --disable-epsv  Inhibit using EPSV (F)
+     --dns-servers   DNS server addrs to use: 1.1.1.1;2.2.2.2
+     --dns-interface  Interface to use for DNS requests
+     --dns-ipv4-addr  IPv4 address to use for DNS requests, dot notation
+     --dns-ipv6-addr  IPv6 address to use for DNS requests, dot notation
+ -D, --dump-header FILE  Write the received headers to FILE
+     --egd-file FILE  EGD socket path for random data (SSL)
+     --engine ENGINE  Crypto engine (use &quot;--engine list&quot; for list) (SSL)
+     --expect100-timeout SECONDS How long to wait for 100-continue (H)
+ -f, --fail          Fail silently (no output at all) on HTTP errors (H)
+     --fail-early    Fail on first transfer error, do not continue
+     --false-start   Enable TLS False Start.
+ -F, --form CONTENT  Specify HTTP multipart POST data (H)
+     --form-string STRING  Specify HTTP multipart POST data (H)
+     --ftp-account DATA  Account data string (F)
+     --ftp-alternative-to-user COMMAND  String to replace &quot;USER [name]&quot; (F)
+     --ftp-create-dirs  Create the remote dirs if not present (F)
+     --ftp-method [MULTICWD/NOCWD/SINGLECWD]  Control CWD usage (F)
+     --ftp-pasv      Use PASV/EPSV instead of PORT (F)
+ -P, --ftp-port ADR  Use PORT with given address instead of PASV (F)
+     --ftp-skip-pasv-ip  Skip the IP address for PASV (F)
+     --ftp-pret      Send PRET before PASV (for drftpd) (F)
+     --ftp-ssl-ccc   Send CCC after authenticating (F)
+     --ftp-ssl-ccc-mode ACTIVE/PASSIVE  Set CCC mode (F)
+     --ftp-ssl-control  Require SSL/TLS for FTP login, clear for transfer (F)
+ -G, --get           Send the -d data with a HTTP GET (H)
+ -g, --globoff       Disable URL sequences and ranges using {} and []
+ -H, --header LINE   Pass custom header LINE to server (H)
+ -I, --head          Show document info only
+ -h, --help          This help text
+     --hostpubmd5 MD5  Hex-encoded MD5 string of the host public key. (SSH)
+ -0, --http1.0       Use HTTP 1.0 (H)
+     --http1.1       Use HTTP 1.1 (H)
+     --http2         Use HTTP 2 (H)
+     --http2-prior-knowledge  Use HTTP 2 without HTTP/1.1 Upgrade (H)
+     --ignore-content-length  Ignore the HTTP Content-Length header
+ -i, --include       Include protocol headers in the output (H/F)
+ -k, --insecure      Allow connections to SSL sites without certs (H)
+     --interface INTERFACE  Use network INTERFACE (or address)
+ -4, --ipv4          Resolve name to IPv4 address
+ -6, --ipv6          Resolve name to IPv6 address
+ -j, --junk-session-cookies  Ignore session cookies read from file (H)
+     --keepalive-time SECONDS  Wait SECONDS between keepalive probes
+     --key KEY       Private key file name (SSL/SSH)
+     --key-type TYPE  Private key file type (DER/PEM/ENG) (SSL)
+     --krb LEVEL     Enable Kerberos with security LEVEL (F)
+     --libcurl FILE  Dump libcurl equivalent code of this command line
+     --limit-rate RATE  Limit transfer speed to RATE
+ -l, --list-only     List only mode (F/POP3)
+     --local-port RANGE  Force use of RANGE for local port numbers
+ -L, --location      Follow redirects (H)
+     --location-trusted  Like &#39;--location&#39;, and send auth to other hosts (H)
+     --login-options OPTIONS  Server login options (IMAP, POP3, SMTP)
+ -M, --manual        Display the full manual
+     --mail-from FROM  Mail from this address (SMTP)
+     --mail-rcpt TO  Mail to this/these addresses (SMTP)
+     --mail-auth AUTH  Originator address of the original email (SMTP)
+     --max-filesize BYTES  Maximum file size to download (H/F)
+     --max-redirs NUM  Maximum number of redirects allowed (H)
+ -m, --max-time SECONDS  Maximum time allowed for the transfer
+     --metalink      Process given URLs as metalink XML file
+     --negotiate     Use HTTP Negotiate (SPNEGO) authentication (H)
+ -n, --netrc         Must read .netrc for user name and password
+     --netrc-optional  Use either .netrc or URL; overrides -n
+     --netrc-file FILE  Specify FILE for netrc
+ -:, --next          Allows the following URL to use a separate set of options
+     --no-alpn       Disable the ALPN TLS extension (H)
+ -N, --no-buffer     Disable buffering of the output stream
+     --no-keepalive  Disable keepalive use on the connection
+     --no-npn        Disable the NPN TLS extension (H)
+     --no-sessionid  Disable SSL session-ID reusing (SSL)
+     --noproxy       List of hosts which do not use proxy
+     --ntlm          Use HTTP NTLM authentication (H)
+     --ntlm-wb       Use HTTP NTLM authentication with winbind (H)
+     --oauth2-bearer TOKEN  OAuth 2 Bearer Token (IMAP, POP3, SMTP)
+ -o, --output FILE   Write to FILE instead of stdout
+     --pass PASS     Pass phrase for the private key (SSL/SSH)
+     --path-as-is    Do not squash .. sequences in URL path
+     --pinnedpubkey FILE/HASHES Public key to verify peer against (SSL)
+     --post301       Do not switch to GET after following a 301 redirect (H)
+     --post302       Do not switch to GET after following a 302 redirect (H)
+     --post303       Do not switch to GET after following a 303 redirect (H)
+     --preproxy [PROTOCOL://]HOST[:PORT] Proxy before HTTP(S) proxy
+ -#, --progress-bar  Display transfer progress as a progress bar
+     --proto PROTOCOLS  Enable/disable PROTOCOLS
+     --proto-default PROTOCOL  Use PROTOCOL for any URL missing a scheme
+     --proto-redir PROTOCOLS   Enable/disable PROTOCOLS on redirect
+ -x, --proxy [PROTOCOL://]HOST[:PORT]  Use proxy on given port
+     --proxy-anyauth  Pick &quot;any&quot; proxy authentication method (H)
+     --proxy-basic   Use Basic authentication on the proxy (H)
+     --proxy-digest  Use Digest authentication on the proxy (H)
+     --proxy-cacert FILE CA certificate to verify peer against for proxy (SSL)
+     --proxy-capath DIR CA directory to verify peer against for proxy (SSL)
+     --proxy-cert CERT[:PASSWD] Client certificate file and password for proxy (SSL)
+     --proxy-cert-type TYPE Certificate file type (DER/PEM/ENG) for proxy (SSL)
+     --proxy-ciphers LIST SSL ciphers to use for proxy (SSL)
+     --proxy-crlfile FILE Get a CRL list in PEM format from the given file for proxy
+     --proxy-insecure Allow connections to SSL sites without certs for proxy (H)
+     --proxy-key KEY Private key file name for proxy (SSL)
+     --proxy-key-type TYPE Private key file type for proxy (DER/PEM/ENG) (SSL)
+     --proxy-negotiate  Use HTTP Negotiate (SPNEGO) authentication on the proxy (H)
+     --proxy-ntlm    Use NTLM authentication on the proxy (H)
+     --proxy-header LINE Pass custom header LINE to proxy (H)
+     --proxy-pass PASS Pass phrase for the private key for proxy (SSL)
+     --proxy-ssl-allow-beast Allow security flaw to improve interop for proxy (SSL)
+     --proxy-tlsv1   Use TLSv1 for proxy (SSL)
+     --proxy-tlsuser USER TLS username for proxy
+     --proxy-tlspassword STRING TLS password for proxy
+     --proxy-tlsauthtype STRING TLS authentication type for proxy (default SRP)
+     --proxy-service-name NAME  SPNEGO proxy service name
+     --service-name NAME  SPNEGO service name
+ -U, --proxy-user USER[:PASSWORD]  Proxy user and password
+     --proxy1.0 HOST[:PORT]  Use HTTP/1.0 proxy on given port
+ -p, --proxytunnel   Operate through a HTTP proxy tunnel (using CONNECT)
+     --pubkey KEY    Public key file name (SSH)
+ -Q, --quote CMD     Send command(s) to server before transfer (F/SFTP)
+     --random-file FILE  File for reading random data from (SSL)
+ -r, --range RANGE   Retrieve only the bytes within RANGE
+     --raw           Do HTTP &quot;raw&quot;; no transfer decoding (H)
+ -e, --referer       Referer URL (H)
+ -J, --remote-header-name  Use the header-provided filename (H)
+ -O, --remote-name   Write output to a file named as the remote file
+     --remote-name-all  Use the remote file name for all URLs
+ -R, --remote-time   Set the remote file&#39;s time on the local output
+ -X, --request COMMAND  Specify request command to use
+     --resolve HOST:PORT:ADDRESS  Force resolve of HOST:PORT to ADDRESS
+     --retry NUM   Retry request NUM times if transient problems occur
+     --retry-connrefused  Retry on connection refused (use with --retry)
+     --retry-delay SECONDS  Wait SECONDS between retries
+     --retry-max-time SECONDS  Retry only within this period
+     --sasl-ir       Enable initial response in SASL authentication
+ -S, --show-error    Show error. With -s, make curl show errors when they occur
+ -s, --silent        Silent mode (don&#39;t output anything)
+     --socks4 HOST[:PORT]  SOCKS4 proxy on given host + port
+     --socks4a HOST[:PORT]  SOCKS4a proxy on given host + port
+     --socks5 HOST[:PORT]  SOCKS5 proxy on given host + port
+     --socks5-hostname HOST[:PORT]  SOCKS5 proxy, pass host name to proxy
+     --socks5-gssapi-service NAME  SOCKS5 proxy service name for GSS-API
+     --socks5-gssapi-nec  Compatibility with NEC SOCKS5 server
+ -Y, --speed-limit RATE  Stop transfers below RATE for &#39;speed-time&#39; secs
+ -y, --speed-time SECONDS  Trigger &#39;speed-limit&#39; abort after SECONDS (default: 30)
+     --ssl           Try SSL/TLS (FTP, IMAP, POP3, SMTP)
+     --ssl-reqd      Require SSL/TLS (FTP, IMAP, POP3, SMTP)
+ -2, --sslv2         Use SSLv2 (SSL)
+ -3, --sslv3         Use SSLv3 (SSL)
+     --ssl-allow-beast  Allow security flaw to improve interop (SSL)
+     --ssl-no-revoke    Disable cert revocation checks (WinSSL)
+     --stderr FILE   Where to redirect stderr (use &quot;-&quot; for stdout)
+     --suppress-connect-headers  Suppress proxy CONNECT response headers
+     --tcp-nodelay   Use the TCP_NODELAY option
+     --tcp-fastopen  Use TCP Fast Open
+ -t, --telnet-option OPT=VAL  Set telnet option
+     --tftp-blksize VALUE  Set TFTP BLKSIZE option (must be &gt;512)
+     --tftp-no-options  Do not send TFTP options requests
+ -z, --time-cond TIME   Transfer based on a time condition
+ -1, --tlsv1         Use &gt;= TLSv1 (SSL)
+     --tlsv1.0       Use TLSv1.0 (SSL)
+     --tlsv1.1       Use TLSv1.1 (SSL)
+     --tlsv1.2       Use TLSv1.2 (SSL)
+     --tlsv1.3       Use TLSv1.3 (SSL)
+     --tls-max VERSION  Use TLS up to VERSION (SSL)
+     --trace FILE    Write a debug trace to FILE
+     --trace-ascii FILE  Like --trace, but without hex output
+     --trace-time    Add time stamps to trace/verbose output
+     --tr-encoding   Request compressed transfer encoding (H)
+ -T, --upload-file FILE  Transfer FILE to destination
+     --url URL       URL to work with
+ -B, --use-ascii     Use ASCII/text transfer
+ -u, --user USER[:PASSWORD]  Server user and password
+     --tlsuser USER  TLS username
+     --tlspassword STRING  TLS password
+     --tlsauthtype STRING  TLS authentication type (default: SRP)
+     --unix-socket PATH    Connect through this Unix domain socket
+     --abstract-unix-socket PATH Connect to an abstract Unix domain socket
+ -A, --user-agent STRING  Send User-Agent STRING to server (H)
+ -v, --verbose       Make the operation more talkative
+ -V, --version       Show version number and quit
+ -w, --write-out FORMAT  Use output FORMAT after completion
+     --xattr         Store metadata in extended file attributes
+ -q, --disable       Disable .curlrc (must be first parameter)
+ &#39;&#39;&#39;
+</code></pre></div></article><div class="blog-post-comments"><div id="disqus_thread"><noscript>Please enable JavaScript to view the comments.</noscript></div></div><div id="footer-post-container"><div id="footer-post"><div id="nav-footer" style="display:none"><ul><li><a href="/">Home</a></li><li><a href="/archives/">Articles</a></li><li><a href="/search/">Search</a></li><li><a href="/links/">Links</a></li></ul></div><div id="toc-footer" style="display:none"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Common-Usage"><span class="toc-number">1.</span> <span class="toc-text">Common Usage</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Demo1-Access-a-website-or-script"><span class="toc-number">1.1.</span> <span class="toc-text">Demo1: Access a website or script</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Demo2-Debug"><span class="toc-number">1.2.</span> <span class="toc-text">Demo2: Debug</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Demo3-Set-request-methods"><span class="toc-number">1.3.</span> <span class="toc-text">Demo3: Set request methods</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Demo4-Set-request-header"><span class="toc-number">1.4.</span> <span class="toc-text">Demo4: Set request header</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Demo5-Send-data"><span class="toc-number">1.5.</span> <span class="toc-text">Demo5: Send data</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Demo6-Proxy"><span class="toc-number">1.6.</span> <span class="toc-text">Demo6: Proxy</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Full-feature"><span class="toc-number">2.</span> <span class="toc-text">Full feature</span></a></li></ol></div><div id="share-footer" style="display:none"><ul><li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://vincentstudio.info/2019/02/22/019_Curl_CheatSheet/" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="https://twitter.com/share?url=https://vincentstudio.info/2019/02/22/019_Curl_CheatSheet/&text=Curl Tutorial" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://vincentstudio.info/2019/02/22/019_Curl_CheatSheet/&title=Curl Tutorial" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://vincentstudio.info/2019/02/22/019_Curl_CheatSheet/&is_video=false&description=Curl Tutorial" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="mailto:?subject=Curl Tutorial&body=Check out this article: https://vincentstudio.info/2019/02/22/019_Curl_CheatSheet/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="https://getpocket.com/save?url=https://vincentstudio.info/2019/02/22/019_Curl_CheatSheet/&title=Curl Tutorial" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="http://reddit.com/submit?url=https://vincentstudio.info/2019/02/22/019_Curl_CheatSheet/&title=Curl Tutorial" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://vincentstudio.info/2019/02/22/019_Curl_CheatSheet/&title=Curl Tutorial" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="http://digg.com/submit?url=https://vincentstudio.info/2019/02/22/019_Curl_CheatSheet/&title=Curl Tutorial" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="http://www.tumblr.com/share/link?url=https://vincentstudio.info/2019/02/22/019_Curl_CheatSheet/&name=Curl Tutorial&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li></ul></div><div id="actions-footer"><a id="menu" class="icon" href="#" onclick='return $("#nav-footer").toggle(),!1'><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a> <a id="toc" class="icon" href="#" onclick='return $("#toc-footer").toggle(),!1'><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a> <a id="share" class="icon" href="#" onclick='return $("#share-footer").toggle(),!1'><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a> <a id="top" style="display:none" class="icon" href="#" onclick='$("html, body").animate({scrollTop:0},"fast")'><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></div></div></div><footer id="footer"><div class="footer-left">Copyright &copy; 2020 Vincent</div><div class="footer-right"><nav><ul><li><a href="/">Home</a></li><li><a href="/archives/">Articles</a></li><li><a href="/search/">Search</a></li><li><a href="/links/">Links</a></li></ul></nav></div></footer></div><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script></body></html><link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"><link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css"><link rel="stylesheet" href="/lib/prettify/prettify.css"><link rel="stylesheet" href="/lib/prettify/themes/tomorrow-night-eighties.min.css"><script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script><link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet"><style>.pace .pace-progress{background:#e90f92;height:2px}.pace .pace-progress-inner{box-shadow:0 0 10px #fff,0 0 5px #fff}.pace .pace-activity{border-top-color:#e90f92;border-left-color:#e90f92}</style><script src="/lib/jquery/jquery.min.js"></script><script src="/lib/nicescroll/jquery.nicescroll.min.js"></script><script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script><script src="/js/main.js"></script><script async src="https://www.googletagmanager.com/gtag/js?id=G-0TTM4EXRD5"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-0TTM4EXRD5")</script><script type="text/javascript">var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?7ac0adab0f2e7ed17b1d2759a04af674";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><script type="text/javascript">var disqus_shortname="vincentstudio";!function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src="//"+disqus_shortname+".disqus.com/embed.js",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)}()</script><script>$("body").niceScroll({cursorcolor:"#666",cursorwidth:"6px",cursorborder:"0px",cursorborderradius:"3px",background:"#111",autohidemode:!0})</script><link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css"><script src="/lib/fancybox/jquery.fancybox.min.js"></script><script src="/js/wrapImage.js"></script><script src="/lib/prettify/prettify.js"></script><script type="text/javascript">$(function(){$("pre").addClass("prettyprint linenums").attr("style","overflow: auto;"),prettyPrint()})</script>
