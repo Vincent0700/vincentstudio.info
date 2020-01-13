@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://vincentstudio.info/"/>
-  <updated>2020-01-13T14:26:44.915Z</updated>
+  <updated>2020-01-13T14:36:22.198Z</updated>
   <id>https://vincentstudio.info/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://vincentstudio.info/2020/01/13/035_Usage_of_provide_and_inject_in_vue/"/>
     <id>https://vincentstudio.info/2020/01/13/035_Usage_of_provide_and_inject_in_vue/</id>
     <published>2020-01-13T03:30:00.000Z</published>
-    <updated>2020-01-13T14:26:44.915Z</updated>
+    <updated>2020-01-13T14:36:22.198Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote><p>在看 <code>Element</code> 面包屑组件的源码时记录</p></blockquote><h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>首先看一段 <code>Breadcrumb.vue</code> 的实现代码。</p><pre><code class="lang-vue">&lt;template&gt;  &lt;div class=&quot;el-breadcrumb&quot; aria-label=&quot;Breadcrumb&quot; role=&quot;navigation&quot;&gt;    &lt;slot&gt;&lt;/slot&gt;  &lt;/div&gt;&lt;/template&gt;&lt;script&gt;  export default {    name: &#39;ElBreadcrumb&#39;,    props: {      separator: {        type: String,        default: &#39;/&#39;      },      separatorClass: {        type: String,        default: &#39;&#39;      }    },    provide() {      return {        elBreadcrumb: this      };    },    mounted() {      const items = this.$el.querySelectorAll(&#39;.el-breadcrumb__item&#39;);      if (items.length) {        items[items.length - 1].setAttribute(&#39;aria-current&#39;, &#39;page&#39;);      }    }  };&lt;/script&gt;</code></pre><p>这里，<code>Breadcrumb</code> 直接把自己的 <code>this</code> 暴露给下级组件，然后注入到 <code>BreadcrumbItem</code> 组件中，以达到向子孙组件传递信息的目的，下面就来总结一下 <code>Vue</code> 中 <code>provide/inject</code> 的用法。</p><h2 id="参数详解"><a href="#参数详解" class="headerlink" title="参数详解"></a>参数详解</h2><ul><li><code class="api-param-key">provide</code><code class="api-param-value">Object | () =&gt; Object</code></li><li><code class="api-param-key">inject</code><code class="api-param-value">Array<string>| { [key: string]: string | Symbol | Object }</string></code></li></ul><h2 id="详细介绍"><a href="#详细介绍" class="headerlink" title="详细介绍"></a>详细介绍</h2><ol><li><p>Vue 2.2.0 新增，主要为高阶插件/组件库跨级访问祖先组件数据的方法，并不推荐直接用于应用程序代码中。</p></li><li><p><code>provide</code> 和 <code>inject</code> 绑定并不是可响应的。然而，如果你传入了一个可监听的对象，那么其对象的属性还是可响应的。</p></li><li><p><code>Symbol</code> 作为 <code>key</code></p></li></ol><pre><code class="lang-vue">const s = Symbol()const Provider = {  provide () {    return {      [s]: &#39;foo&#39;    }  }}const Child = {  inject: { s },  // ...}</code></pre><ol><li><code>inject</code> 作为 <code>props</code> 或 <code>data</code> 默认值，只在 <code>^2.2.1</code> 有效，以下版本注入值会在初始化之后得到。</li></ol><pre><code class="lang-vue">const Child = {  inject: [&#39;foo&#39;],  data () {    return {      bar: this.foo    }  }}</code></pre><ol><li>参数化配置，只在 <code>^2.5.0</code> 有效</li></ol><pre><code class="lang-vue">// 设置默认值const Child = {  inject: {    foo: { default: &#39;foo&#39; }  }}// 工厂方法设置默认值const Child = {  inject: {    foo: {      from: &#39;bar&#39;,      default: () =&gt; [1, 2, 3]    }  }}// 从不同名字的属性注入const Child = {  inject: {    foo: {      from: &#39;bar&#39;,      default: &#39;foo&#39;    }  }}</code></pre><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol><li><a href="https://vuejs.bootcss.com/v2/api/#provide-inject" target="_blank" rel="noopener">Vue.js 中文文档</a></li><li><a href="https://github.com/ElemeFE/element/blob/dev/packages/breadcrumb/src/breadcrumb.vue" target="_blank" rel="noopener">Element 源码</a></li></ol>]]></content>
     
@@ -38,8 +38,6 @@
     
     
       <category term="Vue" scheme="https://vincentstudio.info/tags/Vue/"/>
-    
-      <category term="FE" scheme="https://vincentstudio.info/tags/FE/"/>
     
   </entry>
   
