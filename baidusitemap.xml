@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://vincentstudio.info/2019/12/31/034_Usage_of_hexo-all-minifier_copy/</loc>
-    <lastmod>2020-01-13</lastmod>
-  </url>  <url>
     <loc>https://vincentstudio.info/2020/01/13/035_Usage_of_provide_and_inject_in_vue/</loc>
     <lastmod>2020-01-13</lastmod>
   </url>  <url>
     <loc>https://vincentstudio.info/2019/02/15/015_Render_math_formula_in_hexo/</loc>
+    <lastmod>2020-01-13</lastmod>
+  </url>  <url>
+    <loc>https://vincentstudio.info/2019/12/31/034_Usage_of_hexo-all-minifier_copy/</loc>
     <lastmod>2020-01-13</lastmod>
   </url>  <url>
     <loc>https://vincentstudio.info/2019/04/10/024_Add_bandages_to_your_markdown/</loc>

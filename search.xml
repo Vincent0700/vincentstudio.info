@@ -4,7 +4,7 @@
   
     
     <entry>
-      <title>Vue | provide/inject 跨级访问祖先组件</title>
+      <title>Vue 跨级访问祖先组件 (provide/inject)</title>
       <link href="/2020/01/13/035_Usage_of_provide_and_inject_in_vue/"/>
       <url>/2020/01/13/035_Usage_of_provide_and_inject_in_vue/</url>
       
@@ -31,7 +31,7 @@
     
     
     <entry>
-      <title>Hexo | hexo-all-minifier 资源压缩</title>
+      <title>hexo-all-minifier 资源压缩</title>
       <link href="/2019/12/31/034_Usage_of_hexo-all-minifier_copy/"/>
       <url>/2019/12/31/034_Usage_of_hexo-all-minifier_copy/</url>
       
@@ -524,7 +524,7 @@
     
     
     <entry>
-      <title>Hexo | hexo-renderer-mathjax 展示数学公式</title>
+      <title>hexo-renderer-mathjax 展示数学公式</title>
       <link href="/2019/02/15/015_Render_math_formula_in_hexo/"/>
       <url>/2019/02/15/015_Render_math_formula_in_hexo/</url>
       
@@ -592,9 +592,9 @@
             
             <tag> Python </tag>
             
-            <tag> TensorFlow </tag>
-            
             <tag> ML </tag>
+            
+            <tag> TensorFlow </tag>
             
         </tags>
       
