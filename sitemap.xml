@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://vincentstudio.info/2019/12/31/034_Usage_of_hexo-all-minifier/</loc>
+    <loc>https://vincentstudio.info/2019/12/31/034_Usage_of_hexo-all-minifier_copy/</loc>
     
-    <lastmod>2020-01-05T10:24:23.288Z</lastmod>
+    <lastmod>2020-01-13T14:04:13.394Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://vincentstudio.info/2020/01/13/035_Usage_of_provide_and_inject_in_vue/</loc>
+    
+    <lastmod>2020-01-13T14:04:13.394Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://vincentstudio.info/2019/02/15/015_Render_math_formula_in_hexo/</loc>
+    
+    <lastmod>2020-01-13T14:04:13.393Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://vincentstudio.info/2019/04/10/024_Add_bandages_to_your_markdown/</loc>
+    
+    <lastmod>2020-01-07T16:16:47.303Z</lastmod>
     
   </url>
   
@@ -100,13 +121,6 @@
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/04/10/024_Add_bandages_to_your_markdown/</loc>
-    
-    <lastmod>2020-01-05T10:22:11.795Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://vincentstudio.info/2019/04/03/023_Deploy_a_minecraft_server_using_forge/</loc>
     
     <lastmod>2020-01-05T10:22:11.794Z</lastmod>
@@ -164,13 +178,6 @@
   
   <url>
     <loc>https://vincentstudio.info/2019/02/14/014_Deep_Learning_Resources/</loc>
-    
-    <lastmod>2020-01-05T10:22:11.789Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://vincentstudio.info/2019/02/15/015_Render_math_formula_in_hexo/</loc>
     
     <lastmod>2020-01-05T10:22:11.789Z</lastmod>
     

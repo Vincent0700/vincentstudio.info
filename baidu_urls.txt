@@ -1,4 +1,5 @@
-https://vincentstudio.info/2019/12/31/034_Usage_of_hexo-all-minifier/
+https://vincentstudio.info/2020/01/13/035_Usage_of_provide_and_inject_in_vue/
+https://vincentstudio.info/2019/12/31/034_Usage_of_hexo-all-minifier_copy/
 https://vincentstudio.info/2019/06/16/033_Port_Forwarding_Tutorial/
 https://vincentstudio.info/2019/06/15/032_OSX_Cracked_Software_Resources/
 https://vincentstudio.info/2019/05/24/031_Driftnet_Tutorial/

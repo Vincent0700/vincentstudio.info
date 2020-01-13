@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://vincentstudio.info/"/>
-  <updated>2020-01-05T10:24:23.288Z</updated>
+  <updated>2020-01-13T14:04:13.394Z</updated>
   <id>https://vincentstudio.info/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hexo插件 | hexo-all-minifier (资源压缩)</title>
-    <link href="https://vincentstudio.info/2019/12/31/034_Usage_of_hexo-all-minifier/"/>
-    <id>https://vincentstudio.info/2019/12/31/034_Usage_of_hexo-all-minifier/</id>
+    <title>Vue | provide/inject 跨级访问祖先组件</title>
+    <link href="https://vincentstudio.info/2020/01/13/035_Usage_of_provide_and_inject_in_vue/"/>
+    <id>https://vincentstudio.info/2020/01/13/035_Usage_of_provide_and_inject_in_vue/</id>
+    <published>2020-01-13T03:30:00.000Z</published>
+    <updated>2020-01-13T14:04:13.394Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote><p>在看 <code>Element</code> 面包屑组件的源码时记录</p></blockquote><h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>首先看一段 <code>Breadcrumb.vue</code> 的实现代码。</p><pre><code class="lang-vue">&lt;template&gt;  &lt;div class=&quot;el-breadcrumb&quot; aria-label=&quot;Breadcrumb&quot; role=&quot;navigation&quot;&gt;    &lt;slot&gt;&lt;/slot&gt;  &lt;/div&gt;&lt;/template&gt;&lt;script&gt;  export default {    name: &#39;ElBreadcrumb&#39;,    props: {      separator: {        type: String,        default: &#39;/&#39;      },      separatorClass: {        type: String,        default: &#39;&#39;      }    },    provide() {      return {        elBreadcrumb: this      };    },    mounted() {      const items = this.$el.querySelectorAll(&#39;.el-breadcrumb__item&#39;);      if (items.length) {        items[items.length - 1].setAttribute(&#39;aria-current&#39;, &#39;page&#39;);      }    }  };&lt;/script&gt;</code></pre><p>这里，<code>Breadcrumb</code> 直接把自己的 <code>this</code> 暴露给下级组件，然后注入到 <code>BreadcrumbItem</code> 组件中，以达到向子孙组件传递信息的目的，下面就来总结一下 <code>Vue</code> 中 <code>provide/inject</code> 的用法。</p><h2 id="参数详解"><a href="#参数详解" class="headerlink" title="参数详解"></a>参数详解</h2><ul><li><code class="api-param-key">provide</code><code class="api-param-value">Object | () =&gt; Object</code></li><li><code class="api-param-key">inject</code><code class="api-param-value">Array<string>| { [key: string]: string | Symbol | Object }</string></code></li></ul><h2 id="详细介绍"><a href="#详细介绍" class="headerlink" title="详细介绍"></a>详细介绍</h2><ol><li><p>Vue 2.2.0 新增，主要为高阶插件/组件库跨级访问祖先组件数据的方法，并不推荐直接用于应用程序代码中。</p></li><li><p><code>provide</code> 和 <code>inject</code> 绑定并不是可响应的。然而，如果你传入了一个可监听的对象，那么其对象的属性还是可响应的。</p></li><li><p><code>Symbol</code> 作为 <code>key</code></p></li></ol><pre><code class="lang-vue">const s = Symbol()const Provider = {  provide () {    return {      [s]: &#39;foo&#39;    }  }}const Child = {  inject: { s },  // ...}</code></pre><ol><li><code>inject</code> 作为 <code>props</code> 或 <code>data</code> 默认值，只在 <code>^2.2.1</code> 有效，以下版本注入值会在初始化之后得到。</li></ol><pre><code class="lang-vue">const Child = {  inject: [&#39;foo&#39;],  data () {    return {      bar: this.foo    }  }}</code></pre><ol><li>参数化配置，只在 <code>^2.5.0</code> 有效</li></ol><pre><code class="lang-vue">// 设置默认值const Child = {  inject: {    foo: { default: &#39;foo&#39; }  }}// 工厂方法设置默认值const Child = {  inject: {    foo: {      from: &#39;bar&#39;,      default: () =&gt; [1, 2, 3]    }  }}// 从不同名字的属性注入const Child = {  inject: {    foo: {      from: &#39;bar&#39;,      default: &#39;foo&#39;    }  }}</code></pre><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol><li><a href="https://vuejs.bootcss.com/v2/api/#provide-inject" target="_blank" rel="noopener">Vue.js 中文文档</a></li><li><a href="https://github.com/ElemeFE/element/blob/dev/packages/breadcrumb/src/breadcrumb.vue" target="_blank" rel="noopener">Element 源码</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="技术研究" scheme="https://vincentstudio.info/categories/%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6/"/>
+    
+    
+      <category term="Vue" scheme="https://vincentstudio.info/tags/Vue/"/>
+    
+      <category term="FE" scheme="https://vincentstudio.info/tags/FE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo | hexo-all-minifier 资源压缩</title>
+    <link href="https://vincentstudio.info/2019/12/31/034_Usage_of_hexo-all-minifier_copy/"/>
+    <id>https://vincentstudio.info/2019/12/31/034_Usage_of_hexo-all-minifier_copy/</id>
     <published>2019-12-31T04:33:00.000Z</published>
-    <updated>2020-01-05T10:24:23.288Z</updated>
+    <updated>2020-01-13T14:04:13.394Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h2><p><a href="https://github.com/chenzhutian/hexo-all-minifier" target="_blank" rel="noopener">https://github.com/chenzhutian/hexo-all-minifier</a></p><h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><pre><code class="lang-bash">$ npm install hexo-all-minifier --save</code></pre><h3 id="简单配置"><a href="#简单配置" class="headerlink" title="简单配置"></a>简单配置</h3><p>在 _config.yml 里添加</p><pre><code class="lang-yml">all_minifier: true</code></pre><h3 id="全部配置"><a href="#全部配置" class="headerlink" title="全部配置"></a>全部配置</h3><p>详细说明见 <a href="https://github.com/chenzhutian/hexo-all-minifier/blob/master/README.md" target="_blank" rel="noopener">README</a></p><pre><code class="lang-yml">html_minifier:  enable: true  ignore_error: false  exclude:css_minifier:  enable: true  exclude:    - &#39;*.min.css&#39;js_minifier:  enable: true  mangle: true  compress:  exclude:    - &#39;*.min.js&#39;js_concator:  enable: false  bundle_path: &#39;/js/bundle.js&#39;  front: false  silent: falseimage_minifier:  enable: true  interlaced: false  multipass: false  optimizationLevel: 2  pngquant: false  progressive: false</code></pre><h2 id="源码学习"><a href="#源码学习" class="headerlink" title="源码学习"></a>源码学习</h2><pre><code class="lang-javascript">// /node_modules/hexo-all-minifier/index.jsconst isEnabled = process.env.NODE_ENV !== &#39;development&#39;  &amp;&amp; (hexo.config.hasOwnProperty(&#39;all_minifier&#39;) === false ||   hexo.config.all_minifier === true);if (isEnabled) {  // ...}</code></pre><blockquote><p>由于压缩处理时间较长，开发时热更频繁，所以这里判断了环境变量，开发环境不启用压缩，也是挺人性化的，所以我们的 npm 脚本可以写成这样 <code>&quot;dev&quot;: &quot;NODE_ENV=development hexo s&quot;</code></p></blockquote><pre><code class="lang-javascript">// /node_modules/hexo-all-minifier/index.jsif (isEnabled) {  // HTML minifier  hexo.config.html_minifier = Object.assign({    enable: true,    exclude: [],    ignoreCustomComments: [/^\s*more/],    removeComments: true,    removeCommentsFromCDATA: true,    collapseWhitespace: true,    collapseBooleanAttributes: true,    removeEmptyAttributes: true,    minifyJS: true,    minifyCSS: true,    silent: false  }, hexo.config.html_minifier);  // Css minifier  hexo.config.css_minifier = Object.assign({    enable: true,    exclude: [&#39;*.min.css&#39;],    silent: false  }, hexo.config.css_minifier);  // Js minifier  hexo.config.js_minifier = Object.assign({    enable: true,    mangle: true,    output: {},    compress: {},    exclude: [&#39;*.min.js&#39;],    silent: false  }, hexo.config.js_minifier);  // Image minifier  hexo.config.image_minifier = Object.assign({    enable: true,    interlaced: false,    multipass: false,    optimizationLevel: 3,    pngquant: false,    progressive: false,    silent: false  }, hexo.config.image_minifier);  // Js concator  hexo.config.js_concator = Object.assign({    enable: false,    bundle_path: &#39;js/bundle.js&#39;,    front: false,    silent: false  }, hexo.config.js_concator);  hexo.extend.filter.register(&#39;after_render:html&#39;, require(&#39;./lib/optimizeHTML&#39;));  hexo.extend.filter.register(&#39;after_render:css&#39;, require(&#39;./lib/optimizeCSS&#39;));  hexo.extend.filter.register(&#39;after_render:js&#39;, require(&#39;./lib/optimizeJS&#39;));  hexo.extend.filter.register(&#39;after_generate&#39;, require(&#39;./lib/optimizeImage&#39;));  hexo.extend.filter.register(&#39;after_generate&#39;, require(&#39;./lib/concatJS&#39;));}</code></pre><blockquote><p>这里初始化了一些默认的配置项，然后注册了一些渲染后钩子函数，处理函数在 <code>./lib</code> 文件夹下。</p><ul><li>optimizeHTML 依赖 <code>html-minifier</code></li><li>optimizeCSS 依赖 <code>clean-css</code></li><li>optimizeJS 依赖 <code>uglify-es</code></li><li>optimizeImage 依赖 <code>imagemin</code></li></ul></blockquote><h2 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h2><ol><li>图片压缩报错</li></ol><pre><code class="lang-bash"># Hint$ Error: spawn /.../node_modules/jpegtran-bin/vendor/jpegtran ENOENT# 解决方案# Reference: https://github.com/imagemin/imagemin/issues/154$ yarn add -D jpegtran-bin</code></pre>]]></content>
     
@@ -279,7 +306,7 @@
     <link href="https://vincentstudio.info/2019/04/10/024_Add_bandages_to_your_markdown/"/>
     <id>https://vincentstudio.info/2019/04/10/024_Add_bandages_to_your_markdown/</id>
     <published>2019-04-10T05:00:00.000Z</published>
-    <updated>2020-01-05T10:22:11.795Z</updated>
+    <updated>2020-01-07T16:16:47.303Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote><p>Do you know how to add these remarkable bandages to your markdown?</p></blockquote><p><embed src="https://img.shields.io/badge/version-v0.1.2-brightgreen.svg"><embed src="https://img.shields.io/badge/author-vincent-lightgrey.svg"><embed src="https://img.shields.io/badge/license-MIT-green.svg"><embed src="https://img.shields.io/badge/python-3.6%20%7C%203.7-blue.svg"></p><h2 id="Static"><a href="#Static" class="headerlink" title="Static"></a>Static</h2><p>You can easily create a bandage by the following code</p><pre><code class="lang-text">![](https://img.shields.io/badge/{label}-{message}-{color}.svg)&#39;&#39;&#39;Parameters:  label: string  message: string  color: optional    - &quot;brightgreen&quot;    - &quot;green&quot;    - &quot;yellowgreen&quot;    - &quot;yellow&quot;    - &quot;orange&quot;    - &quot;red&quot;    - &quot;lightgrey&quot;    - &quot;blue&quot;&#39;&#39;&#39;</code></pre><p>Here is the demo</p><pre><code class="lang-markdown">![](https://img.shields.io/badge/hello-vincent-orange.svg)</code></pre><embed src="https://img.shields.io/badge/hello-vincent-orange.svg"><h2 id="Advanced"><a href="#Advanced" class="headerlink" title="Advanced"></a>Advanced</h2><p>You can also optimise styles or create a dynamic bandage by json/xml/yaml endpoint. Here is the official tutorial.</p><p><a href="https://shields.io/" target="_blank" rel="noopener">https://shields.io/</a></p>]]></content>
     
@@ -506,31 +533,6 @@
     
     
       <category term="ML" scheme="https://vincentstudio.info/tags/ML/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo插件 | hexo-renderer-mathjax (展示数学公式)</title>
-    <link href="https://vincentstudio.info/2019/02/15/015_Render_math_formula_in_hexo/"/>
-    <id>https://vincentstudio.info/2019/02/15/015_Render_math_formula_in_hexo/</id>
-    <published>2019-02-15T07:30:00.000Z</published>
-    <updated>2020-01-05T10:22:11.789Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="Feature"><a href="#Feature" class="headerlink" title="Feature"></a>Feature</h2><script type="math/tex;mode=display">\begin{equation} \begin{array}{lll}\nabla\times E &=& -\;\frac{\partial{B}}{\partial{t}}\     \nabla\times H &=& \frac{\partial{D}}{\partial{t}}+J\     \nabla\cdot D &=& \rho\     \nabla\cdot B &=& 0\ \end{array}\end{equation}</script><h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><h3 id="Use-hexo-renderer-kramed"><a href="#Use-hexo-renderer-kramed" class="headerlink" title="Use hexo-renderer-kramed"></a>Use hexo-renderer-kramed</h3><pre><code class="lang-bash">$ npm uninstall hexo-renderer-marked --save$ npm install hexo-renderer-kramed --save</code></pre><h3 id="Insatll-mathjax"><a href="#Insatll-mathjax" class="headerlink" title="Insatll mathjax"></a>Insatll mathjax</h3><pre><code class="lang-bash">$ npm uninstall hexo-math --save$ npm install hexo-renderer-mathjax --save</code></pre><h3 id="Fix-mathjax-CDN"><a href="#Fix-mathjax-CDN" class="headerlink" title="Fix mathjax CDN"></a>Fix mathjax CDN</h3><p>edit /node_modules/hexo-renderer-mathjax/mathjax.html</p><pre><code class="lang-html">&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;&gt;&lt;/script&gt;</code></pre><h3 id="Fix-escape-bugs"><a href="#Fix-escape-bugs" class="headerlink" title="Fix escape bugs"></a>Fix escape bugs</h3><p>edit /node_modules/kramed/lib/rules/inline.js<br>find <code>escape</code> &amp; <code>em</code> regexp and change to</p><pre><code class="lang-text">escape: /^\\([`*\[\]()# +\-.!_&gt;])/,em: /^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</code></pre><h2 id="Enjoy-LaTeX"><a href="#Enjoy-LaTeX" class="headerlink" title="Enjoy LaTeX"></a>Enjoy LaTeX</h2><h3 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h3><pre><code>$$\left\{\begin{matrix}1 &amp; 2 &amp; 3 \\4 &amp; 5 &amp; 6 \\7 &amp; 8 &amp; 9\end{matrix}\right\}$$</code></pre><script type="math/tex;mode=display">\left\{\begin{matrix}1 & 2 & 3 \\4 & 5 & 6 \\7 & 8 & 9\end{matrix}\right\}</script>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-      <category term="工具使用" scheme="https://vincentstudio.info/categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/"/>
-    
-    
-      <category term="Hexo" scheme="https://vincentstudio.info/tags/Hexo/"/>
     
   </entry>
   
