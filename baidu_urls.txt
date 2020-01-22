@@ -1,3 +1,4 @@
+https://vincentstudio.info/2020/01/22/037_Usage_of_cookiecutter/
 https://vincentstudio.info/2020/01/14/036_Frontend_modular_ways/
 https://vincentstudio.info/2020/01/13/035_Usage_of_provide_and_inject_in_vue/
 https://vincentstudio.info/2019/12/31/034_Usage_of_hexo-all-minifier_copy/

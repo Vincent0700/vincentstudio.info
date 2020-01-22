@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>使用 cookiecutter 搭建起手模板</title>
+      <link href="/2020/01/22/037_Usage_of_cookiecutter/"/>
+      <url>/2020/01/22/037_Usage_of_cookiecutter/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote><p><code>cookiecutter</code> 是我之前在写 <code>flask</code> 项目时发现的一个项目构建工具，<a href="https://github.com/cookiecutter/cookiecutter" target="_blank" rel="noopener">传送门</a>。本来这是一个 <code>python</code> 项目的 <code>wizard</code> 工具，现想引入到 <code>js</code> 项目中来作为个人定制化起手模板的构建工具。工具本身使用起来也是非常简单，详细说明参考 <a href="https://s0cookiecutter0readthedocs0io.icopy.site/en/latest/usage.html" target="_blank" rel="noopener">官方文档</a>。</p></blockquote><h2 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h2><p>自己写了一个简单的 <code>Standard Js</code> 项目模板，<a href="https://github.com/Vincent0700/cookiecutter-js" target="_blank" rel="noopener">传送门</a>。</p><h3 id="Feature"><a href="#Feature" class="headerlink" title="Feature"></a>Feature</h3><ol><li>初始化基础配置文件</li><li>初始化 <code>eslint</code> + <code>prettier</code> 相关配置</li><li>初始化完毕后执行 <code>yarn install</code></li></ol><h3 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h3><ol><li>安装 <code>cookiecutter</code></li></ol><pre><code class="lang-bash">$ pip install cookiecutter</code></pre><ol><li>使用模板</li></ol><pre><code class="lang-bash">$ cookiecutter gh:vincent0700/cookiecutter-jsproject_name [project_name]: demoauthor [vincent0700 (https://vincentstudio.info)]:email [wang.yuanqiu007@gmail.com]:description [say somthing]: a demo project</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 工具使用 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Python </tag>
+            
+            <tag> FrontEnd </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>前端模块化方式总结</title>
       <link href="/2020/01/14/036_Frontend_modular_ways/"/>
       <url>/2020/01/14/036_Frontend_modular_ways/</url>
@@ -623,9 +650,9 @@
             
             <tag> Python </tag>
             
-            <tag> ML </tag>
-            
             <tag> TensorFlow </tag>
+            
+            <tag> ML </tag>
             
         </tags>
       
@@ -727,9 +754,9 @@
       
         <tags>
             
-            <tag> Shell </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> Shell </tag>
             
         </tags>
       
@@ -862,9 +889,9 @@
       
         <tags>
             
-            <tag> Shell </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> Shell </tag>
             
         </tags>
       
@@ -889,9 +916,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> RabbitMQ </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
