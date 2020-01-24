@@ -37,14 +37,14 @@
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/12/31/034_Usage_of_hexo-all-minifier_copy/</loc>
+    <loc>https://vincentstudio.info/2020/01/13/035_Usage_of_provide_and_inject_in_vue/</loc>
     
     <lastmod>2020-01-14T15:54:39.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2020/01/13/035_Usage_of_provide_and_inject_in_vue/</loc>
+    <loc>https://vincentstudio.info/2019/12/31/034_Usage_of_hexo-all-minifier_copy/</loc>
     
     <lastmod>2020-01-14T15:54:39.000Z</lastmod>
     
@@ -65,13 +65,6 @@
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2018/12/09/003_RabbitMQ_Installation/</loc>
-    
-    <lastmod>2020-01-05T10:22:11.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://vincentstudio.info/2018/12/04/002_How_to_use_pyenv_to_manage_multiple_python_versions/</loc>
     
     <lastmod>2020-01-05T10:22:11.000Z</lastmod>
@@ -79,7 +72,7 @@
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2018/12/21/004_Sourcelist_switcher/</loc>
+    <loc>https://vincentstudio.info/2018/12/09/003_RabbitMQ_Installation/</loc>
     
     <lastmod>2020-01-05T10:22:11.000Z</lastmod>
     
@@ -87,6 +80,13 @@
   
   <url>
     <loc>https://vincentstudio.info/2019/01/01/005_Docker_Installation/</loc>
+    
+    <lastmod>2020-01-05T10:22:11.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://vincentstudio.info/2018/12/21/004_Sourcelist_switcher/</loc>
     
     <lastmod>2020-01-05T10:22:11.000Z</lastmod>
     
@@ -149,13 +149,6 @@
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/02/14/014_Deep_Learning_Resources/</loc>
-    
-    <lastmod>2020-01-05T10:22:11.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://vincentstudio.info/2019/02/16/016_Logistic_Regression/</loc>
     
     <lastmod>2020-01-05T10:22:11.000Z</lastmod>
@@ -164,6 +157,13 @@
   
   <url>
     <loc>https://vincentstudio.info/2019/02/18/017_Gradient_Descent/</loc>
+    
+    <lastmod>2020-01-05T10:22:11.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://vincentstudio.info/2019/02/14/014_Deep_Learning_Resources/</loc>
     
     <lastmod>2020-01-05T10:22:11.000Z</lastmod>
     
