@@ -40,19 +40,19 @@
     <loc>https://vincentstudio.info/2018/12/04/002_How_to_use_pyenv_to_manage_multiple_python_versions/</loc>
     <lastmod>2020-01-05</lastmod>
   </url>  <url>
-    <loc>https://vincentstudio.info/2019/01/01/005_Docker_Installation/</loc>
+    <loc>https://vincentstudio.info/2018/12/09/003_RabbitMQ_Installation/</loc>
     <lastmod>2020-01-05</lastmod>
   </url>  <url>
     <loc>https://vincentstudio.info/2018/12/21/004_Sourcelist_switcher/</loc>
     <lastmod>2020-01-05</lastmod>
   </url>  <url>
-    <loc>https://vincentstudio.info/2018/12/09/003_RabbitMQ_Installation/</loc>
-    <lastmod>2020-01-05</lastmod>
-  </url>  <url>
-    <loc>https://vincentstudio.info/2019/01/07/006_Reverse_Proxy_Tools_-_frp/</loc>
+    <loc>https://vincentstudio.info/2019/01/01/005_Docker_Installation/</loc>
     <lastmod>2020-01-05</lastmod>
   </url>  <url>
     <loc>https://vincentstudio.info/2019/02/01/007_Second-mover_advantage/</loc>
+    <lastmod>2020-01-05</lastmod>
+  </url>  <url>
+    <loc>https://vincentstudio.info/2019/01/07/006_Reverse_Proxy_Tools_-_frp/</loc>
     <lastmod>2020-01-05</lastmod>
   </url>  <url>
     <loc>https://vincentstudio.info/2019/02/03/009_How_to_add_or_remove_swap_space/</loc>
@@ -82,10 +82,10 @@
     <loc>https://vincentstudio.info/2019/02/22/019_Curl_CheatSheet/</loc>
     <lastmod>2020-01-05</lastmod>
   </url>  <url>
-    <loc>https://vincentstudio.info/2019/03/04/021_Deploy_dnsmasq_with_docker/</loc>
+    <loc>https://vincentstudio.info/2019/02/24/020_Get_Free_SSL_Certificates/</loc>
     <lastmod>2020-01-05</lastmod>
   </url>  <url>
-    <loc>https://vincentstudio.info/2019/02/24/020_Get_Free_SSL_Certificates/</loc>
+    <loc>https://vincentstudio.info/2019/03/04/021_Deploy_dnsmasq_with_docker/</loc>
     <lastmod>2020-01-05</lastmod>
   </url>  <url>
     <loc>https://vincentstudio.info/2019/03/11/022_Install_and_upgrade_Jenkins_with_Docker/</loc>
