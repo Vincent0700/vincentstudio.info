@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://vincentstudio.info/"/>
-  <updated>2020-01-23T03:17:15.527Z</updated>
+  <updated>2020-01-29T13:01:48.812Z</updated>
   <id>https://vincentstudio.info/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>BRM - Homebrew 仓库管理工具</title>
+    <link href="https://vincentstudio.info/2020/01/29/038_Homebrew_registry_manager/"/>
+    <id>https://vincentstudio.info/2020/01/29/038_Homebrew_registry_manager/</id>
+    <published>2020-01-29T12:20:00.000Z</published>
+    <updated>2020-01-29T13:01:48.812Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote><p><code>brm</code> 是 <code>macOS</code> 包管理器 <code>Homebrew</code> 的仓库管理工具，它可以检测距你延迟最低的镜像站并快速切换，目前支持官方(<code>github</code>)源、清华源、阿里源、中科大源.</p></blockquote><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><pre><code class="lang-bash">$ npm install -g homebrew-brm</code></pre><p>Or</p><pre><code>$ yarn global add homebrew-brm</code></pre><h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><pre><code>$ brm -hUsage: brm [options] [command]Homebrew registry manager for macOSOptions:  -V, --version    output the version number  -h, --help       output usage informationCommands:  ls               List all the registries  current          Show current registry and URL  use &lt;registry&gt;   Change homebrew registry  test [registry]  Show response time for specific or all registries</code></pre><h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><h3 id="展示可用的仓库列表"><a href="#展示可用的仓库列表" class="headerlink" title="展示可用的仓库列表"></a>展示可用的仓库列表</h3><img src="/images/loading.gif" data-original="/2020/01/29/038_Homebrew_registry_manager/list.jpg"><h3 id="设置仓库"><a href="#设置仓库" class="headerlink" title="设置仓库"></a>设置仓库</h3><img src="/images/loading.gif" data-original="/2020/01/29/038_Homebrew_registry_manager/use.jpg"><h3 id="展示当前使用的仓库信息"><a href="#展示当前使用的仓库信息" class="headerlink" title="展示当前使用的仓库信息"></a>展示当前使用的仓库信息</h3><img src="/images/loading.gif" data-original="/2020/01/29/038_Homebrew_registry_manager/current.jpg"><h3 id="自动安装环境依赖-homebrew-git"><a href="#自动安装环境依赖-homebrew-git" class="headerlink" title="自动安装环境依赖 (homebrew, git)"></a>自动安装环境依赖 (homebrew, git)</h3><img src="/images/loading.gif" data-original="/2020/01/29/038_Homebrew_registry_manager/auto_install.jpg"><h3 id="测试镜像站速度，延迟从小到大排序"><a href="#测试镜像站速度，延迟从小到大排序" class="headerlink" title="测试镜像站速度，延迟从小到大排序"></a>测试镜像站速度，延迟从小到大排序</h3><img src="/images/loading.gif" data-original="/2020/01/29/038_Homebrew_registry_manager/speed.jpg"><h2 id="仓库地址"><a href="#仓库地址" class="headerlink" title="仓库地址"></a>仓库地址</h2><p><a href="https://github.com/Vincent0700/homebrew-brm" target="_blank" rel="noopener">https://github.com/Vincent0700/homebrew-brm</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="工具使用" scheme="https://vincentstudio.info/categories/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/"/>
+    
+    
+      <category term="Shell" scheme="https://vincentstudio.info/tags/Shell/"/>
+    
+      <category term="Javascript" scheme="https://vincentstudio.info/tags/Javascript/"/>
+    
+  </entry>
   
   <entry>
     <title>使用 cookiecutter 搭建起手模板</title>
@@ -512,33 +539,6 @@
     
     
       <category term="Shell" scheme="https://vincentstudio.info/tags/Shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Configure system proxy by privoxy + gfwlist</title>
-    <link href="https://vincentstudio.info/2019/02/20/018_Configure_system_proxy_by_privoxy_and_gfwlist/"/>
-    <id>https://vincentstudio.info/2019/02/20/018_Configure_system_proxy_by_privoxy_and_gfwlist/</id>
-    <published>2019-02-20T12:30:00.000Z</published>
-    <updated>2020-01-05T10:22:11.000Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="Configure-Privoxy"><a href="#Configure-Privoxy" class="headerlink" title="Configure Privoxy"></a>Configure Privoxy</h2><p>OS: Ubuntu 16.04</p><h3 id="Install-privoxy"><a href="#Install-privoxy" class="headerlink" title="Install privoxy"></a>Install privoxy</h3><pre><code class="lang-bash">$ sudo apt-get install privoxy</code></pre><h3 id="Convert-gfwlist-to-privoxy-action-file"><a href="#Convert-gfwlist-to-privoxy-action-file" class="headerlink" title="Convert gfwlist to privoxy action file"></a>Convert gfwlist to privoxy action file</h3><pre><code class="lang-bash">$ curl -skL https://raw.github.com/zfl9/gfwlist2privoxy/master/gfwlist2privoxy -o gfwlist2privoxy$ sudo bash gfwlist2privoxy &#39;127.0.0.1:1080&#39; # sslocal port$ sudo cp -af gfwlist.action /etc/privoxy/</code></pre><p>edit /etc/privoxy/config, add following lines</p><pre><code class="lang-bash">listen-address 127.0.0.1:8118 # expose http proxy portactionsfile /etc/privoxy/gfwlist.action # gfwlist</code></pre><h3 id="Restart-privoxy-service"><a href="#Restart-privoxy-service" class="headerlink" title="Restart privoxy service"></a>Restart privoxy service</h3><pre><code class="lang-bash">$ sudo service privoxy restart</code></pre><h2 id="Set-system-proxy"><a href="#Set-system-proxy" class="headerlink" title="Set system proxy"></a>Set system proxy</h2><p>edit /etc/environment, add following lines</p><pre><code class="lang-bash">export http_proxy=&quot;http://127.0.0.1:8118&quot;export https_proxy=&quot;http://127.0.0.1:8118&quot;export no_proxy=&quot;localhost, 127.0.0.1, ::1, ip.cn&quot;</code></pre><h2 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h2><pre><code class="lang-bash">$ curl -4skL https://www.google.com$ curl -4skL https://www.baidu.com</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-      <category term="解决方案" scheme="https://vincentstudio.info/categories/%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
-    
-    
-      <category term="Linux" scheme="https://vincentstudio.info/tags/Linux/"/>
-    
-      <category term="ReverseProxy" scheme="https://vincentstudio.info/tags/ReverseProxy/"/>
     
   </entry>
   

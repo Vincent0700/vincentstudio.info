@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://vincentstudio.info/2020/01/29/038_Homebrew_registry_manager/</loc>
+    
+    <lastmod>2020-01-29T13:01:48.812Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://vincentstudio.info/2019/12/31/034_Usage_of_hexo-all-minifier_copy/</loc>
     
     <lastmod>2020-01-25T16:33:36.623Z</lastmod>
@@ -142,13 +149,6 @@
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/02/09/013_TensorFlow_Installation/</loc>
-    
-    <lastmod>2020-01-05T10:22:11.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://vincentstudio.info/2019/02/14/014_Deep_Learning_Resources/</loc>
     
     <lastmod>2020-01-05T10:22:11.000Z</lastmod>
@@ -156,7 +156,7 @@
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/02/18/017_Gradient_Descent/</loc>
+    <loc>https://vincentstudio.info/2019/02/09/013_TensorFlow_Installation/</loc>
     
     <lastmod>2020-01-05T10:22:11.000Z</lastmod>
     
@@ -164,6 +164,13 @@
   
   <url>
     <loc>https://vincentstudio.info/2019/02/16/016_Logistic_Regression/</loc>
+    
+    <lastmod>2020-01-05T10:22:11.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://vincentstudio.info/2019/02/18/017_Gradient_Descent/</loc>
     
     <lastmod>2020-01-05T10:22:11.000Z</lastmod>
     
@@ -184,14 +191,14 @@
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/02/24/020_Get_Free_SSL_Certificates/</loc>
+    <loc>https://vincentstudio.info/2019/03/04/021_Deploy_dnsmasq_with_docker/</loc>
     
     <lastmod>2020-01-05T10:22:11.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/03/04/021_Deploy_dnsmasq_with_docker/</loc>
+    <loc>https://vincentstudio.info/2019/02/24/020_Get_Free_SSL_Certificates/</loc>
     
     <lastmod>2020-01-05T10:22:11.000Z</lastmod>
     
@@ -226,6 +233,13 @@
   </url>
   
   <url>
+    <loc>https://vincentstudio.info/2019/05/02/027_A_list_of_Open_Source_NAS_Operating_System/</loc>
+    
+    <lastmod>2020-01-05T10:22:11.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://vincentstudio.info/2019/05/03/028_How_to_Fake_a_GPS_Location_on_IOS/</loc>
     
     <lastmod>2020-01-05T10:22:11.000Z</lastmod>
@@ -248,13 +262,6 @@
   
   <url>
     <loc>https://vincentstudio.info/2019/06/16/033_Port_Forwarding_Tutorial/</loc>
-    
-    <lastmod>2020-01-05T10:22:11.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://vincentstudio.info/2019/05/02/027_A_list_of_Open_Source_NAS_Operating_System/</loc>
     
     <lastmod>2020-01-05T10:22:11.000Z</lastmod>
     
