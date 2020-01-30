@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://vincentstudio.info/2019/01/07/006_Reverse_Proxy_Tools_-_frp/</loc>
+    
+    <lastmod>2020-01-30T09:39:42.996Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://vincentstudio.info/2019/02/20/018_Configure_system_proxy_by_privoxy_and_gfwlist/</loc>
+    
+    <lastmod>2020-01-30T09:39:35.254Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://vincentstudio.info/2019/02/09/013_TensorFlow_Installation/</loc>
+    
+    <lastmod>2020-01-30T09:39:10.953Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://vincentstudio.info/2019/03/11/022_Install_and_upgrade_Jenkins_with_Docker/</loc>
     
     <lastmod>2020-01-30T09:32:14.574Z</lastmod>
@@ -65,13 +86,6 @@
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/01/07/006_Reverse_Proxy_Tools_-_frp/</loc>
-    
-    <lastmod>2020-01-30T08:31:10.925Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://vincentstudio.info/2019/02/15/015_Render_math_formula_in_hexo/</loc>
     
     <lastmod>2020-01-30T08:31:10.925Z</lastmod>
@@ -114,14 +128,14 @@
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2020/01/29/038_Homebrew_registry_manager/</loc>
+    <loc>https://vincentstudio.info/2019/12/31/034_Usage_of_hexo-all-minifier_copy/</loc>
     
     <lastmod>2020-01-30T08:31:10.925Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/12/31/034_Usage_of_hexo-all-minifier_copy/</loc>
+    <loc>https://vincentstudio.info/2020/01/29/038_Homebrew_registry_manager/</loc>
     
     <lastmod>2020-01-30T08:31:10.925Z</lastmod>
     
@@ -212,13 +226,6 @@
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/02/09/013_TensorFlow_Installation/</loc>
-    
-    <lastmod>2020-01-30T08:29:43.725Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://vincentstudio.info/2019/04/10/024_Add_bandages_to_your_markdown/</loc>
     
     <lastmod>2020-01-30T08:29:43.725Z</lastmod>
@@ -248,13 +255,6 @@
   
   <url>
     <loc>https://vincentstudio.info/2019/02/08/012_Use_Qt5Agg_GUI_backend_for_matplotlib_on_MacOS/</loc>
-    
-    <lastmod>2020-01-30T08:28:58.498Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://vincentstudio.info/2019/02/20/018_Configure_system_proxy_by_privoxy_and_gfwlist/</loc>
     
     <lastmod>2020-01-30T08:28:58.498Z</lastmod>
     

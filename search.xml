@@ -571,7 +571,7 @@
             
             <tag> Linux </tag>
             
-            <tag> ReverseProxy </tag>
+            <tag> Proxy </tag>
             
         </tags>
       
@@ -804,9 +804,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> Shell </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
@@ -887,9 +887,7 @@
             
             <tag> Linux </tag>
             
-            <tag> ReverseProxy </tag>
-            
-            <tag> Network </tag>
+            <tag> Proxy </tag>
             
         </tags>
       
@@ -939,9 +937,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> Shell </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
@@ -966,9 +964,9 @@
       
         <tags>
             
-            <tag> RabbitMQ </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> RabbitMQ </tag>
             
         </tags>
       
