@@ -464,7 +464,7 @@
     <link href="https://vincentstudio.info/2019/03/11/022_Install_and_upgrade_Jenkins_with_Docker/"/>
     <id>https://vincentstudio.info/2019/03/11/022_Install_and_upgrade_Jenkins_with_Docker/</id>
     <published>2019-03-11T07:00:00.000Z</published>
-    <updated>2020-01-30T08:29:43.762Z</updated>
+    <updated>2020-01-30T09:32:14.574Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><pre><code class="lang-bash">$ docker pull jenkins$ docker run -d -p 8080:8080 -p 50000:50000 --name jenkins --restart=always jenkins</code></pre><h2 id="Upgrade"><a href="#Upgrade" class="headerlink" title="Upgrade"></a>Upgrade</h2><pre><code class="lang-bash"># check version$ docker exec -it jenkins java -jar /usr/share/jenkins/jenkins.war --version# download latest jenkins.war from http://updates.jenkins-ci.org/download/war/$ wget http://updates.jenkins-ci.org/download/war/2.167/jenkins.war# replace file$ sudo docker cp jenkins.war jenkins:/usr/share/jenkins/</code></pre><h2 id="Change-Context-to-jenkins"><a href="#Change-Context-to-jenkins" class="headerlink" title="Change Context to /jenkins"></a>Change Context to /jenkins</h2><pre><code class="lang-bash"># edit /usr/local/bin/jenkins.sh# find line &quot;java -jar ...&quot; and replace: java -jar /usr/share/jenkins/jenkins.war --prefix=/jenkins</code></pre><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] <a href="https://mohitgoyal.co/2017/02/15/upgrade-jenkins-server-to-a-new-version/" target="_blank" rel="noopener">Upgrade Jenkins server to a new version</a></p>]]></content>
     
@@ -483,8 +483,6 @@
       <category term="Docker" scheme="https://vincentstudio.info/tags/Docker/"/>
     
       <category term="Jenkins" scheme="https://vincentstudio.info/tags/Jenkins/"/>
-    
-      <category term="CI/CD" scheme="https://vincentstudio.info/tags/CI-CD/"/>
     
   </entry>
   

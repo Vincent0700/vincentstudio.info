@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://vincentstudio.info/2019/03/11/022_Install_and_upgrade_Jenkins_with_Docker/</loc>
+    
+    <lastmod>2020-01-30T09:32:14.574Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://vincentstudio.info/2019/02/01/007_Second-mover_advantage/</loc>
     
     <lastmod>2020-01-30T08:31:57.724Z</lastmod>
@@ -107,14 +114,14 @@
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/12/31/034_Usage_of_hexo-all-minifier_copy/</loc>
+    <loc>https://vincentstudio.info/2020/01/29/038_Homebrew_registry_manager/</loc>
     
     <lastmod>2020-01-30T08:31:10.925Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2020/01/29/038_Homebrew_registry_manager/</loc>
+    <loc>https://vincentstudio.info/2019/12/31/034_Usage_of_hexo-all-minifier_copy/</loc>
     
     <lastmod>2020-01-30T08:31:10.925Z</lastmod>
     
@@ -150,13 +157,6 @@
   
   <url>
     <loc>https://vincentstudio.info/2019/03/04/021_Deploy_dnsmasq_with_docker/</loc>
-    
-    <lastmod>2020-01-30T08:29:43.762Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://vincentstudio.info/2019/03/11/022_Install_and_upgrade_Jenkins_with_Docker/</loc>
     
     <lastmod>2020-01-30T08:29:43.762Z</lastmod>
     
@@ -226,14 +226,14 @@
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/05/19/030_How_to_Hide_Linux_Process/</loc>
+    <loc>https://vincentstudio.info/2019/05/15/029_WAV_Format_Parsing/</loc>
     
     <lastmod>2020-01-30T08:29:43.725Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/05/15/029_WAV_Format_Parsing/</loc>
+    <loc>https://vincentstudio.info/2019/05/19/030_How_to_Hide_Linux_Process/</loc>
     
     <lastmod>2020-01-30T08:29:43.725Z</lastmod>
     
@@ -289,14 +289,14 @@
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/tags/index.html</loc>
+    <loc>https://vincentstudio.info/search/index.html</loc>
     
     <lastmod>2020-01-05T10:22:11.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/search/index.html</loc>
+    <loc>https://vincentstudio.info/tags/index.html</loc>
     
     <lastmod>2020-01-05T10:22:11.000Z</lastmod>
     
