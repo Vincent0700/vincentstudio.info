@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://vincentstudio.info/2020/01/30/039_Survivorship_bias/</loc>
+    <lastmod>2020-01-30</lastmod>
+  </url>  <url>
+    <loc>https://vincentstudio.info/2019/02/01/007_Second-mover_advantage/</loc>
+    <lastmod>2020-01-30</lastmod>
+  </url>  <url>
     <loc>https://vincentstudio.info/2020/01/29/038_Homebrew_registry_manager/</loc>
     <lastmod>2020-01-29</lastmod>
   </url>  <url>
@@ -49,9 +55,6 @@
     <loc>https://vincentstudio.info/2019/01/01/005_Docker_Installation/</loc>
     <lastmod>2020-01-05</lastmod>
   </url>  <url>
-    <loc>https://vincentstudio.info/2019/02/01/007_Second-mover_advantage/</loc>
-    <lastmod>2020-01-05</lastmod>
-  </url>  <url>
     <loc>https://vincentstudio.info/2019/01/07/006_Reverse_Proxy_Tools_-_frp/</loc>
     <lastmod>2020-01-05</lastmod>
   </url>  <url>
@@ -61,10 +64,10 @@
     <loc>https://vincentstudio.info/2019/02/03/010_Zabbix_4.0_single_node_configuration/</loc>
     <lastmod>2020-01-05</lastmod>
   </url>  <url>
-    <loc>https://vincentstudio.info/2019/02/08/012_Use_Qt5Agg_GUI_backend_for_matplotlib_on_MacOS/</loc>
+    <loc>https://vincentstudio.info/2019/02/09/013_TensorFlow_Installation/</loc>
     <lastmod>2020-01-05</lastmod>
   </url>  <url>
-    <loc>https://vincentstudio.info/2019/02/09/013_TensorFlow_Installation/</loc>
+    <loc>https://vincentstudio.info/2019/02/08/012_Use_Qt5Agg_GUI_backend_for_matplotlib_on_MacOS/</loc>
     <lastmod>2020-01-05</lastmod>
   </url>  <url>
     <loc>https://vincentstudio.info/2019/02/14/014_Deep_Learning_Resources/</loc>
@@ -73,13 +76,7 @@
     <loc>https://vincentstudio.info/2019/02/16/016_Logistic_Regression/</loc>
     <lastmod>2020-01-05</lastmod>
   </url>  <url>
-    <loc>https://vincentstudio.info/2019/02/18/017_Gradient_Descent/</loc>
-    <lastmod>2020-01-05</lastmod>
-  </url>  <url>
     <loc>https://vincentstudio.info/2019/02/20/018_Configure_system_proxy_by_privoxy_and_gfwlist/</loc>
-    <lastmod>2020-01-05</lastmod>
-  </url>  <url>
-    <loc>https://vincentstudio.info/2019/02/22/019_Curl_CheatSheet/</loc>
     <lastmod>2020-01-05</lastmod>
   </url>  <url>
     <loc>https://vincentstudio.info/2019/02/24/020_Get_Free_SSL_Certificates/</loc>
@@ -88,19 +85,25 @@
     <loc>https://vincentstudio.info/2019/03/04/021_Deploy_dnsmasq_with_docker/</loc>
     <lastmod>2020-01-05</lastmod>
   </url>  <url>
-    <loc>https://vincentstudio.info/2019/03/11/022_Install_and_upgrade_Jenkins_with_Docker/</loc>
+    <loc>https://vincentstudio.info/2019/02/22/019_Curl_CheatSheet/</loc>
     <lastmod>2020-01-05</lastmod>
   </url>  <url>
     <loc>https://vincentstudio.info/2019/04/03/023_Deploy_a_minecraft_server_using_forge/</loc>
     <lastmod>2020-01-05</lastmod>
   </url>  <url>
+    <loc>https://vincentstudio.info/2019/03/11/022_Install_and_upgrade_Jenkins_with_Docker/</loc>
+    <lastmod>2020-01-05</lastmod>
+  </url>  <url>
+    <loc>https://vincentstudio.info/2019/02/18/017_Gradient_Descent/</loc>
+    <lastmod>2020-01-05</lastmod>
+  </url>  <url>
     <loc>https://vincentstudio.info/2019/04/13/025_Pipenv_Tutorial/</loc>
     <lastmod>2020-01-05</lastmod>
   </url>  <url>
-    <loc>https://vincentstudio.info/2019/04/24/026_Use_Nameko_and_RabbitMQ_to_establish_your_Microservices/</loc>
+    <loc>https://vincentstudio.info/2019/05/02/027_A_list_of_Open_Source_NAS_Operating_System/</loc>
     <lastmod>2020-01-05</lastmod>
   </url>  <url>
-    <loc>https://vincentstudio.info/2019/05/02/027_A_list_of_Open_Source_NAS_Operating_System/</loc>
+    <loc>https://vincentstudio.info/2019/04/24/026_Use_Nameko_and_RabbitMQ_to_establish_your_Microservices/</loc>
     <lastmod>2020-01-05</lastmod>
   </url>  <url>
     <loc>https://vincentstudio.info/2019/05/03/028_How_to_Fake_a_GPS_Location_on_IOS/</loc>
