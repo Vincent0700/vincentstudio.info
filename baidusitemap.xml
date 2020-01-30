@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://vincentstudio.info/2020/01/29/038_Homebrew_registry_manager/</loc>
+    <lastmod>2020-01-30</lastmod>
+  </url>  <url>
     <loc>https://vincentstudio.info/2019/01/07/006_Reverse_Proxy_Tools_-_frp/</loc>
     <lastmod>2020-01-30</lastmod>
   </url>  <url>
@@ -58,9 +61,6 @@
     <loc>https://vincentstudio.info/2019/12/31/034_Usage_of_hexo-all-minifier_copy/</loc>
     <lastmod>2020-01-30</lastmod>
   </url>  <url>
-    <loc>https://vincentstudio.info/2020/01/29/038_Homebrew_registry_manager/</loc>
-    <lastmod>2020-01-30</lastmod>
-  </url>  <url>
     <loc>https://vincentstudio.info/2019/05/03/028_How_to_Fake_a_GPS_Location_on_IOS/</loc>
     <lastmod>2020-01-30</lastmod>
   </url>  <url>
@@ -91,10 +91,10 @@
     <loc>https://vincentstudio.info/2019/01/01/005_Docker_Installation/</loc>
     <lastmod>2020-01-30</lastmod>
   </url>  <url>
-    <loc>https://vincentstudio.info/2019/02/03/009_How_to_add_or_remove_swap_space/</loc>
+    <loc>https://vincentstudio.info/2019/02/06/011_OLED_SH1106_Tutorial/</loc>
     <lastmod>2020-01-30</lastmod>
   </url>  <url>
-    <loc>https://vincentstudio.info/2019/02/06/011_OLED_SH1106_Tutorial/</loc>
+    <loc>https://vincentstudio.info/2019/02/03/009_How_to_add_or_remove_swap_space/</loc>
     <lastmod>2020-01-30</lastmod>
   </url>  <url>
     <loc>https://vincentstudio.info/2019/04/10/024_Add_bandages_to_your_markdown/</loc>

@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://vincentstudio.info/2020/01/29/038_Homebrew_registry_manager/</loc>
+    
+    <lastmod>2020-01-30T14:23:54.051Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://vincentstudio.info/2019/01/07/006_Reverse_Proxy_Tools_-_frp/</loc>
     
     <lastmod>2020-01-30T09:39:42.996Z</lastmod>
@@ -135,13 +142,6 @@
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2020/01/29/038_Homebrew_registry_manager/</loc>
-    
-    <lastmod>2020-01-30T08:31:10.925Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://vincentstudio.info/2019/05/03/028_How_to_Fake_a_GPS_Location_on_IOS/</loc>
     
     <lastmod>2020-01-30T08:29:43.763Z</lastmod>
@@ -212,14 +212,14 @@
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/02/03/009_How_to_add_or_remove_swap_space/</loc>
+    <loc>https://vincentstudio.info/2019/02/06/011_OLED_SH1106_Tutorial/</loc>
     
     <lastmod>2020-01-30T08:29:43.725Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/02/06/011_OLED_SH1106_Tutorial/</loc>
+    <loc>https://vincentstudio.info/2019/02/03/009_How_to_add_or_remove_swap_space/</loc>
     
     <lastmod>2020-01-30T08:29:43.725Z</lastmod>
     
@@ -282,14 +282,14 @@
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/links/index.html</loc>
+    <loc>https://vincentstudio.info/search/index.html</loc>
     
     <lastmod>2020-01-05T10:22:11.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/search/index.html</loc>
+    <loc>https://vincentstudio.info/links/index.html</loc>
     
     <lastmod>2020-01-05T10:22:11.000Z</lastmod>
     
