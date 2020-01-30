@@ -4,7 +4,7 @@
   <url>
     <loc>https://vincentstudio.info/2020/01/30/039_Survivorship_bias/</loc>
     
-    <lastmod>2020-01-30T01:20:42.715Z</lastmod>
+    <lastmod>2020-01-30T01:23:59.062Z</lastmod>
     
   </url>
   
@@ -65,14 +65,14 @@
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/05/19/030_How_to_Hide_Linux_Process/</loc>
+    <loc>https://vincentstudio.info/2019/05/24/031_Driftnet_Tutorial/</loc>
     
     <lastmod>2020-01-14T15:54:39.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/05/24/031_Driftnet_Tutorial/</loc>
+    <loc>https://vincentstudio.info/2019/05/19/030_How_to_Hide_Linux_Process/</loc>
     
     <lastmod>2020-01-14T15:54:39.000Z</lastmod>
     
@@ -149,14 +149,14 @@
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/02/09/013_TensorFlow_Installation/</loc>
+    <loc>https://vincentstudio.info/2019/02/08/012_Use_Qt5Agg_GUI_backend_for_matplotlib_on_MacOS/</loc>
     
     <lastmod>2020-01-05T10:22:11.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/02/08/012_Use_Qt5Agg_GUI_backend_for_matplotlib_on_MacOS/</loc>
+    <loc>https://vincentstudio.info/2019/02/09/013_TensorFlow_Installation/</loc>
     
     <lastmod>2020-01-05T10:22:11.000Z</lastmod>
     
@@ -177,7 +177,21 @@
   </url>
   
   <url>
+    <loc>https://vincentstudio.info/2019/02/18/017_Gradient_Descent/</loc>
+    
+    <lastmod>2020-01-05T10:22:11.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://vincentstudio.info/2019/02/20/018_Configure_system_proxy_by_privoxy_and_gfwlist/</loc>
+    
+    <lastmod>2020-01-05T10:22:11.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://vincentstudio.info/2019/02/22/019_Curl_CheatSheet/</loc>
     
     <lastmod>2020-01-05T10:22:11.000Z</lastmod>
     
@@ -198,7 +212,7 @@
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/02/22/019_Curl_CheatSheet/</loc>
+    <loc>https://vincentstudio.info/2019/03/11/022_Install_and_upgrade_Jenkins_with_Docker/</loc>
     
     <lastmod>2020-01-05T10:22:11.000Z</lastmod>
     
@@ -212,20 +226,6 @@
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/03/11/022_Install_and_upgrade_Jenkins_with_Docker/</loc>
-    
-    <lastmod>2020-01-05T10:22:11.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://vincentstudio.info/2019/02/18/017_Gradient_Descent/</loc>
-    
-    <lastmod>2020-01-05T10:22:11.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://vincentstudio.info/2019/04/13/025_Pipenv_Tutorial/</loc>
     
     <lastmod>2020-01-05T10:22:11.000Z</lastmod>
@@ -233,14 +233,14 @@
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/05/02/027_A_list_of_Open_Source_NAS_Operating_System/</loc>
+    <loc>https://vincentstudio.info/2019/04/24/026_Use_Nameko_and_RabbitMQ_to_establish_your_Microservices/</loc>
     
     <lastmod>2020-01-05T10:22:11.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/04/24/026_Use_Nameko_and_RabbitMQ_to_establish_your_Microservices/</loc>
+    <loc>https://vincentstudio.info/2019/05/02/027_A_list_of_Open_Source_NAS_Operating_System/</loc>
     
     <lastmod>2020-01-05T10:22:11.000Z</lastmod>
     
@@ -261,13 +261,6 @@
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/06/15/032_OSX_Cracked_Software_Resources/</loc>
-    
-    <lastmod>2020-01-05T10:22:11.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://vincentstudio.info/2019/06/16/033_Port_Forwarding_Tutorial/</loc>
     
     <lastmod>2020-01-05T10:22:11.000Z</lastmod>
@@ -275,7 +268,7 @@
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/categories/index.html</loc>
+    <loc>https://vincentstudio.info/2019/06/15/032_OSX_Cracked_Software_Resources/</loc>
     
     <lastmod>2020-01-05T10:22:11.000Z</lastmod>
     
@@ -289,7 +282,7 @@
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/search/index.html</loc>
+    <loc>https://vincentstudio.info/categories/index.html</loc>
     
     <lastmod>2020-01-05T10:22:11.000Z</lastmod>
     
@@ -297,6 +290,13 @@
   
   <url>
     <loc>https://vincentstudio.info/tags/index.html</loc>
+    
+    <lastmod>2020-01-05T10:22:11.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://vincentstudio.info/search/index.html</loc>
     
     <lastmod>2020-01-05T10:22:11.000Z</lastmod>
     
