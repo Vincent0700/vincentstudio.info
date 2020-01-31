@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://vincentstudio.info/"/>
-  <updated>2020-01-31T03:18:02.515Z</updated>
+  <updated>2020-01-31T06:23:11.421Z</updated>
   <id>https://vincentstudio.info/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>如何优雅地录屏命令行程序 | asciinema</title>
+    <title>Shell录屏工具 asciinema 介绍</title>
     <link href="https://vincentstudio.info/2020/01/31/040_How_to_record_the_screen_of_terminal/"/>
     <id>https://vincentstudio.info/2020/01/31/040_How_to_record_the_screen_of_terminal/</id>
     <published>2020-01-31T03:15:00.000Z</published>
-    <updated>2020-01-31T03:18:02.515Z</updated>
+    <updated>2020-01-31T06:23:11.421Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><img src="/images/loading.gif" data-original="/2020/01/31/040_How_to_record_the_screen_of_terminal/demo.gif"><h2 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h2><ul><li><a href="https://github.com/asciinema/asciinema" target="_blank" rel="noopener"><code>asciinema</code></a> 录屏工具，输出 <code>json</code></li><li><a href="https://github.com/asciinema/asciicast2gif" target="_blank" rel="noopener"><code>asciicast2gif</code></a> 格式转换工具 <code>json</code> 转 <code>gif</code></li></ul><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="asciinema-录屏工具"><a href="#asciinema-录屏工具" class="headerlink" title="asciinema 录屏工具"></a><code>asciinema</code> 录屏工具</h3><pre><code>$ brew install asciinema</code></pre><h3 id="asciicast2gif-格式转换工具"><a href="#asciicast2gif-格式转换工具" class="headerlink" title="asciicast2gif 格式转换工具"></a><code>asciicast2gif</code> 格式转换工具</h3><ul><li><a href="https://repo.huaweicloud.com/java/jdk/8u192-b12/jdk-8u192-macosx-x64.dmg" target="_blank" rel="noopener">jdk 下载安装</a></li></ul><pre><code># 安装依赖$ brew install ImageMagick gifsicle leiningen# 下载源码$ git clone --recursive https://github.com/asciinema/asciicast2gif.git# 安装依赖$ cd asciicast2gif &amp;&amp; npm i# 编译得到 ./asciicast2gif$ lein cljsbuild once main &amp;&amp; lein cljsbuild once page # 添加环境变量 (替换 /path/to/)$ export PATH=&quot;$PATH:/path/to/asciicast2gif&quot;</code></pre><h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><h3 id="录屏输出-json"><a href="#录屏输出-json" class="headerlink" title="录屏输出 json"></a>录屏输出 json</h3><pre><code class="lang-bash"># 开始录屏$ asciinema rec# asciinema: recording asciicast to tmpj6mmcek_-ascii.cast# asciinema: press &lt;ctrl-d&gt; or type &quot;exit&quot; when you&#39;re done# 结束录屏 CTRL + D# asciinema: recording finished# asciinema: press &lt;enter&gt; to upload to asciinema.org, &lt;ctrl-c&gt; to save locally# asciinema: asciicast saved to tmpj6mmcek_-ascii.cast</code></pre><h3 id="json-转-gif"><a href="#json-转-gif" class="headerlink" title="json 转 gif"></a>json 转 gif</h3><pre><code class="lang-bash">$ ./asciicast2gif tmpj6mmcek_-ascii.cast demo.gif# ==&gt; Loading tmpj6mmcek_.cast...# ==&gt; Spawning PhantomJS renderer...# ==&gt; Generating frame screenshots...# ==&gt; Combining 5 screenshots into GIF file...# ==&gt; Done.</code></pre>]]></content>
     
