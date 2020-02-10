@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://vincentstudio.info/2020/02/09/041_TC39_and_ECMAScript/</loc>
+    
+    <lastmod>2020-02-10T17:15:28.611Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://vincentstudio.info/2020/01/31/040_How_to_record_the_screen_of_terminal/</loc>
     
     <lastmod>2020-01-31T06:23:11.421Z</lastmod>
@@ -282,14 +289,14 @@
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/links/index.html</loc>
+    <loc>https://vincentstudio.info/categories/index.html</loc>
     
     <lastmod>2020-01-05T10:22:11.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/categories/index.html</loc>
+    <loc>https://vincentstudio.info/links/index.html</loc>
     
     <lastmod>2020-01-05T10:22:11.000Z</lastmod>
     
