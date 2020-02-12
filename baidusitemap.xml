@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://vincentstudio.info/2020/02/12/042_Javascript_Array/</loc>
+    <lastmod>2020-02-12</lastmod>
+  </url>  <url>
     <loc>https://vincentstudio.info/2020/02/09/041_TC39_and_ECMAScript/</loc>
-    <lastmod>2020-02-10</lastmod>
+    <lastmod>2020-02-12</lastmod>
   </url>  <url>
     <loc>https://vincentstudio.info/2020/01/31/040_How_to_record_the_screen_of_terminal/</loc>
     <lastmod>2020-01-31</lastmod>
@@ -61,10 +64,10 @@
     <loc>https://vincentstudio.info/2019/06/15/032_OSX_Cracked_Software_Resources/</loc>
     <lastmod>2020-01-30</lastmod>
   </url>  <url>
-    <loc>https://vincentstudio.info/2019/12/31/034_Usage_of_hexo-all-minifier_copy/</loc>
+    <loc>https://vincentstudio.info/2019/06/16/033_Port_Forwarding_Tutorial/</loc>
     <lastmod>2020-01-30</lastmod>
   </url>  <url>
-    <loc>https://vincentstudio.info/2019/06/16/033_Port_Forwarding_Tutorial/</loc>
+    <loc>https://vincentstudio.info/2019/12/31/034_Usage_of_hexo-all-minifier_copy/</loc>
     <lastmod>2020-01-30</lastmod>
   </url>  <url>
     <loc>https://vincentstudio.info/2019/05/03/028_How_to_Fake_a_GPS_Location_on_IOS/</loc>
@@ -106,10 +109,10 @@
     <loc>https://vincentstudio.info/2019/04/10/024_Add_bandages_to_your_markdown/</loc>
     <lastmod>2020-01-30</lastmod>
   </url>  <url>
-    <loc>https://vincentstudio.info/2019/05/15/029_WAV_Format_Parsing/</loc>
+    <loc>https://vincentstudio.info/2019/05/19/030_How_to_Hide_Linux_Process/</loc>
     <lastmod>2020-01-30</lastmod>
   </url>  <url>
-    <loc>https://vincentstudio.info/2019/05/19/030_How_to_Hide_Linux_Process/</loc>
+    <loc>https://vincentstudio.info/2019/05/15/029_WAV_Format_Parsing/</loc>
     <lastmod>2020-01-30</lastmod>
   </url>  <url>
     <loc>https://vincentstudio.info/2018/11/20/001_Cracking_for_Jetbrains_series/</loc>

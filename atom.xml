@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://vincentstudio.info/"/>
-  <updated>2020-02-10T17:15:28.611Z</updated>
+  <updated>2020-02-12T03:40:55.838Z</updated>
   <id>https://vincentstudio.info/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Javascript Array 方法总结</title>
+    <link href="https://vincentstudio.info/2020/02/12/042_Javascript_Array/"/>
+    <id>https://vincentstudio.info/2020/02/12/042_Javascript_Array/</id>
+    <published>2020-02-12T02:00:16.000Z</published>
+    <updated>2020-02-12T03:40:55.838Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="堆栈-amp-队列"><a href="#堆栈-amp-队列" class="headerlink" title="堆栈 &amp; 队列"></a>堆栈 &amp; 队列</h2><ul><li><span class="highlight">push</span> 添加到末尾，返回修改后的长度</li><li><span class="highlight">pop</span> 移除最后一项，返回移除的项</li><li><span class="highlight">unshift</span> 添加到前端，返回修改后的长度</li><li><span class="highlight">shift</span> 移除第一项，取得数组第一项</li></ul><h2 id="重排序"><a href="#重排序" class="headerlink" title="重排序"></a>重排序</h2><ul><li><span class="highlight">reverse</span> 反转数组，返回反转后的数组</li><li><span class="highlight">sort</span> 默认按升序排列 (a, b) =&gt; a - b, 返回排序后的数组</li></ul><h2 id="操作方法"><a href="#操作方法" class="headerlink" title="操作方法"></a>操作方法</h2><ul><li><span class="highlight">slice</span> 返回新数组，可用值拷贝 <code>slice(0)</code><ul><li><code>slice (start, end)</code>: 返回 <code>start</code> 到 <code>end</code> 位置的项（不包括结束位置）</li><li><code>slice (start)</code> <code>start</code>: 位置到末尾的所有项</li></ul></li><li><span class="highlight">splice</span> 返回被删除的项<ul><li><code>splice (start, count)</code>: 从 <code>start</code> 位置开始删除 <code>count</code> 个项</li><li><code>splice (start, 0, ...inserts)</code>: 从 <code>start</code> 位置开始插入 <code>inserts</code></li><li><code>splice (start, count, ...inserts)</code>: 先删再插</li></ul></li></ul><h2 id="迭代方法"><a href="#迭代方法" class="headerlink" title="迭代方法"></a>迭代方法</h2><ul><li><span class="highlight">every</span> 每一项返回 <code>true</code> 则返回 <code>ture</code></li><li><span class="highlight">some</span> 任意一项返回 <code>true</code> 则返回 <code>ture</code></li><li><span class="highlight">filter</span> 返回返回 <code>true</code> 的数组</li><li><span class="highlight">map</span> 返回每次函数调用的结果组成的数组</li><li><span class="highlight">forEach</span> 没有返回值, 与 <code>for</code> 类似</li></ul><p>回调参数都是 (item[, index[, array]]), <code>forEach</code> 和 <code>map</code> 执行过程中无法通过 <code>break</code> 或 <code>return</code> 中断，一旦执行就必须执行到末尾，如果需要截断，可以用 <code>some</code> 代替，中断时返回 <code>true</code> 即可。</p><h2 id="归并方法"><a href="#归并方法" class="headerlink" title="归并方法"></a>归并方法</h2><ul><li><span class="highlight">reduce</span> 累积所有，返回累积的结果</li><li><span class="highlight">reduceRight</span> 从后向前累积</li></ul><p>arr.reduce(callback(accumulator, currentValue[, index[, array]])[, initialValue])</p><pre><code class="lang-javascript">const arr = [{ n: 1 }, { n: 2 }, { n: 3  }];const data = { v: 2, sum: 0 };arr.reduce((acc, cur) =&gt; (acc.sum += cur.n, acc), data);// return: { v: 2, sum: 6 }</code></pre><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array" target="_blank" rel="noopener">Array - Javascript | MDN</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="Tech" scheme="https://vincentstudio.info/categories/Tech/"/>
+    
+    
+      <category term="FrontEnd" scheme="https://vincentstudio.info/tags/FrontEnd/"/>
+    
+  </entry>
+  
+  <entry>
     <title>TC39 与 ECMAScript 提案</title>
     <link href="https://vincentstudio.info/2020/02/09/041_TC39_and_ECMAScript/"/>
     <id>https://vincentstudio.info/2020/02/09/041_TC39_and_ECMAScript/</id>
     <published>2020-02-09T08:14:00.000Z</published>
-    <updated>2020-02-10T17:15:28.611Z</updated>
+    <updated>2020-02-12T02:16:58.428Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="TC39-是什么？"><a href="#TC39-是什么？" class="headerlink" title="TC39 是什么？"></a>TC39 是什么？</h2><p>TC39 全称 Ecma International, Technical Committee 39（ECMA国际技术委员会39)，是制定 ECMA-262 号标准制的组织，由各个主流浏览器厂商的代表构成。</p><p>可能有些小伙伴会有点懵逼，Ecma International 是什么？TC39 为啥是39，而不是 TC38，39代表着什么？ECMA-262 又是啥，它跟 ECMAScript 又有什么关系？ECMAScript 跟 Javascript 又有什么关系？下面我就来整理了一下。</p><h2 id="Ecma-International"><a href="#Ecma-International" class="headerlink" title="Ecma International"></a>Ecma International</h2><p>以下摘自维基百科：</p><blockquote><p>Ecma国际（英语：Ecma International）是一家国际性会员制度的信息和电信标准组织。1994年之前，名为欧洲计算机制造商协会（European Computer Manufacturers Association）。因为计算机的国际化，组织的标准牵涉到很多其他国家，因此组织决定改名表明其国际性。现名称已不属于首字母缩略字。<br><br>组织在1961年的日内瓦创建为了标准化欧洲的计算机系统。在欧洲制造、销售或开发计算机和电信系统的公司都可以申请成为会员。</p></blockquote><p>由此我们知道，Ecma国际是1961年成立的一家制定计算机标准的机构。</p><h2 id="ECMAScript"><a href="#ECMAScript" class="headerlink" title="ECMAScript"></a>ECMAScript</h2><p>ECMAScript 是一种由Ecma国际在标准 ECMA-262 中定义的脚本语言规范。和 ECMAScript 有关的标准还有 ECMA-262，ECMA-290，ECMA-327，ECMA-357，ECMA-402，ECMA-404，ECMA-414等等。其中 ECMA-290，ECMA-327，ECMA-357 等没有推广开来，被废弃。</p><h3 id="相关标准"><a href="#相关标准" class="headerlink" title="相关标准"></a>相关标准</h3><ul><li><code>ECMA-262</code>：ECMAScript 语言规范本身</li><li><code>ECMA-402</code>：基于 ECMAScript 5 或者之后版本的一些国际化 API 标准</li><li><code>ECMA-404</code>：JSON 规范</li><li><code>ECMA-414</code>：规定了哪些规范是和 ECMAScript 有关的。目前内部就包含了 262，402 和 404</li></ul><h3 id="历史版本"><a href="#历史版本" class="headerlink" title="历史版本"></a>历史版本</h3><div class="table-container"><table><thead><tr><th>Ver.</th><th>Date</th><th>Difference</th></tr></thead><tbody><tr><td>1.0</td><td>1997/06</td><td>首版</td></tr><tr><td>2.0</td><td>1998/06</td><td>格式修正，以使得其形式与ISO/IEC16262国际标准一致</td></tr><tr><td>3.0</td><td>1999/12</td><td>强大的正则表达式，更好的词法作用域链处理，新的控制指令，异常处理，错误定义更加明确，数据输出的格式化及其它改变</td></tr><tr><td>4.0</td><td>放弃</td><td>由于关于语言的复杂性出现分歧，第4版本被放弃，其中的部分成为了第5版本及Harmony的基础</td></tr><tr><td>5.0</td><td>2009/12</td><td>新增“严格模式（strict mode）”，一个子集用作提供更彻底的错误检查,以避免结构出错。澄清了许多第3版本的模糊规范，并适应了与规范不一致的真实世界实现的行为。增加了部分新功能，如getters及setters，支持JSON以及在对象属性上更完整的反射</td></tr><tr><td>5.1</td><td>2011/06</td><td>ECMAScript标5.1版形式上完全一致于国际标准ISO/IEC 16262:2011</td></tr><tr><td>6.0</td><td>2015/06</td><td>ECMAScript 2015（ES2015），第 6 版，最早被称作是 ECMAScript 6（ES6），添加了类和模块的语法，其他特性包括迭代器，Python风格的生成器和生成器表达式，箭头函数，二进制数据，静态类型数组，集合（maps，sets 和 weak maps），promise，reflection 和 proxies。作为最早的 ECMAScript Harmony 版本，也被叫做ES6 Harmony</td></tr><tr><td>7.0</td><td>2016/06</td><td>ECMAScript 2016（ES2016），第 7 版，多个新的概念和语言特性</td></tr><tr><td>8.0</td><td>2017/06</td><td>ECMAScript 2017（ES2017），第 8 版，多个新的概念和语言特性</td></tr><tr><td>9.0</td><td>2018/06</td><td>ECMAScript 2018 （ES2018），第 9 版，包含了异步循环，生成器，新的正则表达式特性和 rest/spread 语法</td></tr><tr><td>10.0</td><td>2019/06</td><td>ECMAScript 2019 （ES2019），第 10 版</td></tr></tbody></table></div><h2 id="TC39-Process"><a href="#TC39-Process" class="headerlink" title="TC39 Process"></a>TC39 Process</h2><p>每一项新特性，要最终纳入 ECMAScript 规范中，TC39 拟定了一个处理过程，称为 TC39 Process，其中共包含5个阶段。</p><h3 id="Stage-0-Strawman（稻草人阶段）"><a href="#Stage-0-Strawman（稻草人阶段）" class="headerlink" title="Stage 0: Strawman（稻草人阶段）"></a>Stage 0: Strawman（稻草人阶段）</h3><p>一种推进ECMAScript发展的自由形式，任何TC39成员，或者注册为TC39贡献者的会员，都可以提交。</p><h3 id="Stage-1-Proposal（提案阶段）"><a href="#Stage-1-Proposal（提案阶段）" class="headerlink" title="Stage 1: Proposal（提案阶段）"></a>Stage 1: Proposal（提案阶段）</h3><p>该阶段产生一个正式的提案。</p><ul><li>确定一个带头人来负责该提案，带头人或者联合带头人必须是TC39的成员。</li><li>描述清楚要解决的问题，解决方案中必须包含例子，API以及关于相关的语义和算法。</li><li>潜在问题也应该指出来，例如与其他特性的关系，实现它所面临的挑战。</li><li>polyfill和demo也是必要的。</li></ul><h3 id="Stage-2-Draft（草案阶段）"><a href="#Stage-2-Draft（草案阶段）" class="headerlink" title="Stage 2: Draft（草案阶段）"></a>Stage 2: Draft（草案阶段）</h3><p>草案是规范的第一个版本，与最终标准中包含的特性不会有太大差别。草案之后，原则上只接受增量修改。</p><ul><li>草案中包含新增特性语法和语义的，尽可能的完善的形式说明，允许包含一些待办事项或者占位符。</li><li>必须包含2个实验性的具体实现，其中一个可以是用转译器实现的，例如Babel。</li></ul><h3 id="Stage-3-Candidate（候选阶段）"><a href="#Stage-3-Candidate（候选阶段）" class="headerlink" title="Stage 3: Candidate（候选阶段）"></a>Stage 3: Candidate（候选阶段）</h3><p>候选阶段，获得具体实现和用户的反馈。此后，只有在实现和使用过程中出现了重大问题才会修改。</p><ul><li>规范文档必须是完整的，评审人和ECMAScript的编辑要在规范上签字。</li><li>至少要有两个符合规范的具体实现。</li></ul><h3 id="Stage-4-Finished（完成阶段）"><a href="#Stage-4-Finished（完成阶段）" class="headerlink" title="Stage 4: Finished（完成阶段）"></a>Stage 4: Finished（完成阶段）</h3><p>已经准备就绪，该特性会出现在年度发布的规范之中。</p><ul><li>通过 Test-262 的验收测试。</li><li>有2个通过测试的实现，以获取使用过程中的重要实践经验。</li><li>ECMAScript的编辑必须规范上的签字。</li></ul><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul><li><a href="https://github.com/tc39" target="_blank" rel="noopener">Github of TC39</a></li><li><a href="https://www.ecma-international.org/memento/tc39-rf-tg.htm" target="_blank" rel="noopener">Website of TC39</a></li></ul>]]></content>
     
@@ -34,7 +59,7 @@
     
     </summary>
     
-      <category term="Toolkit" scheme="https://vincentstudio.info/categories/Toolkit/"/>
+      <category term="Tech" scheme="https://vincentstudio.info/categories/Tech/"/>
     
     
       <category term="FrontEnd" scheme="https://vincentstudio.info/tags/FrontEnd/"/>
@@ -506,33 +531,6 @@
     
     
       <category term="Minecraft" scheme="https://vincentstudio.info/tags/Minecraft/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Install and upgrade Jenkins with Docker</title>
-    <link href="https://vincentstudio.info/2019/03/11/022_Install_and_upgrade_Jenkins_with_Docker/"/>
-    <id>https://vincentstudio.info/2019/03/11/022_Install_and_upgrade_Jenkins_with_Docker/</id>
-    <published>2019-03-11T07:00:00.000Z</published>
-    <updated>2020-01-30T09:32:14.574Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><pre><code class="lang-bash">$ docker pull jenkins$ docker run -d -p 8080:8080 -p 50000:50000 --name jenkins --restart=always jenkins</code></pre><h2 id="Upgrade"><a href="#Upgrade" class="headerlink" title="Upgrade"></a>Upgrade</h2><pre><code class="lang-bash"># check version$ docker exec -it jenkins java -jar /usr/share/jenkins/jenkins.war --version# download latest jenkins.war from http://updates.jenkins-ci.org/download/war/$ wget http://updates.jenkins-ci.org/download/war/2.167/jenkins.war# replace file$ sudo docker cp jenkins.war jenkins:/usr/share/jenkins/</code></pre><h2 id="Change-Context-to-jenkins"><a href="#Change-Context-to-jenkins" class="headerlink" title="Change Context to /jenkins"></a>Change Context to /jenkins</h2><pre><code class="lang-bash"># edit /usr/local/bin/jenkins.sh# find line &quot;java -jar ...&quot; and replace: java -jar /usr/share/jenkins/jenkins.war --prefix=/jenkins</code></pre><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] <a href="https://mohitgoyal.co/2017/02/15/upgrade-jenkins-server-to-a-new-version/" target="_blank" rel="noopener">Upgrade Jenkins server to a new version</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-      <category term="Tech" scheme="https://vincentstudio.info/categories/Tech/"/>
-    
-    
-      <category term="Docker" scheme="https://vincentstudio.info/tags/Docker/"/>
-    
-      <category term="Jenkins" scheme="https://vincentstudio.info/tags/Jenkins/"/>
     
   </entry>
   
