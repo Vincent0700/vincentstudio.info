@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://vincentstudio.info/2020/02/19/044_Pikachu_installation/</loc>
+    <lastmod>2020-02-19</lastmod>
+  </url>  <url>
     <loc>https://vincentstudio.info/2020/02/17/043_Theory_of_mental_calculation/</loc>
     <lastmod>2020-02-17</lastmod>
   </url>  <url>
@@ -46,10 +49,10 @@
     <loc>https://vincentstudio.info/2020/01/22/037_Usage_of_cookiecutter/</loc>
     <lastmod>2020-01-30</lastmod>
   </url>  <url>
-    <loc>https://vincentstudio.info/2018/12/21/004_Sourcelist_switcher/</loc>
+    <loc>https://vincentstudio.info/2018/12/04/002_How_to_use_pyenv_to_manage_multiple_python_versions/</loc>
     <lastmod>2020-01-30</lastmod>
   </url>  <url>
-    <loc>https://vincentstudio.info/2018/12/04/002_How_to_use_pyenv_to_manage_multiple_python_versions/</loc>
+    <loc>https://vincentstudio.info/2018/12/21/004_Sourcelist_switcher/</loc>
     <lastmod>2020-01-30</lastmod>
   </url>  <url>
     <loc>https://vincentstudio.info/2019/02/15/015_Render_math_formula_in_hexo/</loc>

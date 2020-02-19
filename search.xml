@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Web 漏洞靶场 Pikachu 简介</title>
+      <link href="/2020/02/19/044_Pikachu_installation/"/>
+      <url>/2020/02/19/044_Pikachu_installation/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote><p>“如果你想搞懂一个漏洞，比较好的方法是：你可以自己先制造出这个漏洞（用代码编写），然后再利用它，最后再修复它”。 —— Pikachu 作者 <a href="https://github.com/zhuifengshaonianhanlu" target="_blank" rel="noopener">zhuifengshaonianhanlu</a></p></blockquote><img src="/images/loading.gif" data-original="/2020/02/19/044_Pikachu_installation/pikachu.jpg"><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>这是一个用于 Web 渗透测试的靶场，<code>php + mysql</code> 搭建。适合练手，安装简单。项目地址：<a href="https://github.com/zhuifengshaonianhanlu/pikachu" target="_blank" rel="noopener">传送门</a></p><h3 id="漏洞列表"><a href="#漏洞列表" class="headerlink" title="漏洞列表"></a>漏洞列表</h3><ul><li>Burt Force(暴力破解漏洞)</li><li>XSS(跨站脚本漏洞)</li><li>CSRF(跨站请求伪造)</li><li>SQL-Inject(SQL注入漏洞)</li><li>RCE(远程命令/代码执行)</li><li>Files Inclusion(文件包含漏洞)</li><li>Unsafe file downloads(不安全的文件下载)</li><li>Unsafe file uploads(不安全的文件上传)</li><li>Over Permisson(越权漏洞)</li><li>../../../(目录遍历)</li><li>I can see your ABC(敏感信息泄露)</li><li>PHP反序列化漏洞</li><li>XXE(XML External Entity attack)</li><li>不安全的URL重定向</li><li>SSRF(Server-Side Request Forgery)</li><li>管理工具</li><li>More…(找找看?..有彩蛋!)</li></ul><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><pre><code class="lang-bash">docker pull area39/pikachudocker run -d -p 7001:80 area39/pikachu</code></pre><p>打开页面 127.0.0.1:7001，按照提示初始化一下即可。 Happy hacking ~</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Toolkit </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Security </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>学习的底层原理</title>
       <link href="/2020/02/17/043_Theory_of_mental_calculation/"/>
       <url>/2020/02/17/043_Theory_of_mental_calculation/</url>
@@ -906,9 +931,9 @@
       
         <tags>
             
-            <tag> Shell </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> Shell </tag>
             
         </tags>
       
@@ -1039,9 +1064,9 @@
       
         <tags>
             
-            <tag> Shell </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> Shell </tag>
             
         </tags>
       
@@ -1066,9 +1091,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> RabbitMQ </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
