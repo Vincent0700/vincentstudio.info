@@ -4,7 +4,7 @@
   
     
     <entry>
-      <title>Pikachu 表单爆破 (附Burp安装教程)</title>
+      <title>Pikachu 表单爆破题解（附Burp安装教程）</title>
       <link href="/2020/02/19/045_Blasting/"/>
       <url>/2020/02/19/045_Blasting/</url>
       
@@ -852,9 +852,9 @@
             
             <tag> Python </tag>
             
-            <tag> ML </tag>
-            
             <tag> TensorFlow </tag>
+            
+            <tag> ML </tag>
             
         </tags>
       
