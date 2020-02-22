@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://vincentstudio.info/2019/02/16/016_Logistic_Regression/</loc>
+    
+    <lastmod>2020-02-22T04:47:01.853Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://vincentstudio.info/2019/02/18/017_Gradient_Descent/</loc>
+    
+    <lastmod>2020-02-22T04:45:40.341Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://vincentstudio.info/2020/02/19/045_Blasting/</loc>
     
     <lastmod>2020-02-20T11:02:51.954Z</lastmod>
@@ -19,20 +33,6 @@
     <loc>https://vincentstudio.info/2020/02/17/043_Theory_of_mental_calculation/</loc>
     
     <lastmod>2020-02-17T16:52:42.130Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://vincentstudio.info/2019/02/18/017_Gradient_Descent/</loc>
-    
-    <lastmod>2020-02-17T08:25:57.084Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://vincentstudio.info/2019/02/16/016_Logistic_Regression/</loc>
-    
-    <lastmod>2020-02-17T08:25:54.505Z</lastmod>
     
   </url>
   
