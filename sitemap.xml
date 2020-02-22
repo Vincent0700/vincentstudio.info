@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://vincentstudio.info/2020/02/12/042_Javascript_Array/</loc>
+    
+    <lastmod>2020-02-22T05:08:04.519Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://vincentstudio.info/2019/02/16/016_Logistic_Regression/</loc>
     
     <lastmod>2020-02-22T04:47:01.853Z</lastmod>
@@ -40,13 +47,6 @@
     <loc>https://vincentstudio.info/2019/02/14/014_Deep_Learning_Resources/</loc>
     
     <lastmod>2020-02-17T08:25:52.224Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://vincentstudio.info/2020/02/12/042_Javascript_Array/</loc>
-    
-    <lastmod>2020-02-17T04:56:46.734Z</lastmod>
     
   </url>
   
@@ -317,14 +317,14 @@
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/links/index.html</loc>
+    <loc>https://vincentstudio.info/categories/index.html</loc>
     
     <lastmod>2020-01-05T10:22:11.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/categories/index.html</loc>
+    <loc>https://vincentstudio.info/links/index.html</loc>
     
     <lastmod>2020-01-05T10:22:11.000Z</lastmod>
     
