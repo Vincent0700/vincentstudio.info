@@ -578,7 +578,7 @@
       <link href="/2019/04/10/024_Add_bandages_to_your_markdown/"/>
       <url>/2019/04/10/024_Add_bandages_to_your_markdown/</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote><p>Do you know how to add these remarkable bandages to your markdown?</p></blockquote><p><embed src="https://img.shields.io/badge/version-v0.1.2-brightgreen.svg"><embed src="https://img.shields.io/badge/author-vincent-lightgrey.svg"><embed src="https://img.shields.io/badge/license-MIT-green.svg"><embed src="https://img.shields.io/badge/python-3.6%20%7C%203.7-blue.svg"></p><h2 id="Static"><a href="#Static" class="headerlink" title="Static"></a>Static</h2><p>You can easily create a bandage by the following code</p><pre><code class="lang-text">![](https://img.shields.io/badge/{label}-{message}-{color}.svg)&#39;&#39;&#39;Parameters:  label: string  message: string  color: optional    - &quot;brightgreen&quot;    - &quot;green&quot;    - &quot;yellowgreen&quot;    - &quot;yellow&quot;    - &quot;orange&quot;    - &quot;red&quot;    - &quot;lightgrey&quot;    - &quot;blue&quot;&#39;&#39;&#39;</code></pre><p>Here is the demo</p><pre><code class="lang-markdown">![](https://img.shields.io/badge/hello-vincent-orange.svg)</code></pre><embed src="https://img.shields.io/badge/hello-vincent-orange.svg"><h2 id="Advanced"><a href="#Advanced" class="headerlink" title="Advanced"></a>Advanced</h2><p>You can also optimise styles or create a dynamic bandage by json/xml/yaml endpoint. Here is the official tutorial.</p><p><a href="https://shields.io/" target="_blank" rel="noopener">https://shields.io/</a></p>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote><p>Do you know how to add these remarkable bandages to your markdown?</p></blockquote><p><embed src="https://img.shields.io/badge/version-v0.1.2-brightgreen.svg">&nbsp;<embed src="https://img.shields.io/badge/author-vincent-lightgrey.svg">&nbsp;<embed src="https://img.shields.io/badge/license-MIT-green.svg">&nbsp;<embed src="https://img.shields.io/badge/python-3.6%20%7C%203.7-blue.svg"></p><h2 id="Static"><a href="#Static" class="headerlink" title="Static"></a>Static</h2><p>You can easily create a bandage by the following code</p><pre><code class="lang-text">![](https://img.shields.io/badge/{label}-{message}-{color}.svg)&#39;&#39;&#39;Parameters:  label: string  message: string  color: optional    - &quot;brightgreen&quot;    - &quot;green&quot;    - &quot;yellowgreen&quot;    - &quot;yellow&quot;    - &quot;orange&quot;    - &quot;red&quot;    - &quot;lightgrey&quot;    - &quot;blue&quot;&#39;&#39;&#39;</code></pre><p>Here is the demo</p><pre><code class="lang-markdown">![](https://img.shields.io/badge/hello-vincent-orange.svg)</code></pre><embed src="https://img.shields.io/badge/hello-vincent-orange.svg"><h2 id="Advanced"><a href="#Advanced" class="headerlink" title="Advanced"></a>Advanced</h2><p>You can also optimise styles or create a dynamic bandage by json/xml/yaml endpoint. Here is the official tutorial.</p><p><a href="https://shields.io/" target="_blank" rel="noopener">https://shields.io/</a></p>]]></content>
       
       
       <categories>
@@ -877,9 +877,9 @@
             
             <tag> Python </tag>
             
-            <tag> TensorFlow </tag>
-            
             <tag> ML </tag>
+            
+            <tag> TensorFlow </tag>
             
         </tags>
       
@@ -981,9 +981,9 @@
       
         <tags>
             
-            <tag> Shell </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> Shell </tag>
             
         </tags>
       
@@ -1114,9 +1114,9 @@
       
         <tags>
             
-            <tag> Shell </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> Shell </tag>
             
         </tags>
       
@@ -1141,9 +1141,9 @@
       
         <tags>
             
-            <tag> Linux </tag>
-            
             <tag> RabbitMQ </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
       
