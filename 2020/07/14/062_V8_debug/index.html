@@ -1,0 +1,117 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="HandheldFriendly" content="True"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="google-site-verification" content="n1Pt1eZqb7M4_TQ2aUQQMRpFNGt6r1HyFpvqDw4y4lY"><meta name="description" content="编译 V8这里编译 debug 版本，我这里用的 V8 版本是 8.3.110.9 (8.3-lkgr)$ v8gen.py x64.debug $ ninja -C out.gn&#x2F;x64.debug 如果对 V8 编译不熟悉可以参考我之前的文章《V8 编译踩坑》d8 常用的运行参数使用运行时函数进行调试&#x2F;&#x2F;test.js var a &#x3D; [1,2,3]; %DebugPrint(a); &#x2F;&#x2F; 打"><meta property="og:type" content="article"><meta property="og:title" content="使用 LLDB 调试 V8"><meta property="og:url" content="https://vincent0700.com/2020/07/14/062_V8_debug/index.html"><meta property="og:site_name" content="VINCENT STUDIO"><meta property="og:description" content="编译 V8这里编译 debug 版本，我这里用的 V8 版本是 8.3.110.9 (8.3-lkgr)$ v8gen.py x64.debug $ ninja -C out.gn&#x2F;x64.debug 如果对 V8 编译不熟悉可以参考我之前的文章《V8 编译踩坑》d8 常用的运行参数使用运行时函数进行调试&#x2F;&#x2F;test.js var a &#x3D; [1,2,3]; %DebugPrint(a); &#x2F;&#x2F; 打"><meta property="og:locale" content="en_US"><meta property="article:published_time" content="2020-07-14T13:00:00.000Z"><meta property="article:modified_time" content="2021-02-25T11:18:47.395Z"><meta property="article:author" content="Vincent"><meta property="article:tag" content="FrontEnd"><meta property="article:tag" content="V8"><meta name="twitter:card" content="summary"><link rel="shortcut icon" href="/images/favicon.ico"><link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png"><title>使用 LLDB 调试 V8</title><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/rtl.css"><link rel="alternate" href="/atom.xml" title="VINCENT STUDIO" type="application/atom+xml"><script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?b1904beb2cf04455e5a7f5543eb59365";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><meta name="generator" content="Hexo 4.2.0"></head><body class="max-width mx-auto px3 ltr"><div id="header-post"><a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a> <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a> <a id="top-icon-tablet" href="#" onclick='$("html, body").animate({scrollTop:0},"fast")' style="display:none"><i class="fas fa-chevron-up fa-lg"></i></a> <span id="menu"><span id="nav"><ul><li><a href="/">HOME</a></li><li><a href="/archives/">ARTICLES</a></li><li><a href="/search/">SEARCH</a></li><li><a href="/links/">LINKS</a></li></ul></span><br><span id="actions"><ul><li><a class="icon" href="/2020/07/29/063_Github_actions/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle()' onmouseout='$("#i-prev").toggle()'></i></a></li><li><a class="icon" href="/2020/06/24/061_Javascript_parameters/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle()' onmouseout='$("#i-next").toggle()'></i></a></li><li><a class="icon" href="#" onclick='$("html, body").animate({scrollTop:0},"fast")'><i class="fas fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle()' onmouseout='$("#i-top").toggle()'></i></a></li><li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle()' onmouseout='$("#i-share").toggle()' onclick='return $("#share").toggle(),!1'></i></a></li></ul><span id="i-prev" class="info" style="display:none">Previous post</span> <span id="i-next" class="info" style="display:none">Next post</span> <span id="i-top" class="info" style="display:none">Back to top</span> <span id="i-share" class="info" style="display:none">Share post</span></span><br><div id="share" style="display:none"><ul><li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://vincent0700.com/2020/07/14/062_V8_debug/" target="_blank" rel="noopener"><i class="fab fa-facebook" aria-hidden="true"></i></a></li><li><a class="icon" href="https://twitter.com/share?url=https://vincent0700.com/2020/07/14/062_V8_debug/&text=使用 LLDB 调试 V8" target="_blank" rel="noopener"><i class="fab fa-twitter" aria-hidden="true"></i></a></li><li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://vincent0700.com/2020/07/14/062_V8_debug/&title=使用 LLDB 调试 V8" target="_blank" rel="noopener"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li><li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://vincent0700.com/2020/07/14/062_V8_debug/&is_video=false&description=使用 LLDB 调试 V8" target="_blank" rel="noopener"><i class="fab fa-pinterest" aria-hidden="true"></i></a></li><li><a class="icon" href="mailto:?subject=使用 LLDB 调试 V8&body=Check out this article: https://vincent0700.com/2020/07/14/062_V8_debug/"><i class="fas fa-envelope" aria-hidden="true"></i></a></li><li><a class="icon" href="https://getpocket.com/save?url=https://vincent0700.com/2020/07/14/062_V8_debug/&title=使用 LLDB 调试 V8" target="_blank" rel="noopener"><i class="fab fa-get-pocket" aria-hidden="true"></i></a></li><li><a class="icon" href="http://reddit.com/submit?url=https://vincent0700.com/2020/07/14/062_V8_debug/&title=使用 LLDB 调试 V8" target="_blank" rel="noopener"><i class="fab fa-reddit" aria-hidden="true"></i></a></li><li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://vincent0700.com/2020/07/14/062_V8_debug/&title=使用 LLDB 调试 V8" target="_blank" rel="noopener"><i class="fab fa-stumbleupon" aria-hidden="true"></i></a></li><li><a class="icon" href="http://digg.com/submit?url=https://vincent0700.com/2020/07/14/062_V8_debug/&title=使用 LLDB 调试 V8" target="_blank" rel="noopener"><i class="fab fa-digg" aria-hidden="true"></i></a></li><li><a class="icon" href="http://www.tumblr.com/share/link?url=https://vincent0700.com/2020/07/14/062_V8_debug/&name=使用 LLDB 调试 V8&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr" aria-hidden="true"></i></a></li></ul></div><div id="toc"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#编译-V8"><span class="toc-number">1.</span> <span class="toc-text">编译 V8</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#d8-常用的运行参数"><span class="toc-number">2.</span> <span class="toc-text">d8 常用的运行参数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用运行时函数进行调试"><span class="toc-number">2.1.</span> <span class="toc-text">使用运行时函数进行调试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看-Ignition-生成的字节码"><span class="toc-number">2.2.</span> <span class="toc-text">查看 Ignition 生成的字节码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#跟踪-TurboFan-的优化操作"><span class="toc-number">2.3.</span> <span class="toc-text">跟踪 TurboFan 的优化操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置-LLDB"><span class="toc-number">3.</span> <span class="toc-text">配置 LLDB</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用-LLDB-进行调试"><span class="toc-number">4.</span> <span class="toc-text">使用 LLDB 进行调试</span></a></li></ol></div></span></div><div class="content index py4"><article class="post" itemscope itemtype="http://schema.org/BlogPosting"><header><h1 class="posttitle" itemprop="name headline">使用 LLDB 调试 V8</h1><div class="meta"><span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">VINCENT STUDIO</span></span><div class="postdate"><time datetime="2020-07-14T13:00:00.000Z" itemprop="datePublished">2020-07-14</time></div><div class="article-category"><i class="fas fa-archive"></i> <a class="category-link" href="/categories/Tech/">Tech</a></div><div class="article-tag"><i class="fas fa-tag"></i> <a class="tag-link" href="/tags/FrontEnd/" rel="tag">FrontEnd</a>, <a class="tag-link" href="/tags/V8/" rel="tag">V8</a></div></div></header><div class="content" itemprop="articleBody"><h2 id="编译-V8"><a href="#编译-V8" class="headerlink" title="编译 V8"></a>编译 V8</h2><p>这里编译 debug 版本，我这里用的 V8 版本是 8.3.110.9 (8.3-lkgr)</p><pre><code class="lang-bash">$ v8gen.py x64.debug
+$ ninja -C out.gn/x64.debug
+</code></pre><p>如果对 V8 编译不熟悉可以参考我之前的文章<a href="/2020/05/18/054_V8_compilation/">《V8 编译踩坑》</a></p><h2 id="d8-常用的运行参数"><a href="#d8-常用的运行参数" class="headerlink" title="d8 常用的运行参数"></a>d8 常用的运行参数</h2><h3 id="使用运行时函数进行调试"><a href="#使用运行时函数进行调试" class="headerlink" title="使用运行时函数进行调试"></a>使用运行时函数进行调试</h3><pre><code class="lang-js">//test.js
+var a = [1,2,3];
+%DebugPrint(a); // 打印调试信息
+%SystemBreak(); // 下断点
+</code></pre><pre><code class="lang-bash">$ ./d8 test.js --allow-natives-syntax
+DebugPrint: 0x466080c5879: [JSArray]
+ - map: 0x046608281409 &lt;Map(PACKED_SMI_ELEMENTS)&gt; [FastProperties]
+ - prototype: 0x046608248251 &lt;JSArray[0]&gt;
+ - elements: 0x04660824ef2d &lt;FixedArray[3]&gt; [PACKED_SMI_ELEMENTS (COW)]
+ - length: 3
+ - properties: 0x0466080406e9 &lt;FixedArray[0]&gt; {
+    #length: 0x0466081c0165 &lt;AccessorInfo&gt; (const accessor descriptor)
+ }
+ - elements: 0x04660824ef2d &lt;FixedArray[3]&gt; {
+           0: 1
+           1: 2
+           2: 3
+ }
+0x46608281409: [Map]
+ - type: JS_ARRAY_TYPE
+ - instance size: 16
+ - inobject properties: 0
+ - elements kind: PACKED_SMI_ELEMENTS
+ - unused property fields: 0
+ - enum length: invalid
+ - back pointer: 0x04660804030d &lt;undefined&gt;
+ - prototype_validity cell: 0x0466081c0451 &lt;Cell value= 1&gt;
+ - instance descriptors #1: 0x0466082488d9 &lt;DescriptorArray[1]&gt;
+ - transitions #1: 0x0466082488f5 &lt;TransitionArray[4]&gt;Transition array #1:
+     0x0466080425c9 &lt;Symbol: (elements_transition_symbol)&gt;: (transition to HOLEY_SMI_ELEMENTS) -&gt; 0x046608281481 &lt;Map(HOLEY_SMI_ELEMENTS)&gt;
+
+ - prototype: 0x046608248251 &lt;JSArray[0]&gt;
+ - constructor: 0x046608248125 &lt;JSFunction Array (sfi = 0x466081cb321)&gt;
+ - dependent code: 0x0466080401ed &lt;Other heap object (WEAK_FIXED_ARRAY_TYPE)&gt;
+ - construction counter: 0
+
+[1]    75260 trace trap  ./d8 test.js --allow-natives-syntax
+</code></pre><h3 id="查看-Ignition-生成的字节码"><a href="#查看-Ignition-生成的字节码" class="headerlink" title="查看 Ignition 生成的字节码"></a>查看 Ignition 生成的字节码</h3><pre><code class="lang-js">// test2.js
+const a = [1,2,3]
+const b = &quot;123&quot;
+</code></pre><pre><code class="lang-bash">$ ./d8 test2.js --print-bytecode
+[generated bytecode for function:  (0x0f0c0824eee9 &lt;SharedFunctionInfo&gt;)]
+Parameter count 1
+Register count 1
+Frame size 8
+         0xf0c0824ef6a @    0 : 7a 00 00 25       CreateArrayLiteral [0], [0], #37
+         0xf0c0824ef6e @    4 : 1d 02             StaCurrentContextSlot [2]
+         0xf0c0824ef70 @    6 : 12 01             LdaConstant [1]
+         0xf0c0824ef72 @    8 : 1d 03             StaCurrentContextSlot [3]
+         0xf0c0824ef74 @   10 : 0d                LdaUndefined
+         0xf0c0824ef75 @   11 : aa                Return
+Constant pool (size = 2)
+0xf0c0824ef39: [FixedArray] in OldSpace
+ - map: 0x0f0c080404b1 &lt;Map&gt;
+ - length: 2
+           0: 0x0f0c0824ef25 &lt;ArrayBoilerplateDescription PACKED_SMI_ELEMENTS, 0x0f0c0824ef11 &lt;FixedArray[3]&gt;&gt;
+           1: 0x0f0c0824eea5 &lt;String[#3]: 123&gt;
+Handler Table (size = 0)
+Source Position Table (size = 0)
+</code></pre><p>可以看出变量 a 数组 [1,2,3] 存放在地址为 0xf0c0824ef39 的老生带里</p><h3 id="跟踪-TurboFan-的优化操作"><a href="#跟踪-TurboFan-的优化操作" class="headerlink" title="跟踪 TurboFan 的优化操作"></a>跟踪 TurboFan 的优化操作</h3><pre><code class="lang-js">// test3.js
+function add(a, b) {
+  return a + b;
+}
+
+for (let i = 0; i &lt; 10000; i++) {
+  add(1,2)
+}
+</code></pre><pre><code class="lang-bash">$ ./d8 test3.js --trace-opt --trace-deopt
+[marking 0x0e660824f011 &lt;JSFunction (sfi = 0xe660824eef9)&gt; for optimized recompilation, reason: small function]
+[compiling method 0x0e660824f011 &lt;JSFunction (sfi = 0xe660824eef9)&gt; using TurboFan OSR]
+[optimizing 0x0e660824f011 &lt;JSFunction (sfi = 0xe660824eef9)&gt; - took 10.606, 9.730, 0.427 ms]
+</code></pre><p>我修改循环的最大值，发现直到 i &gt; 10000 的时候 TurboFan 开始编译函数进行优化</p><h2 id="配置-LLDB"><a href="#配置-LLDB" class="headerlink" title="配置 LLDB"></a>配置 LLDB</h2><p>在 V8 的源码里找到这个 plugin</p><pre><code class="lang-bash">$ ll | grep lldb
+-rw-r--r--   1 Vincent  staff   3.9K May 14 14:42 lldb_commands.py
+</code></pre><p>添加到 HOME 目录下 gdb 的启动脚本中</p><pre><code class="lang-bash">$ echo &#39;source /path/to/lldb_commands.py&#39; &gt;&gt; ~/.gdbinit
+</code></pre><h2 id="使用-LLDB-进行调试"><a href="#使用-LLDB-进行调试" class="headerlink" title="使用 LLDB 进行调试"></a>使用 LLDB 进行调试</h2><pre><code class="lang-bash">$ lldb ./d8 -- --allow-natives-syntax ./test.js
+(lldb) target create &quot;./d8&quot;
+Current executable set to &#39;./d8&#39; (x86_64).
+(lldb) settings set -- target.run-args  &quot;--allow-natives-syntax&quot; &quot;./test.js&quot;
+(lldb) r
+Process 99948 launched: &#39;/Users/Vincent/Common/v8/out.gn/x64.debug/d8&#39; (x86_64)
+DebugPrint: 0x2e34080c5815: [JSArray]
+...
+</code></pre><p>找到断点处变量 a 的地址是 0x2e34080c5815，我们可以用刚才添加的 lldb_commands.py 插件中的 job 指令查看 JSArray 在内存中的数据结构</p><pre><code class="lang-bash">(lldb) job 0x2e34080c5815
+0x2e34080c5815: [JSArray]
+ - map: 0x2e3408281409 &lt;Map(PACKED_SMI_ELEMENTS)&gt; [FastProperties]
+ - prototype: 0x2e3408248251 &lt;JSArray[0]&gt;
+ - elements: 0x2e340824ef2d &lt;FixedArray[3]&gt; [PACKED_SMI_ELEMENTS (COW)]
+ - length: 3
+ - properties: 0x2e34080406e9 &lt;FixedArray[0]&gt; {
+    #length: 0x2e34081c0165 &lt;AccessorInfo&gt; (const accessor descriptor)
+ }
+ - elements: 0x2e340824ef2d &lt;FixedArray[3]&gt; {
+           0: 1
+           1: 2
+           2: 3
+ }
+</code></pre><p>我们发现数组的数据是存储在 FixedArray 对象中，继续查看一下</p><pre><code class="lang-bash">(lldb) job 0x2e340824ef2d
+0x2e340824ef2d: [FixedArray] in OldSpace
+ - map: 0x2e34080404d9 &lt;Map&gt;
+ - length: 3
+           0: 1
+           1: 2
+           2: 3
+</code></pre><p>更多 V8 调试技巧后续更新</p></div></article><div id="footer-post-container"><div id="footer-post"><div id="nav-footer" style="display:none"><ul><li><a href="/">HOME</a></li><li><a href="/archives/">ARTICLES</a></li><li><a href="/search/">SEARCH</a></li><li><a href="/links/">LINKS</a></li></ul></div><div id="toc-footer" style="display:none"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#编译-V8"><span class="toc-number">1.</span> <span class="toc-text">编译 V8</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#d8-常用的运行参数"><span class="toc-number">2.</span> <span class="toc-text">d8 常用的运行参数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用运行时函数进行调试"><span class="toc-number">2.1.</span> <span class="toc-text">使用运行时函数进行调试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看-Ignition-生成的字节码"><span class="toc-number">2.2.</span> <span class="toc-text">查看 Ignition 生成的字节码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#跟踪-TurboFan-的优化操作"><span class="toc-number">2.3.</span> <span class="toc-text">跟踪 TurboFan 的优化操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置-LLDB"><span class="toc-number">3.</span> <span class="toc-text">配置 LLDB</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用-LLDB-进行调试"><span class="toc-number">4.</span> <span class="toc-text">使用 LLDB 进行调试</span></a></li></ol></div><div id="share-footer" style="display:none"><ul><li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://vincent0700.com/2020/07/14/062_V8_debug/" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="https://twitter.com/share?url=https://vincent0700.com/2020/07/14/062_V8_debug/&text=使用 LLDB 调试 V8" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://vincent0700.com/2020/07/14/062_V8_debug/&title=使用 LLDB 调试 V8" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://vincent0700.com/2020/07/14/062_V8_debug/&is_video=false&description=使用 LLDB 调试 V8" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="mailto:?subject=使用 LLDB 调试 V8&body=Check out this article: https://vincent0700.com/2020/07/14/062_V8_debug/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="https://getpocket.com/save?url=https://vincent0700.com/2020/07/14/062_V8_debug/&title=使用 LLDB 调试 V8" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="http://reddit.com/submit?url=https://vincent0700.com/2020/07/14/062_V8_debug/&title=使用 LLDB 调试 V8" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://vincent0700.com/2020/07/14/062_V8_debug/&title=使用 LLDB 调试 V8" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="http://digg.com/submit?url=https://vincent0700.com/2020/07/14/062_V8_debug/&title=使用 LLDB 调试 V8" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="http://www.tumblr.com/share/link?url=https://vincent0700.com/2020/07/14/062_V8_debug/&name=使用 LLDB 调试 V8&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li></ul></div><div id="actions-footer"><a id="menu" class="icon" href="#" onclick='return $("#nav-footer").toggle(),!1'><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a> <a id="toc" class="icon" href="#" onclick='return $("#toc-footer").toggle(),!1'><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a> <a id="share" class="icon" href="#" onclick='return $("#share-footer").toggle(),!1'><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a> <a id="top" style="display:none" class="icon" href="#" onclick='$("html, body").animate({scrollTop:0},"fast")'><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></div></div></div><footer id="footer"><div class="footer-left">Copyright &copy; 2021 Vincent</div><div class="footer-right"><nav><ul><li><a href="/">HOME</a></li><li><a href="/archives/">ARTICLES</a></li><li><a href="/search/">SEARCH</a></li><li><a href="/links/">LINKS</a></li></ul></nav></div></footer></div><script type="text/x-mathjax-config">MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script></body></html><link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"><link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css"><link rel="stylesheet" href="/lib/prettify/prettify.css"><link rel="stylesheet" href="/lib/prettify/themes/tomorrow-night-eighties.min.css"><script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script><link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet"><style>.pace .pace-progress{background:#e90f92;height:2px}.pace .pace-progress-inner{box-shadow:0 0 10px #fff,0 0 5px #fff}.pace .pace-activity{border-top-color:#e90f92;border-left-color:#e90f92}</style><script src="/lib/jquery/jquery.min.js"></script><script src="/lib/nicescroll/jquery.nicescroll.min.js"></script><script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script><script src="/js/main.js"></script><link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css"><script src="/lib/fancybox/jquery.fancybox.min.js"></script><script src="/js/wrapImage.js"></script><script src="/lib/prettify/prettify.js"></script><script>$("pre").addClass("prettyprint linenums").attr("style","overflow: auto;"),prettyPrint()</script><script async src="https://www.googletagmanager.com/gtag/js?id=G-0TTM4EXRD5"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-0TTM4EXRD5")</script><script type="text/javascript">var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?b1904beb2cf04455e5a7f5543eb59365";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script>

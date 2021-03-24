@@ -1,0 +1,513 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="HandheldFriendly" content="True"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="google-site-verification" content="n1Pt1eZqb7M4_TQ2aUQQMRpFNGt6r1HyFpvqDw4y4lY"><meta name="description" content="简介最开始 Mozilla JS Parser API 是 Mozilla 工程师在 Firefox 中创建的 SpiderMonkey 引擎输出 JavaScript AST 的规范文档。而后随着 Javascript 更多语法的加入，The ESTree Spec 诞生了，作为参与构建和使用这些工具的人员的社区标准。这两者的区别在于 Parser API 中描述了一些特定于 SpiderMon"><meta property="og:type" content="article"><meta property="og:title" content="JS 语法树学习（全）"><meta property="og:url" content="https://vincent0700.com/2020/05/27/056_Javascript_ast/index.html"><meta property="og:site_name" content="VINCENT STUDIO"><meta property="og:description" content="简介最开始 Mozilla JS Parser API 是 Mozilla 工程师在 Firefox 中创建的 SpiderMonkey 引擎输出 JavaScript AST 的规范文档。而后随着 Javascript 更多语法的加入，The ESTree Spec 诞生了，作为参与构建和使用这些工具的人员的社区标准。这两者的区别在于 Parser API 中描述了一些特定于 SpiderMon"><meta property="og:locale" content="en_US"><meta property="article:published_time" content="2020-05-27T13:00:00.000Z"><meta property="article:modified_time" content="2021-03-06T02:54:47.808Z"><meta property="article:author" content="Vincent"><meta property="article:tag" content="FrontEnd"><meta property="article:tag" content="Javascript"><meta property="article:tag" content="AST"><meta name="twitter:card" content="summary"><link rel="shortcut icon" href="/images/favicon.ico"><link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png"><title>JS 语法树学习（全）</title><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/rtl.css"><link rel="alternate" href="/atom.xml" title="VINCENT STUDIO" type="application/atom+xml"><script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?b1904beb2cf04455e5a7f5543eb59365";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><meta name="generator" content="Hexo 4.2.0"></head><body class="max-width mx-auto px3 ltr"><div id="header-post"><a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a> <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a> <a id="top-icon-tablet" href="#" onclick='$("html, body").animate({scrollTop:0},"fast")' style="display:none"><i class="fas fa-chevron-up fa-lg"></i></a> <span id="menu"><span id="nav"><ul><li><a href="/">HOME</a></li><li><a href="/archives/">ARTICLES</a></li><li><a href="/search/">SEARCH</a></li><li><a href="/links/">LINKS</a></li></ul></span><br><span id="actions"><ul><li><a class="icon" href="/2020/06/04/057_Babel_plugin/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle()' onmouseout='$("#i-prev").toggle()'></i></a></li><li><a class="icon" href="/2020/05/22/055_Webpack_dynamic_import/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle()' onmouseout='$("#i-next").toggle()'></i></a></li><li><a class="icon" href="#" onclick='$("html, body").animate({scrollTop:0},"fast")'><i class="fas fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle()' onmouseout='$("#i-top").toggle()'></i></a></li><li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle()' onmouseout='$("#i-share").toggle()' onclick='return $("#share").toggle(),!1'></i></a></li></ul><span id="i-prev" class="info" style="display:none">Previous post</span> <span id="i-next" class="info" style="display:none">Next post</span> <span id="i-top" class="info" style="display:none">Back to top</span> <span id="i-share" class="info" style="display:none">Share post</span></span><br><div id="share" style="display:none"><ul><li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://vincent0700.com/2020/05/27/056_Javascript_ast/" target="_blank" rel="noopener"><i class="fab fa-facebook" aria-hidden="true"></i></a></li><li><a class="icon" href="https://twitter.com/share?url=https://vincent0700.com/2020/05/27/056_Javascript_ast/&text=JS 语法树学习（全）" target="_blank" rel="noopener"><i class="fab fa-twitter" aria-hidden="true"></i></a></li><li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://vincent0700.com/2020/05/27/056_Javascript_ast/&title=JS 语法树学习（全）" target="_blank" rel="noopener"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li><li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://vincent0700.com/2020/05/27/056_Javascript_ast/&is_video=false&description=JS 语法树学习（全）" target="_blank" rel="noopener"><i class="fab fa-pinterest" aria-hidden="true"></i></a></li><li><a class="icon" href="mailto:?subject=JS 语法树学习（全）&body=Check out this article: https://vincent0700.com/2020/05/27/056_Javascript_ast/"><i class="fas fa-envelope" aria-hidden="true"></i></a></li><li><a class="icon" href="https://getpocket.com/save?url=https://vincent0700.com/2020/05/27/056_Javascript_ast/&title=JS 语法树学习（全）" target="_blank" rel="noopener"><i class="fab fa-get-pocket" aria-hidden="true"></i></a></li><li><a class="icon" href="http://reddit.com/submit?url=https://vincent0700.com/2020/05/27/056_Javascript_ast/&title=JS 语法树学习（全）" target="_blank" rel="noopener"><i class="fab fa-reddit" aria-hidden="true"></i></a></li><li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://vincent0700.com/2020/05/27/056_Javascript_ast/&title=JS 语法树学习（全）" target="_blank" rel="noopener"><i class="fab fa-stumbleupon" aria-hidden="true"></i></a></li><li><a class="icon" href="http://digg.com/submit?url=https://vincent0700.com/2020/05/27/056_Javascript_ast/&title=JS 语法树学习（全）" target="_blank" rel="noopener"><i class="fab fa-digg" aria-hidden="true"></i></a></li><li><a class="icon" href="http://www.tumblr.com/share/link?url=https://vincent0700.com/2020/05/27/056_Javascript_ast/&name=JS 语法树学习（全）&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr" aria-hidden="true"></i></a></li></ul></div><div id="toc"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解析器"><span class="toc-number">2.</span> <span class="toc-text">解析器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#词法分析"><span class="toc-number">2.1.</span> <span class="toc-text">词法分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#语法分析"><span class="toc-number">2.2.</span> <span class="toc-text">语法分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ES5"><span class="toc-number">3.</span> <span class="toc-text">ES5</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Program-根节点"><span class="toc-number">3.1.</span> <span class="toc-text">Program 根节点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Identifier-标识符"><span class="toc-number">3.2.</span> <span class="toc-text">Identifier 标识符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Literal-字面量"><span class="toc-number">3.3.</span> <span class="toc-text">Literal 字面量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Statement-语句"><span class="toc-number">3.4.</span> <span class="toc-text">Statement 语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Declaration-声明语句"><span class="toc-number">3.5.</span> <span class="toc-text">Declaration 声明语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Expression-表达式"><span class="toc-number">3.6.</span> <span class="toc-text">Expression 表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Patterns-模式"><span class="toc-number">3.7.</span> <span class="toc-text">Patterns 模式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ES2015"><span class="toc-number">4.</span> <span class="toc-text">ES2015</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Program-根节点-1"><span class="toc-number">4.1.</span> <span class="toc-text">Program 根节点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Function-函数"><span class="toc-number">4.2.</span> <span class="toc-text">Function 函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Statement-语句-1"><span class="toc-number">4.3.</span> <span class="toc-text">Statement 语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Declaration-声明"><span class="toc-number">4.4.</span> <span class="toc-text">Declaration 声明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Expression-表达式-1"><span class="toc-number">4.5.</span> <span class="toc-text">Expression 表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pattern-模式"><span class="toc-number">4.6.</span> <span class="toc-text">Pattern 模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Class-类"><span class="toc-number">4.7.</span> <span class="toc-text">Class 类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Module-模块"><span class="toc-number">4.8.</span> <span class="toc-text">Module 模块</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ES2016"><span class="toc-number">5.</span> <span class="toc-text">ES2016</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#新增二元运算符"><span class="toc-number">5.1.</span> <span class="toc-text">新增二元运算符 **</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#新增赋值运算符"><span class="toc-number">5.2.</span> <span class="toc-text">新增赋值运算符 **&#x3D;</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ES2017"><span class="toc-number">6.</span> <span class="toc-text">ES2017</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#async-await"><span class="toc-number">6.1.</span> <span class="toc-text">async&#x2F;await</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ES2018"><span class="toc-number">7.</span> <span class="toc-text">ES2018</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#异步迭代器-for-await-of"><span class="toc-number">7.1.</span> <span class="toc-text">异步迭代器 for-await-of</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对象支持-Rest-Spread"><span class="toc-number">7.2.</span> <span class="toc-text">对象支持 Rest&#x2F;Spread</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#非法转义序列"><span class="toc-number">7.3.</span> <span class="toc-text">非法转义序列</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ES2019"><span class="toc-number">8.</span> <span class="toc-text">ES2019</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Catch-语句允许为空"><span class="toc-number">8.1.</span> <span class="toc-text">Catch 语句允许为空</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ES2020"><span class="toc-number">9.</span> <span class="toc-text">ES2020</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#BigInt-字面量"><span class="toc-number">9.1.</span> <span class="toc-text">BigInt 字面量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#双问号运算符"><span class="toc-number">9.2.</span> <span class="toc-text">双问号运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#export-as-语法"><span class="toc-number">9.3.</span> <span class="toc-text">export * as 语法</span></a></li></ol></li></ol></div></span></div><div class="content index py4"><article class="post" itemscope itemtype="http://schema.org/BlogPosting"><header><h1 class="posttitle" itemprop="name headline">JS 语法树学习（全）</h1><div class="meta"><span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">VINCENT STUDIO</span></span><div class="postdate"><time datetime="2020-05-27T13:00:00.000Z" itemprop="datePublished">2020-05-27</time></div><div class="article-category"><i class="fas fa-archive"></i> <a class="category-link" href="/categories/Tech/">Tech</a></div><div class="article-tag"><i class="fas fa-tag"></i> <a class="tag-link" href="/tags/AST/" rel="tag">AST</a>, <a class="tag-link" href="/tags/FrontEnd/" rel="tag">FrontEnd</a>, <a class="tag-link" href="/tags/Javascript/" rel="tag">Javascript</a></div></div></header><div class="content" itemprop="articleBody"><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>最开始 <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey/Parser_API" target="_blank" rel="noopener">Mozilla JS Parser API</a> 是 Mozilla 工程师在 Firefox 中创建的 SpiderMonkey 引擎输出 JavaScript AST 的规范文档。而后随着 Javascript 更多语法的加入，<a href="https://github.com/estree/estree" target="_blank" rel="noopener">The ESTree Spec</a> 诞生了，作为参与构建和使用这些工具的人员的社区标准。这两者的区别在于 Parser API 中描述了一些特定于 SpiderMonkey 引擎的行为，而 ESTree 是社区规范，并且向后兼容 SpiderMonkey 格式。</p><h2 id="解析器"><a href="#解析器" class="headerlink" title="解析器"></a>解析器</h2><p>Parser 解析一般分为两步，词法分析和语法分析。本文使用 Acorn@7.2.0 作为 Javascript 的解析器，以下面的 JS 代码为例：</p><pre><code class="lang-javascript">const href = &#39;https://vincent0700.com&#39;
+</code></pre><h3 id="词法分析"><a href="#词法分析" class="headerlink" title="词法分析"></a>词法分析</h3><p>词法分析会把代码转化成令牌（Tokens）流，例如上面的案例，得到的结果大致如下：</p><pre><code class="lang-javascript">[
+  Token {
+    type: TokenType { label: &#39;const&#39;, keyword: &#39;const&#39; ... },
+    value: &#39;const&#39;, ...
+  },
+  Token {
+    type: TokenType { label: &#39;name&#39;, keyword: &#39;undefined&#39; ... },
+    value: &#39;href&#39;, ...
+  },
+  Token {
+    type: TokenType { label: &#39;=&#39;, keyword: &#39;undefined&#39; ... },
+    value: &#39;=&#39;, ...
+  },
+  Token {
+    type: TokenType { label: &#39;string&#39;, keyword: &#39;undefined&#39; ... },
+    value: &#39;https://vincent0700.com&#39;, ...
+  },
+  Token {
+    type: TokenType { label: &#39;eof&#39;, keyword: &#39;undefined&#39; ... },
+    value: undefined, ...
+]
+</code></pre><p>Token 的数据结构：</p><pre><code class="lang-ts">class Token {
+  type: TokenType
+  value: any
+  start: number
+  end: number
+  loc?: SourceLocation
+  range?: [number, number]
+}
+</code></pre><p>TokenType 的数据结构：</p><pre><code class="lang-ts">class TokenType {
+  label: string
+  keyword: string
+  beforeExpr: boolean
+  startsExpr: boolean
+  isLoop: boolean
+  isAssign: boolean
+  prefix: boolean
+  postfix: boolean
+  binop: number
+  updateContext?: (prevType: TokenType) =&gt; void
+}
+</code></pre><h3 id="语法分析"><a href="#语法分析" class="headerlink" title="语法分析"></a>语法分析</h3><p>根据词法分析得到的 Tokens 流，将其转换成 AST，得到的结果大致如下：</p><pre><code class="lang-javascript">Node {
+  type: &#39;Program&#39;,
+  sourceType: &#39;script&#39;,
+  body: [
+    Node {
+      type: &#39;VariableDeclaration&#39;,
+      kind: &#39;const&#39;,
+      declarations: [
+        Node {
+          type: &#39;VariableDeclaration&#39;,
+          kind: &#39;const&#39;
+          declarations: [
+            Node {
+              type: &#39;VariableDeclarator&#39;,
+              id: Node { type: &#39;Identifier&#39;, name: &#39;href&#39; },
+              init: Node { type: &#39;Literal&#39;, value: &#39;https://vincent0700.com&#39; }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+</code></pre><p>AST 的所有节点都是 Node 的实例，它的数据结构如下：</p><pre><code class="lang-ts">class Node {
+  type: string
+  start: number
+  end: number
+  loc?: SourceLocation
+  sourceFile?: string
+  range?: [number, number]
+}
+</code></pre><h2 id="ES5"><a href="#ES5" class="headerlink" title="ES5"></a>ES5</h2><p>Node 大致分为以下 8 个大类：</p><h3 id="Program-根节点"><a href="#Program-根节点" class="headerlink" title="Program 根节点"></a>Program 根节点</h3><pre><code class="lang-ts">interface Program &lt;: Node {
+    type: &quot;Program&quot;;
+    body: [ Statement ];
+}
+</code></pre><p>AST 的顶部， body 包含了多个 Statement（语句）节点。</p><h3 id="Identifier-标识符"><a href="#Identifier-标识符" class="headerlink" title="Identifier 标识符"></a>Identifier 标识符</h3><pre><code class="lang-ts">interface Identifier &lt;: Expression, Pattern {
+    type: &quot;Identifier&quot;;
+    name: string;
+}
+</code></pre><p>用户自定义的名称，如变量名，函数名，属性名等。</p><h3 id="Literal-字面量"><a href="#Literal-字面量" class="headerlink" title="Literal 字面量"></a>Literal 字面量</h3><pre><code class="lang-ts">interface Literal &lt;: Expression {
+    type: &quot;Literal&quot;;
+    value: string | boolean | null | number | RegExp;
+}
+</code></pre><p>从 value 的类型可以看出，字面量就是值，他的类型有字符串，布尔，数值，null 和正则。</p><h3 id="Statement-语句"><a href="#Statement-语句" class="headerlink" title="Statement 语句"></a>Statement 语句</h3><pre><code class="lang-ts">interface Statement &lt;: Node { }
+</code></pre><p>从根节点就可以看出，AST 是由 Statement 数组构成，我认为 Statement 应该是 AST 中除了 Program 最大的概念了，JS 的各种语法也是从 Statement 展开的：</p><ul><li>空语句 “;”<pre><code class="lang-ts">interface EmptyStatement &lt;: Statement {
+    type: &quot;EmptyStatement&quot;;
+}
+</code></pre></li><li>调试语句 “debugger;”<pre><code class="lang-ts">interface DebuggerStatement &lt;: Statement {
+    type: &quot;DebuggerStatement&quot;;
+}
+</code></pre></li><li>表达式语句 “1 + 1;”<pre><code class="lang-ts">interface ExpressionStatement &lt;: Statement {
+    type: &quot;ExpressionStatement&quot;;
+    expression: Expression;
+}
+</code></pre></li><li>块语句 “{[body]}”<pre><code class="lang-ts">interface BlockStatement &lt;: Statement {
+    type: &quot;BlockStatement&quot;;
+    body: [ Statement ];
+}
+</code></pre></li><li>With语句 “with ([object]) {[body]}”<pre><code class="lang-ts">interface WithStatement &lt;: Statement {
+    type: &quot;WithStatement&quot;;
+    object: Expression;
+    body: Statement;
+}
+</code></pre></li><li>流程控制语句<ul><li>Return语句 “return [argument]”<pre><code class="lang-ts">interface ReturnStatement &lt;: Statement {
+  type: &quot;ReturnStatement&quot;;
+  argument: Expression | null;
+}
+</code></pre></li><li>标签语句 “loop: … break loop;”<pre><code class="lang-ts">interface LabeledStatement &lt;: Statement {
+  type: &quot;LabeledStatement&quot;;
+  label: Identifier;
+  body: Statement;
+}
+</code></pre></li><li>Break语句 “break [label?];”<pre><code class="lang-ts">interface BreakStatement &lt;: Statement {
+  type: &quot;BreakStatement&quot;;
+  label: Identifier | null;
+}
+</code></pre></li><li>Continue语句 “continue [label?];”<pre><code class="lang-ts">interface ContinueStatement &lt;: Statement {
+  type: &quot;ContinueStatement&quot;;
+  label: Identifier | null;
+}
+</code></pre></li></ul></li><li>条件语句<ul><li>If语句 “if ([test]) {[consequent]} else {[alternate]}”<pre><code class="lang-ts">interface IfStatement &lt;: Statement {
+  type: &quot;IfStatement&quot;;
+  test: Expression;
+  consequent: Statement;
+  alternate: Statement | null;
+}
+</code></pre></li><li>Switch语句 “switch ([discriminant]) {[cases]}”<pre><code class="lang-ts">interface SwitchStatement &lt;: Statement {
+  type: &quot;SwitchStatement&quot;;
+  discriminant: Expression;
+  cases: [ SwitchCase ];
+}
+</code></pre><ul><li>SwitchCase节点 “case: [test]: [consequent]”<pre><code class="lang-ts">interface SwitchCase &lt;: Node {
+  type: &quot;SwitchCase&quot;;
+  test: Expression | null;
+  consequent: [ Statement ];
+}
+</code></pre></li></ul></li></ul></li><li>异常语句<ul><li>Throw语句 “throw [argument]”<pre><code class="lang-ts">interface ThrowStatement &lt;: Statement {
+  type: &quot;ThrowStatement&quot;;
+  argument: Expression;
+}
+</code></pre></li><li>Try语句 “try {[block]} catch {[handler]} finally {[finalizer]}”<pre><code class="lang-ts">interface TryStatement &lt;: Statement {
+  type: &quot;TryStatement&quot;;
+  block: BlockStatement;
+  handler: CatchClause | null;
+  finalizer: BlockStatement | null;
+}
+</code></pre><ul><li>Catch节点<pre><code class="lang-ts">interface CatchClause &lt;: Node {
+  type: &quot;CatchClause&quot;;
+  param: Pattern;
+  body: BlockStatement;
+}
+</code></pre></li></ul></li></ul></li><li>循环语句<ul><li>While语句 “while ([test] {[body]}”<pre><code class="lang-ts">interface WhileStatement &lt;: Statement {
+  type: &quot;WhileStatement&quot;;
+  test: Expression;
+  body: Statement;
+}
+</code></pre></li><li>DoWhile语句 “do {[test]} while ([body])”<pre><code class="lang-ts">interface DoWhileStatement &lt;: Statement {
+  type: &quot;DoWhileStatement&quot;;
+  body: Statement;
+  test: Expression;
+}
+</code></pre></li><li>For语句 “for ([init];[test];[update]) {[body]}”<pre><code class="lang-ts">interface ForStatement &lt;: Statement {
+  type: &quot;ForStatement&quot;;
+  init: VariableDeclaration | Expression | null;
+  test: Expression | null;
+  update: Expression | null;
+  body: Statement;
+}
+</code></pre></li><li>ForIn语句 “for ([left] in [right]) {[body]}”<pre><code class="lang-ts">interface ForInStatement &lt;: Statement {
+  type: &quot;ForInStatement&quot;;
+  left: VariableDeclaration |  Pattern;
+  right: Expression;
+  body: Statement;
+}
+</code></pre></li></ul></li></ul><h3 id="Declaration-声明语句"><a href="#Declaration-声明语句" class="headerlink" title="Declaration 声明语句"></a>Declaration 声明语句</h3><pre><code class="lang-ts">interface Declaration &lt;: Statement { }
+</code></pre><p>声明语句节点，同样也是语句，只是一个类型的细化。</p><ul><li>函数声明 “function [id] ([params]) {[body]}”<pre><code class="lang-ts">interface FunctionDeclaration &lt;: Function, Declaration {
+  type: &quot;FunctionDeclaration&quot;;
+  id: Identifier;
+}
+</code></pre><ul><li>函数<pre><code class="lang-ts">interface Function &lt;: Node {
+  id: Identifier | null;
+  params: [ Pattern ];
+  body: FunctionBody;
+}
+</code></pre></li></ul></li><li>变量声明 “var a = 10;”<pre><code class="lang-ts">interface VariableDeclaration &lt;: Declaration {
+  type: &quot;VariableDeclaration&quot;;
+  declarations: [ VariableDeclarator ];
+  kind: &quot;var&quot;;
+}
+</code></pre><ul><li>变量声明描述<pre><code class="lang-ts">interface VariableDeclarator &lt;: Node {
+  type: &quot;VariableDeclarator&quot;;
+  id: Pattern;
+  init: Expression | null;
+}
+</code></pre></li></ul></li></ul><h3 id="Expression-表达式"><a href="#Expression-表达式" class="headerlink" title="Expression 表达式"></a>Expression 表达式</h3><pre><code class="lang-ts">interface Expression &lt;: Node { }
+</code></pre><ul><li>This表达式 “this”<pre><code class="lang-ts">interface ThisExpression &lt;: Expression {
+  type: &quot;ThisExpression&quot;;
+}
+</code></pre></li><li>Array表达式 “[1, 2, 3]”<pre><code class="lang-ts">interface ArrayExpression &lt;: Expression {
+  type: &quot;ArrayExpression&quot;;
+  elements: [ Expression | null ];
+}
+</code></pre></li><li>Object表达式 “{ a: 1 }”<pre><code class="lang-ts">interface ObjectExpression &lt;: Expression {
+  type: &quot;ObjectExpression&quot;;
+  properties: [ Property ];
+}
+</code></pre><ul><li>属性节点<pre><code class="lang-ts">interface Property &lt;: Node {
+  type: &quot;Property&quot;;
+  key: Literal | Identifier;
+  value: Expression;
+  kind: &quot;init&quot; | &quot;get&quot; | &quot;set&quot;;
+}
+</code></pre></li></ul></li><li>函数表达式 “function ([params]) {[body]}”<pre><code class="lang-ts">interface FunctionExpression &lt;: Function, Expression {
+  type: &quot;FunctionExpression&quot;;
+}
+</code></pre></li><li>一元操作<ul><li>Unary表达式<pre><code class="lang-ts">interface UnaryExpression &lt;: Expression {
+  type: &quot;UnaryExpression&quot;;
+  operator: UnaryOperator;
+  prefix: boolean;
+  argument: Expression;
+}
+</code></pre><ul><li>Unary运算符 “typeof a”<pre><code class="lang-ts">enum UnaryOperator {
+  &quot;-&quot; | &quot;+&quot; | &quot;!&quot; | &quot;~&quot; | &quot;typeof&quot; | &quot;void&quot; | &quot;delete&quot;
+}
+</code></pre></li></ul></li><li>Update表达式 “a++” “—a”<pre><code class="lang-ts">interface UpdateExpression &lt;: Expression {
+  type: &quot;UpdateExpression&quot;;
+  operator: UpdateOperator;
+  argument: Expression;
+  prefix: boolean;
+}
+</code></pre><ul><li>Update运算符<pre><code class="lang-ts">enum UpdateOperator {
+  &quot;++&quot; | &quot;--&quot;
+}
+</code></pre></li></ul></li></ul></li><li>二元操作<ul><li>Binary表达式 “a &gt; b”<pre><code class="lang-ts">interface BinaryExpression &lt;: Expression {
+  type: &quot;BinaryExpression&quot;;
+  operator: BinaryOperator;
+  left: Expression;
+  right: Expression;
+}
+</code></pre><ul><li>Binary运算符<pre><code class="lang-ts">enum BinaryOperator {
+  &quot;==&quot; | &quot;!=&quot; | &quot;===&quot; | &quot;!==&quot;
+      | &quot;&lt;&quot; | &quot;&lt;=&quot; | &quot;&gt;&quot; | &quot;&gt;=&quot;
+      | &quot;&lt;&lt;&quot; | &quot;&gt;&gt;&quot; | &quot;&gt;&gt;&gt;&quot;
+      | &quot;+&quot; | &quot;-&quot; | &quot;*&quot; | &quot;/&quot; | &quot;%&quot;
+      | &quot;|&quot; | &quot;^&quot; | &quot;&amp;&quot; | &quot;in&quot;
+      | &quot;instanceof&quot;
+}
+</code></pre></li></ul></li></ul></li><li>赋值表达式 “a = 1”<pre><code class="lang-ts">interface AssignmentExpression &lt;: Expression {
+  type: &quot;AssignmentExpression&quot;;
+  operator: AssignmentOperator;
+  left: Pattern | Expression;
+  right: Expression;
+}
+</code></pre><ul><li>赋值运算符<pre><code class="lang-ts">enum AssignmentOperator {
+  &quot;=&quot; | &quot;+=&quot; | &quot;-=&quot; | &quot;*=&quot; | &quot;/=&quot; | &quot;%=&quot;
+      | &quot;&lt;&lt;=&quot; | &quot;&gt;&gt;=&quot; | &quot;&gt;&gt;&gt;=&quot;
+      | &quot;|=&quot; | &quot;^=&quot; | &quot;&amp;=&quot;
+}
+</code></pre></li></ul></li><li>逻辑表达式 “a &amp;&amp; b”<pre><code class="lang-ts">interface LogicalExpression &lt;: Expression {
+  type: &quot;LogicalExpression&quot;;
+  operator: LogicalOperator;
+  left: Expression;
+  right: Expression;
+}
+</code></pre><ul><li>逻辑运算符<pre><code class="lang-ts">enum LogicalOperator {
+  &quot;||&quot; | &quot;&amp;&amp;&quot;
+}
+</code></pre></li></ul></li><li>成员表达式 “a.b”<pre><code class="lang-ts">interface MemberExpression &lt;: Expression, Pattern {
+  type: &quot;MemberExpression&quot;;
+  object: Expression;
+  property: Expression;
+  computed: boolean;
+}
+</code></pre></li><li>条件表达式 “a &gt; b ? c : d”<pre><code class="lang-ts">interface ConditionalExpression &lt;: Expression {
+  type: &quot;ConditionalExpression&quot;;
+  test: Expression;
+  alternate: Expression;
+  consequent: Expression;
+}
+</code></pre></li><li>函数调用表达式 “func(1, 2)”<pre><code class="lang-ts">interface CallExpression &lt;: Expression {
+  type: &quot;CallExpression&quot;;
+  callee: Expression;
+  arguments: [ Expression ];
+}
+</code></pre></li><li>New表达式 “new Date()”<pre><code class="lang-ts">interface NewExpression &lt;: Expression {
+  type: &quot;NewExpression&quot;;
+  callee: Expression;
+  arguments: [ Expression ];
+}
+</code></pre></li><li>Sequence表达式 “1,2,3”<pre><code class="lang-ts">interface SequenceExpression &lt;: Expression {
+  type: &quot;SequenceExpression&quot;;
+  expressions: [ Expression ];
+}
+</code></pre></li></ul><h3 id="Patterns-模式"><a href="#Patterns-模式" class="headerlink" title="Patterns 模式"></a>Patterns 模式</h3><pre><code class="lang-ts">interface Pattern &lt;: Node { }
+</code></pre><p>主要在 ES6 的解构赋值中有意义，在 ES5 中，可以理解为和 Identifier 差不多的东西。</p><h2 id="ES2015"><a href="#ES2015" class="headerlink" title="ES2015"></a>ES2015</h2><h3 id="Program-根节点-1"><a href="#Program-根节点-1" class="headerlink" title="Program 根节点"></a>Program 根节点</h3><pre><code class="lang-ts">extend interface Program {
+    sourceType: &quot;script&quot; | &quot;module&quot;;
+    body: [ Statement | ModuleDeclaration ];
+}
+</code></pre><p>如果是 ES6 模块，必须指定 sourceType 为 “module”，否则将指定为 “script”。</p><h3 id="Function-函数"><a href="#Function-函数" class="headerlink" title="Function 函数"></a>Function 函数</h3><pre><code class="lang-ts">extend interface Function {
+    generator: boolean;
+}
+</code></pre><p>支持 Generator 函数</p><h3 id="Statement-语句-1"><a href="#Statement-语句-1" class="headerlink" title="Statement 语句"></a>Statement 语句</h3><ul><li>ForOf语句 “for (let [left] of [right])”<pre><code class="lang-ts">interface ForOfStatement &lt;: ForInStatement {
+  type: &quot;ForOfStatement&quot;;
+}
+</code></pre></li></ul><h3 id="Declaration-声明"><a href="#Declaration-声明" class="headerlink" title="Declaration 声明"></a>Declaration 声明</h3><ul><li>变量声明<pre><code class="lang-ts">extend interface VariableDeclaration {
+  kind: &quot;var&quot; | &quot;let&quot; | &quot;const&quot;;
+}
+</code></pre></li></ul><h3 id="Expression-表达式-1"><a href="#Expression-表达式-1" class="headerlink" title="Expression 表达式"></a>Expression 表达式</h3><ul><li>Super表达式 “super([arguments])”<pre><code class="lang-ts">interface Super &lt;: Node {
+  type: &quot;Super&quot;;
+}
+extend interface CallExpression {
+  callee: Expression | Super;
+}
+extend interface MemberExpression {
+  object: Expression | Super;
+}
+</code></pre></li><li>Spread表达式 “[head, …iter]”<pre><code class="lang-ts">interface SpreadElement &lt;: Node {
+  type: &quot;SpreadElement&quot;;
+  argument: Expression;
+}
+extend interface ArrayExpression {
+  elements: [ Expression | SpreadElement | null ];
+}
+extend interface CallExpression {
+  arguments: [ Expression | SpreadElement ];
+}
+extend interface NewExpression {
+  arguments: [ Expression | SpreadElement ];
+}
+</code></pre></li><li>箭头函数表达式 “() =&gt; {[body]}”<pre><code class="lang-ts">interface ArrowFunctionExpression &lt;: Function, Expression {
+  type: &quot;ArrowFunctionExpression&quot;;
+  body: FunctionBody | Expression;
+  expression: boolean;
+}
+</code></pre></li><li>Yield表达式 “yield [argument]”<pre><code class="lang-ts">interface YieldExpression &lt;: Expression {
+  type: &quot;YieldExpression&quot;;
+  argument: Expression | null;
+  delegate: boolean;
+}
+</code></pre></li><li>模板字面量 “<code>Hello ${name}</code>“<pre><code class="lang-ts">interface TemplateLiteral &lt;: Expression {
+  type: &quot;TemplateLiteral&quot;;
+  quasis: [ TemplateElement ];
+  expressions: [ Expression ];
+}
+</code></pre><ul><li>模板元素<pre><code class="lang-ts">interface TemplateElement &lt;: Node {
+  type: &quot;TemplateElement&quot;;
+  tail: boolean;
+  value: {
+      cooked: string;
+      raw: string;
+  };
+}
+</code></pre></li></ul></li><li>带标签的模板字符串表达式 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/template_strings#%E5%B8%A6%E6%A0%87%E7%AD%BE%E7%9A%84%E6%A8%A1%E6%9D%BF%E5%AD%97%E7%AC%A6%E4%B8%B2" target="_blank" rel="noopener">MDN链接</a><pre><code class="lang-ts">interface TaggedTemplateExpression &lt;: Expression {
+  type: &quot;TaggedTemplateExpression&quot;;
+  tag: Expression;
+  quasi: TemplateLiteral;
+}
+</code></pre></li></ul><h3 id="Pattern-模式"><a href="#Pattern-模式" class="headerlink" title="Pattern 模式"></a>Pattern 模式</h3><p>主要跟解构赋值相关</p><ul><li>ObjectPattern “{ a, b: c } = { a: 1, b: { c: 2 }}”<pre><code class="lang-ts">interface AssignmentProperty &lt;: Property {
+  type: &quot;Property&quot;; // inherited
+  value: Pattern;
+  kind: &quot;init&quot;;
+  method: false;
+}
+interface ObjectPattern &lt;: Pattern {
+  type: &quot;ObjectPattern&quot;;
+  properties: [ AssignmentProperty ];
+}
+</code></pre></li><li>ArrayPattern “[a, b] = [1, 2]”<pre><code class="lang-ts">interface ArrayPattern &lt;: Pattern {
+  type: &quot;ArrayPattern&quot;;
+  elements: [ Pattern | null ];
+}
+</code></pre></li><li>RestElement “fun(…args){}”<pre><code class="lang-ts">interface RestElement &lt;: Pattern {
+  type: &quot;RestElement&quot;;
+  argument: Pattern;
+}
+</code></pre></li><li>AssignmentPattern “fun(a=10){}”<pre><code class="lang-ts">interface AssignmentPattern &lt;: Pattern {
+  type: &quot;AssignmentPattern&quot;;
+  left: Pattern;
+  right: Expression;
+}
+</code></pre></li></ul><h3 id="Class-类"><a href="#Class-类" class="headerlink" title="Class 类"></a>Class 类</h3><pre><code class="lang-ts">interface Class &lt;: Node {
+    id: Identifier | null;
+    superClass: Expression | null;
+    body: ClassBody;
+}
+</code></pre><ul><li>类主体<pre><code class="lang-ts">interface ClassBody &lt;: Node {
+  type: &quot;ClassBody&quot;;
+  body: [ MethodDefinition ];
+}
+</code></pre></li><li>方法定义<pre><code class="lang-ts">interface MethodDefinition &lt;: Node {
+  type: &quot;MethodDefinition&quot;;
+  key: Expression;
+  value: FunctionExpression;
+  kind: &quot;constructor&quot; | &quot;method&quot; | &quot;get&quot; | &quot;set&quot;;
+  computed: boolean;
+  static: boolean;
+}
+</code></pre></li><li>类声明 “class [name] [extends] {[body]}”<pre><code class="lang-ts">interface ClassDeclaration &lt;: Class, Declaration {
+  type: &quot;ClassDeclaration&quot;;
+  id: Identifier;
+}
+</code></pre></li><li>类表达式 “const A = class [name] [extends] {[body]}”<pre><code class="lang-ts">interface ClassExpression &lt;: Class, Expression {
+  type: &quot;ClassExpression&quot;;
+}
+</code></pre></li><li>元属性 “new.target”<pre><code class="lang-ts">interface MetaProperty &lt;: Expression {
+  type: &quot;MetaProperty&quot;;
+  meta: Identifier;
+  property: Identifier;
+}
+</code></pre></li></ul><h3 id="Module-模块"><a href="#Module-模块" class="headerlink" title="Module 模块"></a>Module 模块</h3><ul><li>模块声明<pre><code class="lang-ts">interface ModuleDeclaration &lt;: Node { }
+</code></pre></li><li>模块说明符<pre><code class="lang-ts">interface ModuleSpecifier &lt;: Node {
+  local: Identifier;
+}
+</code></pre></li><li>Import<ul><li>导入声明 “import foo from ‘mod’”<pre><code class="lang-ts">interface ImportDeclaration &lt;: ModuleDeclaration {
+  type: &quot;ImportDeclaration&quot;;
+  specifiers: [ ImportSpecifier | ImportDefaultSpecifier | ImportNamespaceSpecifier ];
+  source: Literal;
+}
+</code></pre></li><li>导入说明符 “import { foo as a } from ‘mod’”<pre><code class="lang-ts">interface ImportSpecifier &lt;: ModuleSpecifier {
+  type: &quot;ImportSpecifier&quot;;
+  imported: Identifier;
+}
+</code></pre></li><li>默认导入说明符 “import foo from ‘mod’”<pre><code class="lang-ts">interface ImportDefaultSpecifier &lt;: ModuleSpecifier {
+  type: &quot;ImportDefaultSpecifier&quot;;
+}
+</code></pre></li><li>命名空间导入说明符 “import * as foo from ‘mod’”<pre><code class="lang-ts">interface ImportNamespaceSpecifier &lt;: ModuleSpecifier {
+  type: &quot;ImportNamespaceSpecifier&quot;;
+}
+</code></pre></li></ul></li><li>Exports<ul><li>部分导出声明 “export { foo, bar }” “export var foo = 1”<pre><code class="lang-ts">interface ExportNamedDeclaration &lt;: ModuleDeclaration {
+  type: &quot;ExportNamedDeclaration&quot;;
+  declaration: Declaration | null;
+  specifiers: [ ExportSpecifier ];
+  source: Literal | null;
+}
+</code></pre></li><li>导出说明符 “export { foo }” “export { foo as bar }”<pre><code class="lang-ts">interface ExportSpecifier &lt;: ModuleSpecifier {
+  type: &quot;ExportSpecifier&quot;;
+  exported: Identifier;
+}
+</code></pre></li><li>默认导出声明 “export default foo”<pre><code class="lang-ts">interface AnonymousDefaultExportedFunctionDeclaration &lt;: Function {
+  type: &quot;FunctionDeclaration&quot;;
+  id: null;
+}
+interface AnonymousDefaultExportedClassDeclaration &lt;: Class {
+  type: &quot;ClassDeclaration&quot;;
+  id: null;
+}
+interface ExportDefaultDeclaration &lt;: ModuleDeclaration {
+  type: &quot;ExportDefaultDeclaration&quot;;
+  declaration: AnonymousDefaultExportedFunctionDeclaration | FunctionDeclaration | AnonymousDefaultExportedClassDeclaration | ClassDeclaration | Expression;
+}
+</code></pre></li><li>全部导出声明 “export * from ‘mod’”<pre><code class="lang-ts">interface ExportAllDeclaration &lt;: ModuleDeclaration {
+  type: &quot;ExportAllDeclaration&quot;;
+  source: Literal;
+}
+</code></pre></li></ul></li></ul><h2 id="ES2016"><a href="#ES2016" class="headerlink" title="ES2016"></a>ES2016</h2><h3 id="新增二元运算符"><a href="#新增二元运算符" class="headerlink" title="新增二元运算符 **"></a>新增二元运算符 **</h3><pre><code class="lang-ts">extend enum BinaryOperator {
+    &quot;**&quot;
+}
+</code></pre><h3 id="新增赋值运算符"><a href="#新增赋值运算符" class="headerlink" title="新增赋值运算符 **="></a>新增赋值运算符 **=</h3><pre><code class="lang-ts">extend enum AssignmentOperator {
+    &quot;**=&quot;
+}
+</code></pre><h2 id="ES2017"><a href="#ES2017" class="headerlink" title="ES2017"></a>ES2017</h2><h3 id="async-await"><a href="#async-await" class="headerlink" title="async/await"></a>async/await</h3><pre><code class="lang-ts">extend interface Function {
+    async: boolean;
+}
+
+interface AwaitExpression &lt;: Expression {
+    type: &quot;AwaitExpression&quot;;
+    argument: Expression;
+}
+</code></pre><h2 id="ES2018"><a href="#ES2018" class="headerlink" title="ES2018"></a>ES2018</h2><h3 id="异步迭代器-for-await-of"><a href="#异步迭代器-for-await-of" class="headerlink" title="异步迭代器 for-await-of"></a>异步迭代器 for-await-of</h3><pre><code class="lang-ts">extend interface ForOfStatement {
+  await: boolean;
+}
+</code></pre><p>for await (const x of xs) {}</p><h3 id="对象支持-Rest-Spread"><a href="#对象支持-Rest-Spread" class="headerlink" title="对象支持 Rest/Spread"></a>对象支持 Rest/Spread</h3><pre><code class="lang-ts">extend interface ObjectExpression {
+    properties: [ Property | SpreadElement ];
+}
+extend interface ObjectPattern {
+    properties: [ AssignmentProperty | RestElement ];
+}
+</code></pre><p>ES2015 引入了 Rest 参数和 Spread 运算符，但仅作用于数组，ES2018 新增了对 Object 的支持。</p><h3 id="非法转义序列"><a href="#非法转义序列" class="headerlink" title="非法转义序列"></a>非法转义序列</h3><pre><code class="lang-ts">extend interface TemplateElement {
+    value: {
+        cooked: string | null;
+        raw: string;
+    };
+}
+</code></pre><p>ES2018 移除对 ECMAScript 在带标签的模版字符串中转义序列的语法限制。<br>之前，\u 开始一个 unicode 转义，\x 开始一个十六进制转义，\ 后跟一个数字开始一个八进制转义。这使得创建特定的字符串变得不可能，更多细节参考 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/template_strings#ES2018关于非法转义序列的修订" target="_blank" rel="noopener">MDN</a>。</p><h2 id="ES2019"><a href="#ES2019" class="headerlink" title="ES2019"></a>ES2019</h2><h3 id="Catch-语句允许为空"><a href="#Catch-语句允许为空" class="headerlink" title="Catch 语句允许为空"></a>Catch 语句允许为空</h3><pre><code class="lang-ts">extend interface CatchClause {
+    param: Pattern | null;
+}
+</code></pre><p>try { } catch { }</p><h2 id="ES2020"><a href="#ES2020" class="headerlink" title="ES2020"></a>ES2020</h2><h3 id="BigInt-字面量"><a href="#BigInt-字面量" class="headerlink" title="BigInt 字面量"></a>BigInt 字面量</h3><pre><code class="lang-ts">extend interface Literal &lt;: Expression {
+    type: &quot;Literal&quot;;
+    value: string | boolean | null | number | RegExp | bigint;
+}
+interface BigIntLiteral &lt;: Literal {
+    bigint: string;
+}
+</code></pre><h3 id="双问号运算符"><a href="#双问号运算符" class="headerlink" title="双问号运算符"></a>双问号运算符</h3><pre><code class="lang-ts">extend enum LogicalOperator {
+    &quot;||&quot; | &quot;&amp;&amp;&quot; | &quot;??&quot;
+}
+</code></pre><h3 id="export-as-语法"><a href="#export-as-语法" class="headerlink" title="export * as 语法"></a>export * as 语法</h3><pre><code class="lang-ts">extend interface ExportAllDeclaration {
+    exported: Identifier | null;
+}
+</code></pre></div></article><div id="footer-post-container"><div id="footer-post"><div id="nav-footer" style="display:none"><ul><li><a href="/">HOME</a></li><li><a href="/archives/">ARTICLES</a></li><li><a href="/search/">SEARCH</a></li><li><a href="/links/">LINKS</a></li></ul></div><div id="toc-footer" style="display:none"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解析器"><span class="toc-number">2.</span> <span class="toc-text">解析器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#词法分析"><span class="toc-number">2.1.</span> <span class="toc-text">词法分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#语法分析"><span class="toc-number">2.2.</span> <span class="toc-text">语法分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ES5"><span class="toc-number">3.</span> <span class="toc-text">ES5</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Program-根节点"><span class="toc-number">3.1.</span> <span class="toc-text">Program 根节点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Identifier-标识符"><span class="toc-number">3.2.</span> <span class="toc-text">Identifier 标识符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Literal-字面量"><span class="toc-number">3.3.</span> <span class="toc-text">Literal 字面量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Statement-语句"><span class="toc-number">3.4.</span> <span class="toc-text">Statement 语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Declaration-声明语句"><span class="toc-number">3.5.</span> <span class="toc-text">Declaration 声明语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Expression-表达式"><span class="toc-number">3.6.</span> <span class="toc-text">Expression 表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Patterns-模式"><span class="toc-number">3.7.</span> <span class="toc-text">Patterns 模式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ES2015"><span class="toc-number">4.</span> <span class="toc-text">ES2015</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Program-根节点-1"><span class="toc-number">4.1.</span> <span class="toc-text">Program 根节点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Function-函数"><span class="toc-number">4.2.</span> <span class="toc-text">Function 函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Statement-语句-1"><span class="toc-number">4.3.</span> <span class="toc-text">Statement 语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Declaration-声明"><span class="toc-number">4.4.</span> <span class="toc-text">Declaration 声明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Expression-表达式-1"><span class="toc-number">4.5.</span> <span class="toc-text">Expression 表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pattern-模式"><span class="toc-number">4.6.</span> <span class="toc-text">Pattern 模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Class-类"><span class="toc-number">4.7.</span> <span class="toc-text">Class 类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Module-模块"><span class="toc-number">4.8.</span> <span class="toc-text">Module 模块</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ES2016"><span class="toc-number">5.</span> <span class="toc-text">ES2016</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#新增二元运算符"><span class="toc-number">5.1.</span> <span class="toc-text">新增二元运算符 **</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#新增赋值运算符"><span class="toc-number">5.2.</span> <span class="toc-text">新增赋值运算符 **&#x3D;</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ES2017"><span class="toc-number">6.</span> <span class="toc-text">ES2017</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#async-await"><span class="toc-number">6.1.</span> <span class="toc-text">async&#x2F;await</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ES2018"><span class="toc-number">7.</span> <span class="toc-text">ES2018</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#异步迭代器-for-await-of"><span class="toc-number">7.1.</span> <span class="toc-text">异步迭代器 for-await-of</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对象支持-Rest-Spread"><span class="toc-number">7.2.</span> <span class="toc-text">对象支持 Rest&#x2F;Spread</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#非法转义序列"><span class="toc-number">7.3.</span> <span class="toc-text">非法转义序列</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ES2019"><span class="toc-number">8.</span> <span class="toc-text">ES2019</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Catch-语句允许为空"><span class="toc-number">8.1.</span> <span class="toc-text">Catch 语句允许为空</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ES2020"><span class="toc-number">9.</span> <span class="toc-text">ES2020</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#BigInt-字面量"><span class="toc-number">9.1.</span> <span class="toc-text">BigInt 字面量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#双问号运算符"><span class="toc-number">9.2.</span> <span class="toc-text">双问号运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#export-as-语法"><span class="toc-number">9.3.</span> <span class="toc-text">export * as 语法</span></a></li></ol></li></ol></div><div id="share-footer" style="display:none"><ul><li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://vincent0700.com/2020/05/27/056_Javascript_ast/" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="https://twitter.com/share?url=https://vincent0700.com/2020/05/27/056_Javascript_ast/&text=JS 语法树学习（全）" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://vincent0700.com/2020/05/27/056_Javascript_ast/&title=JS 语法树学习（全）" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://vincent0700.com/2020/05/27/056_Javascript_ast/&is_video=false&description=JS 语法树学习（全）" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="mailto:?subject=JS 语法树学习（全）&body=Check out this article: https://vincent0700.com/2020/05/27/056_Javascript_ast/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="https://getpocket.com/save?url=https://vincent0700.com/2020/05/27/056_Javascript_ast/&title=JS 语法树学习（全）" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="http://reddit.com/submit?url=https://vincent0700.com/2020/05/27/056_Javascript_ast/&title=JS 语法树学习（全）" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://vincent0700.com/2020/05/27/056_Javascript_ast/&title=JS 语法树学习（全）" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="http://digg.com/submit?url=https://vincent0700.com/2020/05/27/056_Javascript_ast/&title=JS 语法树学习（全）" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="http://www.tumblr.com/share/link?url=https://vincent0700.com/2020/05/27/056_Javascript_ast/&name=JS 语法树学习（全）&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li></ul></div><div id="actions-footer"><a id="menu" class="icon" href="#" onclick='return $("#nav-footer").toggle(),!1'><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a> <a id="toc" class="icon" href="#" onclick='return $("#toc-footer").toggle(),!1'><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a> <a id="share" class="icon" href="#" onclick='return $("#share-footer").toggle(),!1'><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a> <a id="top" style="display:none" class="icon" href="#" onclick='$("html, body").animate({scrollTop:0},"fast")'><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></div></div></div><footer id="footer"><div class="footer-left">Copyright &copy; 2021 Vincent</div><div class="footer-right"><nav><ul><li><a href="/">HOME</a></li><li><a href="/archives/">ARTICLES</a></li><li><a href="/search/">SEARCH</a></li><li><a href="/links/">LINKS</a></li></ul></nav></div></footer></div><script type="text/x-mathjax-config">MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script></body></html><link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"><link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css"><link rel="stylesheet" href="/lib/prettify/prettify.css"><link rel="stylesheet" href="/lib/prettify/themes/tomorrow-night-eighties.min.css"><script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script><link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet"><style>.pace .pace-progress{background:#e90f92;height:2px}.pace .pace-progress-inner{box-shadow:0 0 10px #fff,0 0 5px #fff}.pace .pace-activity{border-top-color:#e90f92;border-left-color:#e90f92}</style><script src="/lib/jquery/jquery.min.js"></script><script src="/lib/nicescroll/jquery.nicescroll.min.js"></script><script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script><script src="/js/main.js"></script><link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css"><script src="/lib/fancybox/jquery.fancybox.min.js"></script><script src="/js/wrapImage.js"></script><script src="/lib/prettify/prettify.js"></script><script>$("pre").addClass("prettyprint linenums").attr("style","overflow: auto;"),prettyPrint()</script><script async src="https://www.googletagmanager.com/gtag/js?id=G-0TTM4EXRD5"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-0TTM4EXRD5")</script><script type="text/javascript">var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?b1904beb2cf04455e5a7f5543eb59365";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script>

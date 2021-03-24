@@ -2,392 +2,504 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://vincentstudio.info/2020/05/07/052_Css_loader/</loc>
+    <loc>https://vincent0700.com/2020/05/27/056_Javascript_ast/</loc>
+    
+    <lastmod>2021-03-06T02:54:47.808Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://vincent0700.com/2020/06/11/059_Compilation_principle/</loc>
+    
+    <lastmod>2021-03-06T02:54:47.808Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://vincent0700.com/2020/01/22/037_Usage_of_cookiecutter/</loc>
+    
+    <lastmod>2021-03-06T02:54:47.807Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://vincent0700.com/2020/02/19/045_Blasting/</loc>
+    
+    <lastmod>2021-03-06T02:54:47.807Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://vincent0700.com/2020/05/18/054_V8_compilation/</loc>
+    
+    <lastmod>2021-03-06T02:54:47.807Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://vincent0700.com/2019/02/06/011_OLED_SH1106_Tutorial/</loc>
+    
+    <lastmod>2021-02-25T11:18:47.845Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://vincent0700.com/2019/02/24/020_Get_Free_SSL_Certificates/</loc>
+    
+    <lastmod>2021-02-25T11:18:47.819Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://vincent0700.com/2020/10/14/067_Webpack5_study/</loc>
+    
+    <lastmod>2021-02-25T11:18:47.398Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://vincent0700.com/2020/08/31/066_GTest_tutorial/</loc>
+    
+    <lastmod>2021-02-25T11:18:47.398Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://vincent0700.com/2020/11/10/068_MiOJ_hack/</loc>
+    
+    <lastmod>2021-02-25T11:18:47.398Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://vincent0700.com/2020/07/29/063_Github_actions/</loc>
+    
+    <lastmod>2021-02-25T11:18:47.396Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://vincent0700.com/2020/08/07/064_Rust_tutorial/</loc>
+    
+    <lastmod>2021-02-25T11:18:47.396Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://vincent0700.com/2020/08/11/065_QuickJs/</loc>
+    
+    <lastmod>2021-02-25T11:18:47.396Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://vincent0700.com/2020/06/23/060_Javascript_prototype/</loc>
+    
+    <lastmod>2021-02-25T11:18:47.395Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://vincent0700.com/2020/06/24/061_Javascript_parameters/</loc>
+    
+    <lastmod>2021-02-25T11:18:47.395Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://vincent0700.com/2020/07/14/062_V8_debug/</loc>
+    
+    <lastmod>2021-02-25T11:18:47.395Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://vincent0700.com/2020/06/04/057_Babel_plugin/</loc>
+    
+    <lastmod>2020-06-12T23:53:07.198Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://vincent0700.com/2020/06/09/058_Babel_custom_grammar/</loc>
+    
+    <lastmod>2020-06-12T23:53:07.198Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://vincent0700.com/2020/05/22/055_Webpack_dynamic_import/</loc>
+    
+    <lastmod>2020-06-12T23:53:07.193Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://vincent0700.com/2020/05/09/053_Javascript_continuous_assignment/</loc>
+    
+    <lastmod>2020-05-17T12:54:50.306Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://vincent0700.com/2020/05/07/052_Css_loader/</loc>
     
     <lastmod>2020-05-07T12:56:21.492Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2020/04/30/051_Webpack_module_principle/</loc>
+    <loc>https://vincent0700.com/2020/04/30/051_Webpack_module_principle/</loc>
     
     <lastmod>2020-05-07T12:52:34.652Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2020/04/28/050_Reverse_shell/</loc>
+    <loc>https://vincent0700.com/2020/04/28/050_Reverse_shell/</loc>
     
     <lastmod>2020-05-05T08:50:12.068Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2020/03/12/049_Pressure_test_tools/</loc>
+    <loc>https://vincent0700.com/2020/03/12/049_Pressure_test_tools/</loc>
     
     <lastmod>2020-03-12T15:23:16.388Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2020/01/13/035_Usage_of_provide_and_inject_in_vue/</loc>
+    <loc>https://vincent0700.com/2020/01/13/035_Usage_of_provide_and_inject_in_vue/</loc>
     
     <lastmod>2020-03-12T15:21:12.165Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2020/02/28/048_ICMP_protocal/</loc>
+    <loc>https://vincent0700.com/2020/02/28/048_ICMP_protocal/</loc>
     
     <lastmod>2020-03-01T04:44:40.701Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2020/02/27/047_ARP_protocal/</loc>
+    <loc>https://vincent0700.com/2020/02/27/047_ARP_protocal/</loc>
     
     <lastmod>2020-02-28T03:42:05.027Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2020/02/25/046_IP_protocal/</loc>
+    <loc>https://vincent0700.com/2020/02/25/046_IP_protocal/</loc>
     
     <lastmod>2020-02-27T05:58:38.632Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/04/10/024_Add_bandages_to_your_markdown/</loc>
+    <loc>https://vincent0700.com/2019/04/10/024_Add_bandages_to_your_markdown/</loc>
     
     <lastmod>2020-02-26T15:17:53.718Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2020/02/17/043_Theory_of_mental_calculation/</loc>
+    <loc>https://vincent0700.com/2020/02/17/043_Theory_of_mental_calculation/</loc>
     
     <lastmod>2020-02-25T06:18:53.700Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2020/02/12/042_Javascript_Array/</loc>
+    <loc>https://vincent0700.com/2020/02/12/042_Javascript_Array/</loc>
     
     <lastmod>2020-02-22T05:08:04.519Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/02/16/016_Logistic_Regression/</loc>
+    <loc>https://vincent0700.com/2019/02/16/016_Logistic_Regression/</loc>
     
     <lastmod>2020-02-22T04:47:01.853Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/02/18/017_Gradient_Descent/</loc>
+    <loc>https://vincent0700.com/2019/02/18/017_Gradient_Descent/</loc>
     
     <lastmod>2020-02-22T04:45:40.341Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2020/02/19/045_Blasting/</loc>
-    
-    <lastmod>2020-02-20T11:02:51.954Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://vincentstudio.info/2020/02/19/044_Pikachu_installation/</loc>
+    <loc>https://vincent0700.com/2020/02/19/044_Pikachu_installation/</loc>
     
     <lastmod>2020-02-19T07:33:27.750Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/02/14/014_Deep_Learning_Resources/</loc>
+    <loc>https://vincent0700.com/2019/02/14/014_Deep_Learning_Resources/</loc>
     
     <lastmod>2020-02-17T08:25:52.224Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2020/02/09/041_TC39_and_ECMAScript/</loc>
+    <loc>https://vincent0700.com/2020/02/09/041_TC39_and_ECMAScript/</loc>
     
     <lastmod>2020-02-12T02:16:58.428Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2020/01/31/040_How_to_record_the_screen_of_terminal/</loc>
+    <loc>https://vincent0700.com/2020/01/31/040_How_to_record_the_screen_of_terminal/</loc>
     
     <lastmod>2020-01-31T06:23:11.421Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2020/01/29/038_Homebrew_registry_manager/</loc>
+    <loc>https://vincent0700.com/2020/01/29/038_Homebrew_registry_manager/</loc>
     
     <lastmod>2020-01-30T14:23:54.051Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/01/07/006_Reverse_Proxy_Tools_-_frp/</loc>
+    <loc>https://vincent0700.com/2019/01/07/006_Reverse_Proxy_Tools_-_frp/</loc>
     
     <lastmod>2020-01-30T09:39:42.996Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/02/20/018_Configure_system_proxy_by_privoxy_and_gfwlist/</loc>
+    <loc>https://vincent0700.com/2019/02/20/018_Configure_system_proxy_by_privoxy_and_gfwlist/</loc>
     
     <lastmod>2020-01-30T09:39:35.254Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/02/09/013_TensorFlow_Installation/</loc>
+    <loc>https://vincent0700.com/2019/02/09/013_TensorFlow_Installation/</loc>
     
     <lastmod>2020-01-30T09:39:10.953Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/03/11/022_Install_and_upgrade_Jenkins_with_Docker/</loc>
+    <loc>https://vincent0700.com/2019/03/11/022_Install_and_upgrade_Jenkins_with_Docker/</loc>
     
     <lastmod>2020-01-30T09:32:14.574Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/02/01/007_Second-mover_advantage/</loc>
+    <loc>https://vincent0700.com/2019/02/01/007_Second-mover_advantage/</loc>
     
     <lastmod>2020-01-30T08:31:57.724Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2020/01/30/039_Survivorship_bias/</loc>
+    <loc>https://vincent0700.com/2020/01/30/039_Survivorship_bias/</loc>
     
     <lastmod>2020-01-30T08:31:57.724Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2020/01/22/037_Usage_of_cookiecutter/</loc>
-    
-    <lastmod>2020-01-30T08:31:10.926Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://vincentstudio.info/2018/12/04/002_How_to_use_pyenv_to_manage_multiple_python_versions/</loc>
+    <loc>https://vincent0700.com/2018/12/04/002_How_to_use_pyenv_to_manage_multiple_python_versions/</loc>
     
     <lastmod>2020-01-30T08:31:10.925Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2018/12/21/004_Sourcelist_switcher/</loc>
+    <loc>https://vincent0700.com/2018/12/21/004_Sourcelist_switcher/</loc>
     
     <lastmod>2020-01-30T08:31:10.925Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/02/15/015_Render_math_formula_in_hexo/</loc>
+    <loc>https://vincent0700.com/2019/02/22/019_Curl_CheatSheet/</loc>
     
     <lastmod>2020-01-30T08:31:10.925Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/02/22/019_Curl_CheatSheet/</loc>
+    <loc>https://vincent0700.com/2019/02/15/015_Render_math_formula_in_hexo/</loc>
     
     <lastmod>2020-01-30T08:31:10.925Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/04/13/025_Pipenv_Tutorial/</loc>
+    <loc>https://vincent0700.com/2019/04/13/025_Pipenv_Tutorial/</loc>
     
     <lastmod>2020-01-30T08:31:10.925Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/05/24/031_Driftnet_Tutorial/</loc>
+    <loc>https://vincent0700.com/2019/05/24/031_Driftnet_Tutorial/</loc>
     
     <lastmod>2020-01-30T08:31:10.925Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/06/15/032_OSX_Cracked_Software_Resources/</loc>
+    <loc>https://vincent0700.com/2019/06/15/032_OSX_Cracked_Software_Resources/</loc>
     
     <lastmod>2020-01-30T08:31:10.925Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/06/16/033_Port_Forwarding_Tutorial/</loc>
+    <loc>https://vincent0700.com/2019/06/16/033_Port_Forwarding_Tutorial/</loc>
     
     <lastmod>2020-01-30T08:31:10.925Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/12/31/034_Usage_of_hexo-all-minifier_copy/</loc>
+    <loc>https://vincent0700.com/2019/12/31/034_Usage_of_hexo-all-minifier_copy/</loc>
     
     <lastmod>2020-01-30T08:31:10.925Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/05/03/028_How_to_Fake_a_GPS_Location_on_IOS/</loc>
+    <loc>https://vincent0700.com/2019/05/03/028_How_to_Fake_a_GPS_Location_on_IOS/</loc>
     
     <lastmod>2020-01-30T08:29:43.763Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2018/12/09/003_RabbitMQ_Installation/</loc>
+    <loc>https://vincent0700.com/2018/12/09/003_RabbitMQ_Installation/</loc>
     
     <lastmod>2020-01-30T08:29:43.762Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/02/02/008_Get_MPU6050_data_through_websocket/</loc>
+    <loc>https://vincent0700.com/2019/02/02/008_Get_MPU6050_data_through_websocket/</loc>
     
     <lastmod>2020-01-30T08:29:43.762Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/02/03/010_Zabbix_4.0_single_node_configuration/</loc>
+    <loc>https://vincent0700.com/2019/02/03/010_Zabbix_4.0_single_node_configuration/</loc>
     
     <lastmod>2020-01-30T08:29:43.762Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/03/04/021_Deploy_dnsmasq_with_docker/</loc>
+    <loc>https://vincent0700.com/2019/03/04/021_Deploy_dnsmasq_with_docker/</loc>
     
     <lastmod>2020-01-30T08:29:43.762Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/04/03/023_Deploy_a_minecraft_server_using_forge/</loc>
+    <loc>https://vincent0700.com/2019/04/03/023_Deploy_a_minecraft_server_using_forge/</loc>
     
     <lastmod>2020-01-30T08:29:43.762Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/04/24/026_Use_Nameko_and_RabbitMQ_to_establish_your_Microservices/</loc>
+    <loc>https://vincent0700.com/2019/04/24/026_Use_Nameko_and_RabbitMQ_to_establish_your_Microservices/</loc>
     
     <lastmod>2020-01-30T08:29:43.762Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2020/01/14/036_Frontend_modular_ways/</loc>
+    <loc>https://vincent0700.com/2020/01/14/036_Frontend_modular_ways/</loc>
     
     <lastmod>2020-01-30T08:29:43.749Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/01/01/005_Docker_Installation/</loc>
+    <loc>https://vincent0700.com/2019/01/01/005_Docker_Installation/</loc>
     
     <lastmod>2020-01-30T08:29:43.725Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/02/03/009_How_to_add_or_remove_swap_space/</loc>
+    <loc>https://vincent0700.com/2019/02/03/009_How_to_add_or_remove_swap_space/</loc>
     
     <lastmod>2020-01-30T08:29:43.725Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/02/06/011_OLED_SH1106_Tutorial/</loc>
+    <loc>https://vincent0700.com/2019/05/15/029_WAV_Format_Parsing/</loc>
     
     <lastmod>2020-01-30T08:29:43.725Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/05/15/029_WAV_Format_Parsing/</loc>
+    <loc>https://vincent0700.com/2019/05/19/030_How_to_Hide_Linux_Process/</loc>
     
     <lastmod>2020-01-30T08:29:43.725Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/05/19/030_How_to_Hide_Linux_Process/</loc>
-    
-    <lastmod>2020-01-30T08:29:43.725Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://vincentstudio.info/2018/11/20/001_Cracking_for_Jetbrains_series/</loc>
+    <loc>https://vincent0700.com/2018/11/20/001_Cracking_for_Jetbrains_series/</loc>
     
     <lastmod>2020-01-30T08:28:58.498Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/02/08/012_Use_Qt5Agg_GUI_backend_for_matplotlib_on_MacOS/</loc>
+    <loc>https://vincent0700.com/2019/02/08/012_Use_Qt5Agg_GUI_backend_for_matplotlib_on_MacOS/</loc>
     
     <lastmod>2020-01-30T08:28:58.498Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/02/24/020_Get_Free_SSL_Certificates/</loc>
+    <loc>https://vincent0700.com/2019/05/02/027_A_list_of_Open_Source_NAS_Operating_System/</loc>
     
     <lastmod>2020-01-30T08:28:58.498Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/2019/05/02/027_A_list_of_Open_Source_NAS_Operating_System/</loc>
-    
-    <lastmod>2020-01-30T08:28:58.498Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://vincentstudio.info/links/index.html</loc>
+    <loc>https://vincent0700.com/categories/index.html</loc>
     
     <lastmod>2020-01-05T10:22:11.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/search/index.html</loc>
+    <loc>https://vincent0700.com/links/index.html</loc>
     
     <lastmod>2020-01-05T10:22:11.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/tags/index.html</loc>
+    <loc>https://vincent0700.com/search/index.html</loc>
     
     <lastmod>2020-01-05T10:22:11.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincentstudio.info/categories/index.html</loc>
+    <loc>https://vincent0700.com/tags/index.html</loc>
     
     <lastmod>2020-01-05T10:22:11.000Z</lastmod>
     

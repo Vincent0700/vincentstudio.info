@@ -1,0 +1,344 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="HandheldFriendly" content="True"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="google-site-verification" content="n1Pt1eZqb7M4_TQ2aUQQMRpFNGt6r1HyFpvqDw4y4lY"><meta name="description" content="本文主要记录了 Webpack import(‘module’).then(…) 动态导入语法的原理，如果对 Webpack 模块化原理不是很了解，可以参考我之前的文章 Webpack 模块化原理示例源码$ git clone https:&#x2F;&#x2F;github.com&#x2F;Vincent0700&#x2F;learning-webpack.git $ cd learning-webpack $ yarn insta"><meta property="og:type" content="article"><meta property="og:title" content="Webpack 动态导入原理"><meta property="og:url" content="https://vincent0700.com/2020/05/22/055_Webpack_dynamic_import/index.html"><meta property="og:site_name" content="VINCENT STUDIO"><meta property="og:description" content="本文主要记录了 Webpack import(‘module’).then(…) 动态导入语法的原理，如果对 Webpack 模块化原理不是很了解，可以参考我之前的文章 Webpack 模块化原理示例源码$ git clone https:&#x2F;&#x2F;github.com&#x2F;Vincent0700&#x2F;learning-webpack.git $ cd learning-webpack $ yarn insta"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://vincent0700.com/2020/05/22/055_Webpack_dynamic_import/flowchart.png"><meta property="article:published_time" content="2020-05-22T13:00:00.000Z"><meta property="article:modified_time" content="2020-06-12T23:53:07.193Z"><meta property="article:author" content="Vincent"><meta property="article:tag" content="FrontEnd"><meta property="article:tag" content="Webpack"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://vincent0700.com/2020/05/22/055_Webpack_dynamic_import/flowchart.png"><link rel="shortcut icon" href="/images/favicon.ico"><link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png"><title>Webpack 动态导入原理</title><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/rtl.css"><link rel="alternate" href="/atom.xml" title="VINCENT STUDIO" type="application/atom+xml"><script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?b1904beb2cf04455e5a7f5543eb59365";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><meta name="generator" content="Hexo 4.2.0"></head><body class="max-width mx-auto px3 ltr"><div id="header-post"><a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a> <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a> <a id="top-icon-tablet" href="#" onclick='$("html, body").animate({scrollTop:0},"fast")' style="display:none"><i class="fas fa-chevron-up fa-lg"></i></a> <span id="menu"><span id="nav"><ul><li><a href="/">HOME</a></li><li><a href="/archives/">ARTICLES</a></li><li><a href="/search/">SEARCH</a></li><li><a href="/links/">LINKS</a></li></ul></span><br><span id="actions"><ul><li><a class="icon" href="/2020/05/27/056_Javascript_ast/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover='$("#i-prev").toggle()' onmouseout='$("#i-prev").toggle()'></i></a></li><li><a class="icon" href="/2020/05/18/054_V8_compilation/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle()' onmouseout='$("#i-next").toggle()'></i></a></li><li><a class="icon" href="#" onclick='$("html, body").animate({scrollTop:0},"fast")'><i class="fas fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle()' onmouseout='$("#i-top").toggle()'></i></a></li><li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle()' onmouseout='$("#i-share").toggle()' onclick='return $("#share").toggle(),!1'></i></a></li></ul><span id="i-prev" class="info" style="display:none">Previous post</span> <span id="i-next" class="info" style="display:none">Next post</span> <span id="i-top" class="info" style="display:none">Back to top</span> <span id="i-share" class="info" style="display:none">Share post</span></span><br><div id="share" style="display:none"><ul><li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://vincent0700.com/2020/05/22/055_Webpack_dynamic_import/" target="_blank" rel="noopener"><i class="fab fa-facebook" aria-hidden="true"></i></a></li><li><a class="icon" href="https://twitter.com/share?url=https://vincent0700.com/2020/05/22/055_Webpack_dynamic_import/&text=Webpack 动态导入原理" target="_blank" rel="noopener"><i class="fab fa-twitter" aria-hidden="true"></i></a></li><li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://vincent0700.com/2020/05/22/055_Webpack_dynamic_import/&title=Webpack 动态导入原理" target="_blank" rel="noopener"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li><li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://vincent0700.com/2020/05/22/055_Webpack_dynamic_import/&is_video=false&description=Webpack 动态导入原理" target="_blank" rel="noopener"><i class="fab fa-pinterest" aria-hidden="true"></i></a></li><li><a class="icon" href="mailto:?subject=Webpack 动态导入原理&body=Check out this article: https://vincent0700.com/2020/05/22/055_Webpack_dynamic_import/"><i class="fas fa-envelope" aria-hidden="true"></i></a></li><li><a class="icon" href="https://getpocket.com/save?url=https://vincent0700.com/2020/05/22/055_Webpack_dynamic_import/&title=Webpack 动态导入原理" target="_blank" rel="noopener"><i class="fab fa-get-pocket" aria-hidden="true"></i></a></li><li><a class="icon" href="http://reddit.com/submit?url=https://vincent0700.com/2020/05/22/055_Webpack_dynamic_import/&title=Webpack 动态导入原理" target="_blank" rel="noopener"><i class="fab fa-reddit" aria-hidden="true"></i></a></li><li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://vincent0700.com/2020/05/22/055_Webpack_dynamic_import/&title=Webpack 动态导入原理" target="_blank" rel="noopener"><i class="fab fa-stumbleupon" aria-hidden="true"></i></a></li><li><a class="icon" href="http://digg.com/submit?url=https://vincent0700.com/2020/05/22/055_Webpack_dynamic_import/&title=Webpack 动态导入原理" target="_blank" rel="noopener"><i class="fab fa-digg" aria-hidden="true"></i></a></li><li><a class="icon" href="http://www.tumblr.com/share/link?url=https://vincent0700.com/2020/05/22/055_Webpack_dynamic_import/&name=Webpack 动态导入原理&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr" aria-hidden="true"></i></a></li></ul></div><div id="toc"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#示例源码"><span class="toc-number">1.</span> <span class="toc-text">示例源码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#待打包文件"><span class="toc-number">1.1.</span> <span class="toc-text">待打包文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Webpack-配置"><span class="toc-number">1.2.</span> <span class="toc-text">Webpack 配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#打包结果"><span class="toc-number">2.</span> <span class="toc-text">打包结果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#源码分析"><span class="toc-number">3.</span> <span class="toc-text">源码分析</span></a></li></ol></div></span></div><div class="content index py4"><article class="post" itemscope itemtype="http://schema.org/BlogPosting"><header><h1 class="posttitle" itemprop="name headline">Webpack 动态导入原理</h1><div class="meta"><span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">VINCENT STUDIO</span></span><div class="postdate"><time datetime="2020-05-22T13:00:00.000Z" itemprop="datePublished">2020-05-22</time></div><div class="article-category"><i class="fas fa-archive"></i> <a class="category-link" href="/categories/Tech/">Tech</a></div><div class="article-tag"><i class="fas fa-tag"></i> <a class="tag-link" href="/tags/FrontEnd/" rel="tag">FrontEnd</a>, <a class="tag-link" href="/tags/Webpack/" rel="tag">Webpack</a></div></div></header><div class="content" itemprop="articleBody"><blockquote><p>本文主要记录了 Webpack import(‘module’).then(…) 动态导入语法的原理，如果对 Webpack 模块化原理不是很了解，可以参考我之前的文章 <a href="/2020/04/30/051_Webpack_module_principle/">Webpack 模块化原理</a></p></blockquote><h2 id="示例源码"><a href="#示例源码" class="headerlink" title="示例源码"></a>示例源码</h2><pre><code class="lang-bash">$ git clone https://github.com/Vincent0700/learning-webpack.git
+$ cd learning-webpack
+$ yarn install
+# 开发
+$ yarn dev:async
+# 编译
+$ yarn build:async
+</code></pre><h3 id="待打包文件"><a href="#待打包文件" class="headerlink" title="待打包文件"></a>待打包文件</h3><pre><code class="lang-javascript">// src/templates/basic/utils.js
+export const add = (x, y) =&gt; x + y;
+export const num = 10;
+export const obj = { a: { b: 1 } };
+
+export default {
+  add,
+  num,
+  obj
+};
+</code></pre><pre><code class="lang-javascript">// src/templates/basic/hello.js
+export default function(name) {
+  console.log(`hello ${name}`);
+}
+</code></pre><pre><code class="lang-javascript">// src/templates/basic/async_import.js
+setTimeout(async () =&gt; {
+  const utils = await import(/* webpackChunkName: &quot;utils&quot; */ &#39;./utils&#39;);
+  const hello = await import(/* webpackChunkName: &quot;hello&quot; */ &#39;./hello&#39;);
+  console.log(utils);
+  console.log(hello);
+}, 3000);
+</code></pre><p>入口文件 <code>async_import.js</code> 会在三秒后引入 <code>utils.js</code>，从语法可以看出 <code>import(...)</code> 的结果是一个 <code>Promise</code> 猜测应该是 <code>Webpack</code> 的 <code>module</code> 对象</p><h3 id="Webpack-配置"><a href="#Webpack-配置" class="headerlink" title="Webpack 配置"></a>Webpack 配置</h3><pre><code class="lang-javascript">// src/examples/webpack.async.js
+const path = require(&#39;path&#39;);
+const HtmlWebpackPlugin = require(&#39;html-webpack-plugin&#39;);
+const FriendlyErrorsWebpackPlugin = require(&#39;friendly-errors-webpack-plugin&#39;);
+
+module.exports = {
+  mode: &#39;development&#39;,
+  entry: path.join(__dirname, &#39;../templates/basic/async_import.js&#39;),
+  output: {
+    path: path.join(__dirname, &#39;../../dist&#39;),
+    filename: &#39;[name].js&#39;
+  },
+  plugins: [new HtmlWebpackPlugin(), new FriendlyErrorsWebpackPlugin()],
+  devServer: {
+    contentBase: path.join(__dirname, &#39;../../dist&#39;),
+    compress: true,
+    port: 9000
+  }
+};
+</code></pre><h2 id="打包结果"><a href="#打包结果" class="headerlink" title="打包结果"></a>打包结果</h2><p>我格式化并删减了一写注释，得到的 <code>utils.js</code> 内容如下:</p><pre><code class="lang-javascript">(window[&#39;webpackJsonp&#39;] = window[&#39;webpackJsonp&#39;] || []).push([
+  [&#39;utils&#39;],
+  {
+    &#39;./src/templates/basic/utils.js&#39;: function(module, __webpack_exports__, __webpack_require__) {
+      eval(`
+      __webpack_require__.r(__webpack_exports__);
+      __webpack_require__.d(__webpack_exports__, &quot;add&quot;, function() { return add; });__webpack_require__.d(__webpack_exports__, &quot;num&quot;, function() { return num; });__webpack_require__.d(__webpack_exports__, &quot;obj&quot;, function() { return obj; });
+      const add = (x, y) =&gt; x + y;
+      const num = 10;
+      const obj = { a: { b: 1 } };
+      __webpack_exports__[&quot;default&quot;] = ({ add, num, obj });
+    `);
+    }
+  }
+]);
+</code></pre><p>得到的 <code>main.js</code> 文件内容如下：</p><pre><code class="lang-javascript">(function(modules) {
+  // webpackBootstrap
+  // install a JSONP callback for chunk loading
+  function webpackJsonpCallback(data) {
+    var chunkIds = data[0];
+    var moreModules = data[1];
+
+    // add &quot;moreModules&quot; to the modules object,
+    // then flag all &quot;chunkIds&quot; as loaded and fire callback
+    var moduleId,
+      chunkId,
+      i = 0,
+      resolves = [];
+    for (; i &lt; chunkIds.length; i++) {
+      chunkId = chunkIds[i];
+      if (
+        Object.prototype.hasOwnProperty.call(installedChunks, chunkId) &amp;&amp;
+        installedChunks[chunkId]
+      ) {
+        resolves.push(installedChunks[chunkId][0]);
+      }
+      installedChunks[chunkId] = 0;
+    }
+    for (moduleId in moreModules) {
+      if (Object.prototype.hasOwnProperty.call(moreModules, moduleId)) {
+        modules[moduleId] = moreModules[moduleId];
+      }
+    }
+    if (parentJsonpFunction) parentJsonpFunction(data);
+
+    while (resolves.length) {
+      resolves.shift()();
+    }
+  }
+
+  // The module cache
+  var installedModules = {};
+
+  // object to store loaded and loading chunks
+  // undefined = chunk not loaded, null = chunk preloaded/prefetched
+  // Promise = chunk loading, 0 = chunk loaded
+  var installedChunks = {
+    main: 0
+  };
+
+  // script path function
+  function jsonpScriptSrc(chunkId) {
+    return __webpack_require__.p + &#39;&#39; + ({ utils: &#39;utils&#39; }[chunkId] || chunkId) + &#39;.js&#39;;
+  }
+
+  // The require function
+  function __webpack_require__(moduleId) {
+    // Check if module is in cache
+    if (installedModules[moduleId]) {
+      return installedModules[moduleId].exports;
+    }
+    // Create a new module (and put it into the cache)
+    var module = (installedModules[moduleId] = {
+      i: moduleId,
+      l: false,
+      exports: {}
+    });
+
+    // Execute the module function
+    modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+
+    // Flag the module as loaded
+    module.l = true;
+
+    // Return the exports of the module
+    return module.exports;
+  }
+
+  // This file contains only the entry chunk.
+  // The chunk loading function for additional chunks
+  __webpack_require__.e = function requireEnsure(chunkId) {
+    var promises = [];
+
+    // JSONP chunk loading for javascript
+
+    var installedChunkData = installedChunks[chunkId];
+    if (installedChunkData !== 0) {
+      // 0 means &quot;already installed&quot;.
+
+      // a Promise means &quot;currently loading&quot;.
+      if (installedChunkData) {
+        promises.push(installedChunkData[2]);
+      } else {
+        // setup Promise in chunk cache
+        var promise = new Promise(function(resolve, reject) {
+          installedChunkData = installedChunks[chunkId] = [resolve, reject];
+        });
+        promises.push((installedChunkData[2] = promise));
+
+        // start chunk loading
+        var script = document.createElement(&#39;script&#39;);
+        var onScriptComplete;
+
+        script.charset = &#39;utf-8&#39;;
+        script.timeout = 120;
+        if (__webpack_require__.nc) {
+          script.setAttribute(&#39;nonce&#39;, __webpack_require__.nc);
+        }
+        script.src = jsonpScriptSrc(chunkId);
+
+        // create error before stack unwound to get useful stacktrace later
+        var error = new Error();
+        onScriptComplete = function(event) {
+          // avoid mem leaks in IE.
+          script.onerror = script.onload = null;
+          clearTimeout(timeout);
+          var chunk = installedChunks[chunkId];
+          if (chunk !== 0) {
+            if (chunk) {
+              var errorType = event &amp;&amp; (event.type === &#39;load&#39; ? &#39;missing&#39; : event.type);
+              var realSrc = event &amp;&amp; event.target &amp;&amp; event.target.src;
+              error.message =
+                &#39;Loading chunk &#39; + chunkId + &#39; failed.\n(&#39; + errorType + &#39;: &#39; + realSrc + &#39;)&#39;;
+              error.name = &#39;ChunkLoadError&#39;;
+              error.type = errorType;
+              error.request = realSrc;
+              chunk[1](error);
+            }
+            installedChunks[chunkId] = undefined;
+          }
+        };
+        var timeout = setTimeout(function() {
+          onScriptComplete({ type: &#39;timeout&#39;, target: script });
+        }, 120000);
+        script.onerror = script.onload = onScriptComplete;
+        document.head.appendChild(script);
+      }
+    }
+    return Promise.all(promises);
+  };
+
+  // expose the modules object (__webpack_modules__)
+  __webpack_require__.m = modules;
+
+  // expose the module cache
+  __webpack_require__.c = installedModules;
+
+  // define getter function for harmony exports
+  __webpack_require__.d = function(exports, name, getter) {
+    if (!__webpack_require__.o(exports, name)) {
+      Object.defineProperty(exports, name, { enumerable: true, get: getter });
+    }
+  };
+
+  // define __esModule on exports
+  __webpack_require__.r = function(exports) {
+    if (typeof Symbol !== &#39;undefined&#39; &amp;&amp; Symbol.toStringTag) {
+      Object.defineProperty(exports, Symbol.toStringTag, { value: &#39;Module&#39; });
+    }
+    Object.defineProperty(exports, &#39;__esModule&#39;, { value: true });
+  };
+
+  // create a fake namespace object
+  // mode &amp; 1: value is a module id, require it
+  // mode &amp; 2: merge all properties of value into the ns
+  // mode &amp; 4: return value when already ns object
+  // mode &amp; 8|1: behave like require
+  __webpack_require__.t = function(value, mode) {
+    if (mode &amp; 1) value = __webpack_require__(value);
+    if (mode &amp; 8) return value;
+    if (mode &amp; 4 &amp;&amp; typeof value === &#39;object&#39; &amp;&amp; value &amp;&amp; value.__esModule) return value;
+    var ns = Object.create(null);
+    __webpack_require__.r(ns);
+    Object.defineProperty(ns, &#39;default&#39;, { enumerable: true, value: value });
+    if (mode &amp; 2 &amp;&amp; typeof value != &#39;string&#39;)
+      for (var key in value)
+        __webpack_require__.d(
+          ns,
+          key,
+          function(key) {
+            return value[key];
+          }.bind(null, key)
+        );
+    return ns;
+  };
+
+  // getDefaultExport function for compatibility with non-harmony modules
+  __webpack_require__.n = function(module) {
+    var getter =
+      module &amp;&amp; module.__esModule
+        ? function getDefault() {
+            return module[&#39;default&#39;];
+          }
+        : function getModuleExports() {
+            return module;
+          };
+    __webpack_require__.d(getter, &#39;a&#39;, getter);
+    return getter;
+  };
+
+  // Object.prototype.hasOwnProperty.call
+  __webpack_require__.o = function(object, property) {
+    return Object.prototype.hasOwnProperty.call(object, property);
+  };
+
+  // __webpack_public_path__
+  __webpack_require__.p = &#39;&#39;;
+
+  // on error function for async loading
+  __webpack_require__.oe = function(err) {
+    console.error(err);
+    throw err;
+  };
+
+  var jsonpArray = (window[&#39;webpackJsonp&#39;] = window[&#39;webpackJsonp&#39;] || []);
+  var oldJsonpFunction = jsonpArray.push.bind(jsonpArray);
+  jsonpArray.push = webpackJsonpCallback;
+  jsonpArray = jsonpArray.slice();
+  for (var i = 0; i &lt; jsonpArray.length; i++) webpackJsonpCallback(jsonpArray[i]);
+  var parentJsonpFunction = oldJsonpFunction;
+
+  // Load entry module and return exports
+  return __webpack_require__((__webpack_require__.s = &#39;./src/templates/basic/async_import.js&#39;));
+})({
+  &#39;./src/templates/basic/async_import.js&#39;: function(module, exports, __webpack_require__) {
+    eval(`
+      setTimeout(async () =&gt; {
+        const utils = await __webpack_require__.e(&quot;utils&quot;).then(
+          __webpack_require__.bind(null, &quot;./src/templates/basic/utils.js&quot;)
+        );
+        console.log(utils);
+        const result = utils.add(1, 2);
+        console.log(result);
+      }, 3000)
+    `);
+  }
+});
+</code></pre><h2 id="源码分析"><a href="#源码分析" class="headerlink" title="源码分析"></a>源码分析</h2><p>从代码中可以发现, <code>import(&#39;utils&#39;)</code> 被翻译成了</p><pre><code>__webpack_require__.e(&#39;utils&#39;)
+  .then(__webpack_require__.bind(null, &#39;./src/templates/basic/utils.js&#39;));
+</code></pre><p>从我之前的文章 <a href="/2020/04/30/051_Webpack_module_principle/">Webpack 模块化原理</a> 中可以知道 <code>__webpack_require__(moduleId)</code> 会先读取缓存，如果缓存没有命中，就会从 <code>modules</code> 加载并执行, 现在被嵌入到 <code>__webpack_require__.e(&#39;utils&#39;)</code> 的 <code>Promise</code> 回调中, 所以 <code>__webpack_require__.e(&#39;utils&#39;)</code> 应该会异步加载 <code>utils.js</code> 到 <code>modules</code> 对象, 然后被 <code>__webpack_require__</code> 引入执行。</p><p>那么 <code>Webpack</code> 是如何实现异步加载的呢？我们来看一下 <code>__webpack_require__.e</code> 的部分代码：</p><pre><code class="lang-javascript">var script = document.createElement(&#39;script&#39;);
+var onScriptComplete;
+script.charset = &#39;utf-8&#39;;
+script.timeout = 120;
+script.src = jsonpScriptSrc(chunkId);
+
+onScriptComplete = function(event) {
+  // ...
+};
+
+var timeout = setTimeout(function() {
+  onScriptComplete({ type: &#39;timeout&#39;, target: script });
+}, 120000);
+
+script.onerror = script.onload = onScriptComplete;
+document.head.appendChild(script);
+</code></pre><p>明白了么？<code>Webpack</code> 其实是通过 <code>jsonp</code> 的方式来实现模块的动态加载的。下面我们来看看 <code>chunk</code> 部分：</p><pre><code>(window[&#39;webpackJsonp&#39;] = window[&#39;webpackJsonp&#39;] || []).push([
+  [&#39;utils&#39;], {
+    &#39;./src/templates/basic/utils.js&#39;:
+    function(module, __webpack_exports__, __webpack_require__) {
+      ...
+    }
+  }
+]);
+</code></pre><p>不难发现，通过 <code>script</code> 引入的模块代码最终会挂载 <code>window.webpackJsonp</code> 上，我们看一下这个变量的结构：</p><pre><code>// webpack.webpackJsonp
+[
+  0: [
+    [&quot;utils&quot;],
+    {./src/templates/basic/utils.js: ƒ}
+  ],
+  1: [
+    [&quot;hello&quot;],
+    {./src/templates/basic/hello.js: ƒ}
+  ],
+  push: f webpackJsonpCallback(data)
+]
+</code></pre><p>我觉得这里 <code>Webpack</code> 可能忽视了一个问题，因为这里模块代码是通过全局变量和入口模块进行通信的，就不可避免的会遇变量被污染的情况，我试了下，如果在全局先定义了 <code>webpackJsonp = 1</code>，那么后续所有动态引入的模块都无法被加载。</p><p>最后我转一张掘金上看到的图，展示 <code>Webpack</code> 异步加载的流程，<a href="https://juejin.im/post/5d26e7d1518825290726f67a" target="_blank" rel="noopener">文章链接</a></p><img src="/2020/05/22/055_Webpack_dynamic_import/flowchart.png"></div></article><div id="footer-post-container"><div id="footer-post"><div id="nav-footer" style="display:none"><ul><li><a href="/">HOME</a></li><li><a href="/archives/">ARTICLES</a></li><li><a href="/search/">SEARCH</a></li><li><a href="/links/">LINKS</a></li></ul></div><div id="toc-footer" style="display:none"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#示例源码"><span class="toc-number">1.</span> <span class="toc-text">示例源码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#待打包文件"><span class="toc-number">1.1.</span> <span class="toc-text">待打包文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Webpack-配置"><span class="toc-number">1.2.</span> <span class="toc-text">Webpack 配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#打包结果"><span class="toc-number">2.</span> <span class="toc-text">打包结果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#源码分析"><span class="toc-number">3.</span> <span class="toc-text">源码分析</span></a></li></ol></div><div id="share-footer" style="display:none"><ul><li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://vincent0700.com/2020/05/22/055_Webpack_dynamic_import/" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="https://twitter.com/share?url=https://vincent0700.com/2020/05/22/055_Webpack_dynamic_import/&text=Webpack 动态导入原理" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://vincent0700.com/2020/05/22/055_Webpack_dynamic_import/&title=Webpack 动态导入原理" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://vincent0700.com/2020/05/22/055_Webpack_dynamic_import/&is_video=false&description=Webpack 动态导入原理" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="mailto:?subject=Webpack 动态导入原理&body=Check out this article: https://vincent0700.com/2020/05/22/055_Webpack_dynamic_import/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="https://getpocket.com/save?url=https://vincent0700.com/2020/05/22/055_Webpack_dynamic_import/&title=Webpack 动态导入原理" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="http://reddit.com/submit?url=https://vincent0700.com/2020/05/22/055_Webpack_dynamic_import/&title=Webpack 动态导入原理" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://vincent0700.com/2020/05/22/055_Webpack_dynamic_import/&title=Webpack 动态导入原理" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="http://digg.com/submit?url=https://vincent0700.com/2020/05/22/055_Webpack_dynamic_import/&title=Webpack 动态导入原理" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li><li><a class="icon" href="http://www.tumblr.com/share/link?url=https://vincent0700.com/2020/05/22/055_Webpack_dynamic_import/&name=Webpack 动态导入原理&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li></ul></div><div id="actions-footer"><a id="menu" class="icon" href="#" onclick='return $("#nav-footer").toggle(),!1'><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a> <a id="toc" class="icon" href="#" onclick='return $("#toc-footer").toggle(),!1'><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a> <a id="share" class="icon" href="#" onclick='return $("#share-footer").toggle(),!1'><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a> <a id="top" style="display:none" class="icon" href="#" onclick='$("html, body").animate({scrollTop:0},"fast")'><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></div></div></div><footer id="footer"><div class="footer-left">Copyright &copy; 2021 Vincent</div><div class="footer-right"><nav><ul><li><a href="/">HOME</a></li><li><a href="/archives/">ARTICLES</a></li><li><a href="/search/">SEARCH</a></li><li><a href="/links/">LINKS</a></li></ul></nav></div></footer></div><script type="text/x-mathjax-config">MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script></body></html><link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"><link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css"><link rel="stylesheet" href="/lib/prettify/prettify.css"><link rel="stylesheet" href="/lib/prettify/themes/tomorrow-night-eighties.min.css"><script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script><link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet"><style>.pace .pace-progress{background:#e90f92;height:2px}.pace .pace-progress-inner{box-shadow:0 0 10px #fff,0 0 5px #fff}.pace .pace-activity{border-top-color:#e90f92;border-left-color:#e90f92}</style><script src="/lib/jquery/jquery.min.js"></script><script src="/lib/nicescroll/jquery.nicescroll.min.js"></script><script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script><script src="/js/main.js"></script><link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css"><script src="/lib/fancybox/jquery.fancybox.min.js"></script><script src="/js/wrapImage.js"></script><script src="/lib/prettify/prettify.js"></script><script>$("pre").addClass("prettyprint linenums").attr("style","overflow: auto;"),prettyPrint()</script><script async src="https://www.googletagmanager.com/gtag/js?id=G-0TTM4EXRD5"></script><script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-0TTM4EXRD5")</script><script type="text/javascript">var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?b1904beb2cf04455e5a7f5543eb59365";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script>
